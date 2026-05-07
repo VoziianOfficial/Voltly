@@ -2220,11 +2220,117 @@ body[data-page="service"] {
 
     .page-hero,
     .page-hero.compact {
-        min-height: 430px;
+        min-height: auto;
     }
 
     .page-hero-content {
-        padding: calc(var(--header-height) + 26px) 0 38px;
+        padding: calc(var(--header-height) + 48px) 0 48px;
+    }
+
+    .page-hero-copy,
+    .section-heading,
+    .home-hero-copy,
+    .live-wire-copy,
+    .split-power-copy,
+    .home-faq-copy,
+    .services-switchboard-head,
+    .services-check-copy,
+    .services-map-copy,
+    .services-faq-copy,
+    .about-story-copy,
+    .about-role-heading,
+    .about-verify-copy,
+    .about-principles-copy,
+    .about-faq-copy,
+    .contact-map-copy,
+    .contact-before-heading,
+    .contact-electric-copy,
+    .service-context-copy,
+    .service-evaluation-copy,
+    .service-prep-copy,
+    .service-flow-heading,
+    .service-page-faq-copy,
+    .legal-document-head {
+        text-align: center;
+        justify-items: center;
+        margin-inline: auto;
+    }
+
+    .page-hero-copy h1,
+    .page-hero-copy h2,
+    .section-heading h1,
+    .section-heading h2,
+    .home-hero-copy h1,
+    .live-wire-copy h2,
+    .split-power-copy h2,
+    .home-faq-copy h2,
+    .services-switchboard-head h2,
+    .services-check-copy h2,
+    .services-map-copy h2,
+    .services-faq-copy h2,
+    .about-story-copy h2,
+    .about-role-heading h2,
+    .about-verify-copy h2,
+    .about-principles-copy h2,
+    .about-faq-copy h2,
+    .contact-map-copy h2,
+    .contact-before-heading h2,
+    .contact-electric-copy h2,
+    .service-context-copy h2,
+    .service-evaluation-copy h2,
+    .service-prep-copy h2,
+    .service-flow-heading h2,
+    .service-page-faq-copy h2,
+    .legal-document-head h2 {
+        text-align: center;
+        text-wrap: balance;
+        margin-inline: auto;
+    }
+
+    .page-hero-copy p,
+    .section-heading p,
+    .home-hero-copy p,
+    .live-wire-copy p,
+    .split-power-copy p,
+    .home-faq-copy p,
+    .services-switchboard-head p,
+    .services-check-copy p,
+    .services-map-copy p,
+    .services-faq-copy p,
+    .about-story-copy p,
+    .about-role-heading p,
+    .about-verify-copy p,
+    .about-principles-copy p,
+    .about-faq-copy p,
+    .contact-map-copy p,
+    .contact-before-heading p,
+    .contact-electric-copy p,
+    .service-context-copy p,
+    .service-evaluation-copy p,
+    .service-prep-copy p,
+    .service-flow-heading p,
+    .service-page-faq-copy p,
+    .legal-document-head p {
+        margin-inline: auto;
+    }
+
+    .eyebrow,
+    .kicker,
+    .section-kicker {
+        margin-inline: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .eyebrow::before,
+    .kicker::before,
+    .section-kicker::before {
+        display: none;
+    }
+
+    .hero-actions,
+    .section-actions {
+        justify-content: center;
     }
 
     .hero-safe-note {
@@ -2327,7 +2433,7 @@ body[data-page="service"] {
 
     .page-hero,
     .page-hero.compact {
-        min-height: 405px;
+        min-height: auto;
     }
 
     .page-hero-copy {

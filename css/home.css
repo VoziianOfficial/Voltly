@@ -1207,6 +1207,18 @@
         max-width: 720px;
     }
 
+    .home-hero-proof {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 720px;
+    }
+
+    .home-hero-proof span {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
     .hero-bolt-main {
         right: 8%;
         top: 18%;
@@ -1274,6 +1286,10 @@
 }
 
 @media (max-width: 768px) {
+    .home-hero {
+        min-height: auto;
+    }
+
     .home-hero-bg img {
         object-position: center;
     }
@@ -1287,8 +1303,8 @@
 
     .home-hero-inner {
         gap: 28px;
-        padding-top: calc(var(--header-height) + 30px);
-        padding-bottom: 42px;
+        padding-top: calc(var(--header-height) + 48px);
+        padding-bottom: 48px;
     }
 
     .home-hero-copy {
@@ -1296,8 +1312,7 @@
     }
 
     .home-hero-proof {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: none;
     }
 
     .home-power-panel {

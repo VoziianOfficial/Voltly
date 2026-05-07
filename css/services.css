@@ -836,6 +836,10 @@
 }
 
 @media (max-width: 768px) {
+    .services-hero .page-hero-bg img {
+        object-position: center;
+    }
+
     .services-hero-bolt-main {
         width: 58px;
         height: 160px;

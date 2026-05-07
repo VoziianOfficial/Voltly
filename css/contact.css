@@ -12,7 +12,7 @@
 }
 
 .contact-hero .page-hero-bg img {
-    object-position: center 45%;
+    object-position: center 52%;
 }
 
 .contact-hero-bolt {
@@ -330,6 +330,15 @@
         box-shadow var(--transition-base);
 }
 
+.contact-map-card.is-map-link {
+    cursor: pointer;
+}
+
+.contact-map-card.is-map-link:focus-visible {
+    outline: 2px solid var(--color-electric-strong);
+    outline-offset: 4px;
+}
+
 .contact-map-card::before {
     content: "";
     position: absolute;
@@ -449,6 +458,12 @@
             0 0 28px rgba(53, 217, 255, 0.08);
     }
 
+    .contact-map-card.is-map-link:hover .map-address {
+        border-color: rgba(246, 183, 60, 0.28);
+        background: rgba(246, 183, 60, 0.06);
+        box-shadow: 0 0 24px rgba(246, 183, 60, 0.06);
+    }
+
     .map-node:hover {
         transform: translateY(-3px);
         border-color: rgba(246, 183, 60, 0.34);
@@ -516,6 +531,10 @@
     border: 1px solid rgba(246, 183, 60, 0.22);
     background: rgba(5, 7, 10, 0.72);
     backdrop-filter: blur(12px);
+    transition:
+        border-color var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .map-address strong {
@@ -553,6 +572,33 @@
         rgba(10, 14, 20, 0.92);
     box-shadow: var(--shadow-card);
     overflow: hidden;
+}
+
+.contact-before-shell.is-before-swiper .contact-before-list {
+    display: block;
+    grid-template-columns: none;
+    overflow: hidden;
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    touch-action: pan-y;
+}
+.contact-before-track {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.contact-before-shell.is-before-swiper .contact-before-track {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.contact-before-shell.is-before-swiper .contact-before-list article {
+    min-height: auto;
+}
+
+.contact-before-shell.is-before-swiper .contact-before-list article:hover {
+    transform: none;
 }
 
 .contact-before-shell::before {
@@ -602,6 +648,7 @@
 .contact-before-list {
     position: relative;
     z-index: 1;
+    min-width: 0;
 }
 
 .contact-before-heading {
@@ -616,9 +663,7 @@
 }
 
 .contact-before-list {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 12px;
+    display: block;
 }
 
 .contact-before-list article {
@@ -727,7 +772,7 @@
    ========================= */
 
 @media (max-width: 1280px) {
-    .contact-before-list {
+    .contact-before-track {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
@@ -748,7 +793,7 @@
         min-height: 390px;
     }
 
-    .contact-before-list {
+    .contact-before-track {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -766,6 +811,10 @@
 }
 
 @media (max-width: 768px) {
+    .contact-hero .page-hero-bg img {
+        object-position: center 56%;
+    }
+
     .contact-hero-bolt-main {
         width: 58px;
         height: 160px;
@@ -830,7 +879,7 @@
         bottom: 26%;
     }
 
-    .contact-before-list {
+    .contact-before-track {
         grid-template-columns: 1fr;
     }
 
@@ -932,6 +981,10 @@
     position: absolute;
     inset: 0;
     z-index: -7;
+}
+
+.contact-electric-request .contact-electric-bg {
+    display: none;
 }
 
 .contact-electric-bg img {
