@@ -1,97 +1,207 @@
+"use strict";
+
+/* ==========================================================
+   VOLTLY — CONTACT PAGE INTERACTIONS
+   File: /js/contact.js
+   ========================================================== */
+
 (function () {
-    "use strict";
+    document.addEventListener("DOMContentLoaded", () => {
+        initContactHeroMotion();
+        initContactSideMotion();
+        initContactMapInteraction();
+        initBeforeSubmitInteraction();
+        initContactCtaMotion();
+    });
 
-    const config = window.SITE_CONFIG;
-    if (!config) return;
+    /* =========================
+       HERO MOTION
+       ========================= */
 
-    const form = document.querySelector("[data-request-form]");
-    if (!form) return;
+    function initContactHeroMotion() {
+        const hero = document.querySelector(".contact-hero");
+        if (!hero) return;
 
-    const status = form.querySelector("[data-form-status]");
-    const serviceSelect = form.querySelector("#service-type");
+        const bolt = hero.querySelector(".contact-hero-bolt-main");
+        const currentOne = hero.querySelector(".contact-hero-current-one");
+        const currentTwo = hero.querySelector(".contact-hero-current-two");
 
-    if (serviceSelect && serviceSelect.options.length <= 1) {
-        config.forms.serviceOptions.forEach((option) => {
-            const item = document.createElement("option");
-            item.value = option;
-            item.textContent = option;
-            serviceSelect.appendChild(item);
+        hero.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+
+                const rect = hero.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                if (bolt) {
+                    bolt.style.transform = `translate(${x * 18}px, ${y * 12}px) rotate(${8 + x * 5}deg)`;
+                }
+
+                if (currentOne) {
+                    currentOne.style.transform = `translate(${x * 14}px, ${y * 8}px) rotate(${-6 + x * 2}deg)`;
+                }
+
+                if (currentTwo) {
+                    currentTwo.style.transform = `translate(${x * -12}px, ${y * -6}px) rotate(${5 - x * 2}deg)`;
+                }
+            },
+            { passive: true }
+        );
+
+        hero.addEventListener("pointerleave", () => {
+            if (bolt) bolt.style.transform = "rotate(8deg)";
+            if (currentOne) currentOne.style.transform = "rotate(-6deg)";
+            if (currentTwo) currentTwo.style.transform = "rotate(5deg)";
         });
     }
 
-    const setFieldState = (field, valid, message) => {
-        const group = field.closest(".field-group");
-        if (!group) return;
+    /* =========================
+       CONTACT SIDE MOTION
+       ========================= */
 
-        group.classList.toggle("has-error", !valid);
-        group.classList.toggle("is-valid", valid && Boolean(field.value.trim()));
+    function initContactSideMotion() {
+        const side = document.querySelector(".contact-side");
+        if (!side) return;
 
-        const error = group.querySelector(".field-error");
-        if (error) error.textContent = valid ? "" : message;
-    };
+        const bolt = side.querySelector(".contact-side-bolt");
 
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
+        side.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+                if (!bolt) return;
 
-        const name = form.elements.name;
-        const phone = form.elements.phone;
-        const email = form.elements.email;
-        const zip = form.elements.zip;
-        const service = form.elements.service;
+                const rect = side.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
 
-        let valid = true;
+                bolt.style.transform = `translate(${x * 14}px, ${y * 10}px) rotate(${x * 5}deg)`;
+            },
+            { passive: true }
+        );
 
-        if (!name.value.trim()) {
-            valid = false;
-            setFieldState(name, false, "Name is required.");
-        } else {
-            setFieldState(name, true, "");
-        }
-
-        if (!phone.value.trim() && !email.value.trim()) {
-            valid = false;
-            setFieldState(phone, false, "Phone or email is required.");
-            setFieldState(email, false, "Phone or email is required.");
-        } else {
-            setFieldState(phone, true, "");
-            setFieldState(email, true, "");
-        }
-
-        if (!zip.value.trim()) {
-            valid = false;
-            setFieldState(zip, false, "ZIP code is required.");
-        } else {
-            setFieldState(zip, true, "");
-        }
-
-        if (!service.value.trim()) {
-            valid = false;
-            setFieldState(service, false, "Choose a service type.");
-        } else {
-            setFieldState(service, true, "");
-        }
-
-        if (!valid) {
-            if (status) {
-                status.textContent = "Please complete the highlighted request details.";
-                status.className = "form-status is-error";
+        side.addEventListener("pointerleave", () => {
+            if (bolt) {
+                bolt.style.transform = "";
             }
-            return;
-        }
+        });
+    }
 
-        if (status) {
-            status.textContent = config.forms.successMessage;
-            status.className = "form-status is-success";
-            status.setAttribute("tabindex", "-1");
-            status.focus({ preventScroll: false });
-        }
-        form.reset();
-        form.querySelectorAll(".field-group").forEach((group) => group.classList.remove("has-error", "is-valid"));
-    });
+    /* =========================
+       MAP INTERACTION
+       ========================= */
 
-    form.addEventListener("input", (event) => {
-        const field = event.target;
-        if (!field.matches("input, textarea, select")) return;
-        if (field.value.trim()) setFieldState(field, true, "");
-    });
-}());
+    function initContactMapInteraction() {
+        const mapCard = document.querySelector(".contact-map-card");
+        const nodes = Array.from(document.querySelectorAll(".map-node"));
+
+        if (!mapCard || !nodes.length) return;
+
+        nodes.forEach((node, index) => {
+            node.addEventListener("pointerenter", () => {
+                mapCard.classList.add("is-map-active");
+                mapCard.dataset.activeNode = String(index + 1);
+            });
+
+            node.addEventListener("pointerleave", () => {
+                mapCard.classList.remove("is-map-active");
+                mapCard.removeAttribute("data-active-node");
+            });
+        });
+
+        mapCard.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+
+                const bolt = mapCard.querySelector(".contact-map-bolt");
+                if (!bolt) return;
+
+                const rect = mapCard.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                bolt.style.transform = `translate(${x * 16}px, ${y * 12}px) rotate(${x * 5}deg)`;
+            },
+            { passive: true }
+        );
+
+        mapCard.addEventListener("pointerleave", () => {
+            const bolt = mapCard.querySelector(".contact-map-bolt");
+            if (bolt) {
+                bolt.style.transform = "";
+            }
+        });
+    }
+
+    /* =========================
+       BEFORE SUBMIT INTERACTION
+       ========================= */
+
+    function initBeforeSubmitInteraction() {
+        const shell = document.querySelector(".contact-before-shell");
+        const items = Array.from(document.querySelectorAll(".contact-before-list article"));
+
+        if (!shell || !items.length) return;
+
+        items.forEach((item, index) => {
+            item.addEventListener("pointerenter", () => {
+                shell.classList.add("is-before-active");
+                shell.dataset.activeBefore = String(index + 1);
+
+                items.forEach((card) => card.classList.remove("is-active-before"));
+                item.classList.add("is-active-before");
+            });
+
+            item.addEventListener("pointerleave", () => {
+                shell.classList.remove("is-before-active");
+                shell.removeAttribute("data-active-before");
+                item.classList.remove("is-active-before");
+            });
+
+            item.addEventListener("focusin", () => {
+                shell.classList.add("is-before-active");
+                item.classList.add("is-active-before");
+            });
+
+            item.addEventListener("focusout", () => {
+                shell.classList.remove("is-before-active");
+                item.classList.remove("is-active-before");
+            });
+        });
+    }
+
+    /* =========================
+       CTA MOTION
+       ========================= */
+
+    function initContactCtaMotion() {
+        const cta = document.querySelector(".contact-disclaimer .cta-photo");
+        if (!cta) return;
+
+        const bolt = cta.querySelector(".contact-cta-bolt");
+
+        cta.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+                if (!bolt) return;
+
+                const rect = cta.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                bolt.style.transform = `translate(${x * 18}px, ${y * 12}px) rotate(${x * 5}deg)`;
+            },
+            { passive: true }
+        );
+
+        cta.addEventListener("pointerleave", () => {
+            if (bolt) {
+                bolt.style.transform = "";
+            }
+        });
+    }
+})();

@@ -1,126 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <title>Voltly</title>
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <title>About Voltly | Independent Electrical Matching Platform</title>
+    <meta name="description"
+        content="Learn how Voltly helps homeowners organize electrical request details and compare independent local provider options.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/config.js"></script>
-    <script defer src="js/main.js"></script>
-    <script defer src="js/about.js"></script>
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
+
+<body data-page="about">
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
     <div data-site-header></div>
 
-    <main id="main">
-        <section class="page-hero">
-            <div class="container page-hero-grid">
-                <div class="reveal-up">
+    <main id="mainContent">
+        <!-- =========================
+             ABOUT HERO
+             ========================= -->
+        <section class="about-hero page-hero compact" aria-labelledby="aboutHeroTitle">
+            <div class="page-hero-bg" aria-hidden="true">
+                <img src="assets/images/hero-about.jpg" alt="">
+            </div>
+
+            <div class="about-hero-bolt about-hero-bolt-main" aria-hidden="true"></div>
+            <div class="about-hero-current about-hero-current-one" aria-hidden="true"></div>
+            <div class="about-hero-current about-hero-current-two" aria-hidden="true"></div>
+
+            <div class="page-hero-content">
+                <div class="page-hero-copy reveal-up">
                     <p class="kicker">About Voltly</p>
-                    <h1>A clearer way to compare electrical provider options.</h1>
-                    <p>Voltly helps homeowners organize electrical project details and compare independent local provider options before continuing directly with providers.</p>
+
+                    <h1 id="aboutHeroTitle">
+                        Electrical provider matching with a clearer platform role.
+                    </h1>
+
+                    <p class="lead">
+                        Voltly helps homeowners organize electrical request details and compare independent local
+                        provider
+                        options without presenting itself as the company performing the electrical work.
+                    </p>
+
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="contact.html">Start electrical request</a>
-                        <a class="btn btn-ghost" href="services.html">View categories</a>
+                        <a class="btn btn-primary" href="contact.html">
+                            <span>Start electrical request</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="btn btn-ghost" href="services.html">
+                            <span>View categories</span>
+                            <i data-lucide="zap" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <p class="hero-safe-note">
+                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                        <span>
+                            Voltly is an independent matching platform. Homeowners should verify licenses, insurance,
+                            permits, qualifications, and quote details before hiring any provider.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             STORY
+             ========================= -->
+        <section class="about-story section" aria-labelledby="aboutStoryTitle">
+            <div class="container-wide about-story-grid">
+                <div class="about-story-copy reveal-up">
+                    <p class="eyebrow">Why Voltly exists</p>
+
+                    <h2 id="aboutStoryTitle">
+                        Electrical requests can get messy fast. Voltly keeps the first step clearer.
+                    </h2>
+
+                    <p>
+                        Homeowners often start with a problem or project idea, but provider conversations can quickly
+                        branch
+                        into scope, access, permits, safety, quote details, and scheduling. Voltly is designed to help
+                        organize
+                        that first request before homeowners compare independent local electrical provider options.
+                    </p>
+
+                    <p>
+                        The platform does not claim to install, repair, wire, upgrade, or perform electrical work. Its
+                        role is
+                        to help the homeowner describe the request more clearly and compare provider options
+                        responsibly.
+                    </p>
+                </div>
+
+                <div class="about-story-media reveal-up">
+                    <img src="assets/images/provider-network.jpg" alt="Electrical provider matching network visual"
+                        loading="lazy">
+                    <span class="about-story-bolt" aria-hidden="true"></span>
+                    <span class="about-story-label">Matching platform, not contractor</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             DOES / DOES NOT
+             ========================= -->
+        <section class="about-role section-sm" aria-labelledby="aboutRoleTitle">
+            <div class="container-wide">
+                <div class="about-role-shell reveal-up">
+                    <div class="about-role-current" aria-hidden="true"></div>
+                    <div class="about-role-bolt" aria-hidden="true"></div>
+
+                    <div class="about-role-heading">
+                        <p class="eyebrow">Platform role</p>
+
+                        <h2 id="aboutRoleTitle">
+                            What Voltly does — and what it does not do.
+                        </h2>
+
+                        <p>
+                            This distinction matters. Voltly supports request organization and provider comparison,
+                            while
+                            homeowners remain responsible for evaluating and choosing any provider they contact or hire.
+                        </p>
+                    </div>
+
+                    <div class="about-role-columns">
+                        <article class="about-role-column about-role-does">
+                            <span class="role-column-kicker">Voltly helps with</span>
+
+                            <ul>
+                                <li>
+                                    <span class="role-bolt" aria-hidden="true"></span>
+                                    <span>Organizing electrical project details by category.</span>
+                                </li>
+
+                                <li>
+                                    <span class="role-bolt" aria-hidden="true"></span>
+                                    <span>Preparing request notes around ZIP code, timing, and scope context.</span>
+                                </li>
+
+                                <li>
+                                    <span class="role-bolt" aria-hidden="true"></span>
+                                    <span>Helping homeowners compare independent local provider options.</span>
+                                </li>
+
+                                <li>
+                                    <span class="role-bolt" aria-hidden="true"></span>
+                                    <span>Reminding homeowners to verify provider credentials and quote details.</span>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="about-role-column about-role-does-not">
+                            <span class="role-column-kicker">Voltly does not</span>
+
+                            <ul>
+                                <li>
+                                    <span class="role-bolt role-bolt-cyan" aria-hidden="true"></span>
+                                    <span>Perform electrical work directly.</span>
+                                </li>
+
+                                <li>
+                                    <span class="role-bolt role-bolt-cyan" aria-hidden="true"></span>
+                                    <span>Employ electricians or send a Voltly electrical team.</span>
+                                </li>
+
+                                <li>
+                                    <span class="role-bolt role-bolt-cyan" aria-hidden="true"></span>
+                                    <span>Guarantee provider licensing, insurance, pricing, or workmanship.</span>
+                                </li>
+
+                                <li>
+                                    <span class="role-bolt role-bolt-cyan" aria-hidden="true"></span>
+                                    <span>Replace homeowner review of permits, qualifications, or contract terms.</span>
+                                </li>
+                            </ul>
+                        </article>
                     </div>
                 </div>
-                <div class="hero-console reveal-up" aria-hidden="true">
-                    <svg class="lightning-svg" viewBox="0 0 420 310">
-                        <path class="lightning-path" d="M34 226 C110 112 178 242 240 132 S338 104 386 52"/>
-                    </svg>
-                    <div class="hero-console-list">
-                        <span>Independent platform</span>
-                        <span>Request preparation</span>
-                        <span>Provider fit comparison</span>
-                        <span>Homeowner decision control</span>
+            </div>
+        </section>
+
+        <!-- =========================
+             VERIFICATION CURRENT
+             ========================= -->
+        <section class="about-verify section" aria-labelledby="aboutVerifyTitle">
+            <div class="container-wide about-verify-grid">
+                <div class="about-verify-photo reveal-up">
+                    <img src="assets/images/electrical-panel-detail.jpg"
+                        alt="Electrical panel detail used for homeowner project planning" loading="lazy">
+                    <span class="about-verify-photo-bolt" aria-hidden="true"></span>
+                    <span class="about-verify-label">Verification matters</span>
+                </div>
+
+                <div class="about-verify-copy reveal-up">
+                    <p class="eyebrow">Homeowner reminders</p>
+
+                    <h2 id="aboutVerifyTitle">
+                        Compare provider options through a safety-first lens.
+                    </h2>
+
+                    <p>
+                        Electrical work can involve property safety, local code, permits, inspections, and utility
+                        coordination.
+                        Before hiring any provider, homeowners should ask direct questions and review documentation.
+                    </p>
+
+                    <div class="about-verify-list">
+                        <article>
+                            <span>01</span>
+                            <div>
+                                <strong>License verification</strong>
+                                <p>Ask the provider to confirm licensing and qualifications for the requested work.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span>02</span>
+                            <div>
+                                <strong>Insurance confirmation</strong>
+                                <p>Request proof of insurance before any electrical work begins.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span>03</span>
+                            <div>
+                                <strong>Permit and code discussion</strong>
+                                <p>Clarify whether permits, inspections, or local code requirements apply.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span>04</span>
+                            <div>
+                                <strong>Written scope and quote clarity</strong>
+                                <p>Compare what is included, excluded, estimated, and dependent on site review.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container about-model-grid">
-                <div class="section-copy reveal-up">
-                    <p class="kicker">Platform model</p>
-                    <h2>Voltly is built for clarity, not direct electrical work.</h2>
-                    <p>Voltly is an independent electrical provider matching platform. Voltly is not a contractor and does not perform electrical work directly.</p>
-                    <p>Homeowners use Voltly to prepare request details, compare provider options, and organize direct verification questions before choosing how to continue.</p>
-                </div>
-                <div class="model-stack">
-                    <article class="model-row reveal-up"><span>01</span><div><h3>Independent</h3><p>Voltly is separate from the independent providers homeowners may compare.</p></div></article>
-                    <article class="model-row reveal-up"><span>02</span><div><h3>Structured</h3><p>The platform helps turn project notes into more useful request context.</p></div></article>
-                    <article class="model-row reveal-up"><span>03</span><div><h3>Direct verification</h3><p>Homeowners confirm licensing, insurance, permits, quotes, warranties, timelines, and scope directly.</p></div></article>
+        <!-- =========================
+             OPERATING PRINCIPLES
+             ========================= -->
+        <section class="about-principles section-sm" aria-labelledby="aboutPrinciplesTitle">
+            <div class="container-wide">
+                <div class="about-principles-shell reveal-up">
+                    <div class="about-principles-bolt" aria-hidden="true"></div>
+                    <div class="about-principles-current" aria-hidden="true"></div>
+
+                    <div class="about-principles-copy">
+                        <p class="eyebrow">Operating principles</p>
+
+                        <h2 id="aboutPrinciplesTitle">
+                            Clear requests, independent options, homeowner control.
+                        </h2>
+
+                        <p>
+                            Voltly keeps the experience focused on comparison. It does not use direct-contractor
+                            language,
+                            exaggerated claims, or promises about provider performance.
+                        </p>
+                    </div>
+
+                    <div class="about-principles-grid">
+                        <article>
+                            <span class="principle-bolt" aria-hidden="true"></span>
+                            <strong>No direct-service wording</strong>
+                            <p>Voltly avoids language that suggests it installs, wires, upgrades, or repairs directly.
+                            </p>
+                        </article>
+
+                        <article>
+                            <span class="principle-bolt principle-bolt-cyan" aria-hidden="true"></span>
+                            <strong>Provider independence</strong>
+                            <p>Local providers are independent businesses, not Voltly employees or in-house technicians.
+                            </p>
+                        </article>
+
+                        <article>
+                            <span class="principle-bolt" aria-hidden="true"></span>
+                            <strong>Verification reminders</strong>
+                            <p>Homeowners are encouraged to check license, insurance, permits, and quote terms.</p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container does-grid">
-                <article class="does-card reveal-up">
-                    <h2>Voltly helps with</h2>
-                    <ul class="check-list">
-                        <li>Preparing project details</li>
-                        <li>Comparing independent provider options</li>
-                        <li>Organizing questions before contact</li>
-                        <li>Understanding service categories</li>
-                        <li>Reviewing provider fit signals</li>
-                    </ul>
-                </article>
-                <article class="does-card reveal-up">
-                    <h2>Voltly does not</h2>
-                    <ul class="check-list">
-                        <li>Perform electrical work</li>
-                        <li>Provide quotes</li>
-                        <li>Guarantee provider availability</li>
-                        <li>Verify licenses or insurance</li>
-                        <li>Set pricing or timelines</li>
-                        <li>Provide warranties</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
+        <!-- =========================
+             CTA
+             ========================= -->
+        <section class="about-cta section-sm" aria-labelledby="aboutCtaTitle">
+            <div class="container-wide">
+                <div class="cta-photo reveal-up">
+                    <div class="cta-photo-bg" aria-hidden="true">
+                        <img src="assets/images/electrical-cta.jpg" alt="">
+                    </div>
 
-        <section class="section comparison-console">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Comparison principles</p>
-                    <h2>Organized questions before provider conversations.</h2>
-                </div>
-                <div class="principles-grid">
-                    <article class="principle-card reveal-up"><div class="mini-bolt"></div><h3>Clarity before contact</h3><p>Prepare category, location, timing, and project notes before provider follow-up.</p></article>
-                    <article class="principle-card reveal-up"><div class="mini-bolt"></div><h3>Provider fit</h3><p>Compare options by service category, project context, and direct question readiness.</p></article>
-                    <article class="principle-card reveal-up"><div class="mini-bolt"></div><h3>Direct verification</h3><p>Confirm licensing, insurance, permits, quote details, pricing, warranties, and timelines directly.</p></article>
-                    <article class="principle-card reveal-up"><div class="mini-bolt"></div><h3>Decision control</h3><p>Homeowners keep control over which provider conversations continue.</p></article>
+                    <div class="about-cta-bolt" aria-hidden="true"></div>
+
+                    <div class="cta-photo-inner">
+                        <div class="cta-photo-copy">
+                            <p class="eyebrow">Start clearly</p>
+
+                            <h2 id="aboutCtaTitle">
+                                Prepare the electrical request before comparing providers.
+                            </h2>
+
+                            <p>
+                                Choose the service type, share the ZIP code and timing, then compare independent local
+                                provider options with better project context.
+                            </p>
+                        </div>
+
+                        <div class="section-actions">
+                            <a class="btn btn-primary" href="contact.html">
+                                <span>Start request</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Categories</p>
-                    <h2>Four electrical request categories.</h2>
-                </div>
-                <div class="about-service-preview" data-service-cards></div>
-            </div>
-        </section>
+        <!-- =========================
+             FAQ
+             ========================= -->
+        <section class="about-faq section-sm" aria-labelledby="aboutFaqTitle">
+            <div class="container-wide about-faq-grid">
+                <div class="about-faq-copy reveal-up">
+                    <p class="eyebrow">Questions</p>
 
-        <section class="section final-cta">
-            <div class="container cta-panel reveal-up">
-                <div>
-                    <p class="kicker">Start structured</p>
-                    <h2>Prepare an electrical matching request.</h2>
-                    <p>Use Voltly to organize project details and compare independent local electrical provider options.</p>
+                    <h2 id="aboutFaqTitle">
+                        Platform role, provider independence, and homeowner responsibility.
+                    </h2>
+
+                    <p>
+                        Voltly is built around electrical provider matching, not direct contractor services.
+                    </p>
+
+                    <div class="about-faq-bolt" aria-hidden="true"></div>
                 </div>
-                <a class="btn btn-primary" href="contact.html">Start electrical request</a>
-                <p class="disclaimer" data-disclaimer></p>
+
+                <div class="faq-shell reveal-up">
+                    <div class="faq-list" data-faq-list data-faq-source="page"></div>
+                    <script type="application/ld+json" data-faq-schema data-faq-source="page"></script>
+                </div>
             </div>
         </section>
     </main>
 
     <div data-site-footer></div>
+
+    <div data-policy-banner></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/about.js" defer></script>
 </body>
+
 </html>

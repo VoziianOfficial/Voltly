@@ -1,112 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <title>Voltly</title>
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <title>Electrical Service Categories | Voltly</title>
+    <meta name="description"
+        content="Explore Voltly service categories for panel upgrades, wiring and rewiring, EV charger installation, and lighting provider matching.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/config.js"></script>
-    <script defer src="js/main.js"></script>
-    <script defer src="js/services.js"></script>
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
+
+<body data-page="services">
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
     <div data-site-header></div>
 
-    <main id="main">
-        <section class="page-hero">
-            <div class="container page-hero-grid">
-                <div class="reveal-up">
-                    <p class="kicker">Electrical request categories</p>
-                    <h1>Electrical service categories to compare.</h1>
-                    <p>Voltly helps homeowners prepare request details and compare independent local provider options across four electrical project categories.</p>
-                    <p class="note">Voltly does not perform electrical work directly.</p>
+    <main id="mainContent">
+        <!-- =========================
+             SERVICES HERO
+             ========================= -->
+        <section class="services-hero page-hero compact" aria-labelledby="servicesHeroTitle">
+            <div class="page-hero-bg" aria-hidden="true">
+                <img src="assets/images/hero-services.jpg" alt="">
+            </div>
+
+            <div class="services-hero-bolt services-hero-bolt-main" aria-hidden="true"></div>
+            <div class="services-hero-bolt services-hero-bolt-small" aria-hidden="true"></div>
+            <div class="services-hero-arc services-hero-arc-one" aria-hidden="true"></div>
+            <div class="services-hero-arc services-hero-arc-two" aria-hidden="true"></div>
+
+            <div class="page-hero-content">
+                <div class="page-hero-copy reveal-up">
+                    <p class="kicker">Electrical request paths</p>
+
+                    <h1 id="servicesHeroTitle">
+                        Choose the electrical category before comparing providers.
+                    </h1>
+
+                    <p class="lead">
+                        Voltly helps homeowners organize project details into focused electrical service categories
+                        before
+                        comparing independent local provider options.
+                    </p>
+
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="contact.html">Start electrical request</a>
-                        <a class="btn btn-ghost" href="about.html">How Voltly works</a>
+                        <a class="btn btn-primary" href="contact.html">
+                            <span>Start electrical request</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="btn btn-ghost" href="#serviceCategories">
+                            <span>View categories</span>
+                            <i data-lucide="zap" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <p class="hero-safe-note">
+                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                        <span>
+                            Voltly is not an electrical contractor. Providers are independent, and homeowners should
+                            verify
+                            licensing, insurance, permits, and qualifications before hiring.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             CATEGORY SWITCHBOARD
+             ========================= -->
+        <section class="services-switchboard section" id="serviceCategories" aria-labelledby="serviceCategoriesTitle">
+            <div class="container-wide">
+                <div class="services-switchboard-head reveal-up">
+                    <div class="section-heading">
+                        <p class="eyebrow">Service switchboard</p>
+
+                        <h2 id="serviceCategoriesTitle">
+                            Four high-intent electrical request categories.
+                        </h2>
+                    </div>
+
+                    <p>
+                        Each path is designed to help homeowners describe the project more clearly before comparing
+                        local
+                        provider options by scope, timing, permit context, and verification needs.
+                    </p>
+                </div>
+
+                <div class="services-switchboard-grid" data-service-cards
+                    aria-label="Electrical service category links"></div>
+            </div>
+        </section>
+
+        <!-- =========================
+             POWER ROUTE
+             ========================= -->
+        <section class="services-power-route section-sm" aria-labelledby="servicesPowerRouteTitle">
+            <div class="container-wide">
+                <div class="power-route-shell reveal-up">
+                    <div class="power-route-bolt" aria-hidden="true"></div>
+                    <div class="power-route-current" aria-hidden="true"></div>
+
+                    <div class="power-route-copy">
+                        <p class="eyebrow">How requests move</p>
+
+                        <h2 id="servicesPowerRouteTitle">
+                            From project notes to provider comparison.
+                        </h2>
+
+                        <p>
+                            Voltly keeps the process focused: choose the electrical category, share location and timing,
+                            then compare independent provider options without direct-contractor claims.
+                        </p>
+                    </div>
+
+                    <div class="power-route-steps" aria-label="Voltly request matching process">
+                        <article>
+                            <span>01</span>
+                            <strong>Select category</strong>
+                            <p>Panel, wiring, EV charging, or lighting.</p>
+                        </article>
+
+                        <article>
+                            <span>02</span>
+                            <strong>Add project context</strong>
+                            <p>ZIP code, timing, access notes, and request details.</p>
+                        </article>
+
+                        <article>
+                            <span>03</span>
+                            <strong>Compare providers</strong>
+                            <p>Review local options, scope clarity, and verification details.</p>
+                        </article>
+
+                        <article>
+                            <span>04</span>
+                            <strong>Continue directly</strong>
+                            <p>Discuss quotes, permits, and next steps with providers.</p>
+                        </article>
                     </div>
                 </div>
-                <div class="hero-console reveal-up" aria-hidden="true">
-                    <svg class="lightning-svg" viewBox="0 0 420 310">
-                        <path class="lightning-path" d="M28 210 C112 72 168 244 228 134 S338 98 392 42"/>
-                        <path class="lightning-path path-2" d="M34 264 C130 188 178 286 252 202 S350 186 398 126"/>
-                    </svg>
-                    <div class="hero-console-list">
-                        <span>Panel capacity questions</span>
-                        <span>Wiring access context</span>
-                        <span>EV charger readiness</span>
-                        <span>Lighting project details</span>
+            </div>
+        </section>
+
+        <!-- =========================
+             PHOTO SPLIT CHECKLIST
+             ========================= -->
+        <section class="services-check-current section" aria-labelledby="servicesChecklistTitle">
+            <div class="container-wide services-check-grid">
+                <div class="services-check-photo reveal-up">
+                    <img src="assets/images/electrical-panel-detail.jpg"
+                        alt="Electrical panel detail for provider comparison planning" loading="lazy">
+                    <span class="services-check-photo-bolt" aria-hidden="true"></span>
+                    <span class="services-check-label">Verify before hiring</span>
+                </div>
+
+                <div class="services-check-copy reveal-up">
+                    <p class="eyebrow">Provider comparison</p>
+
+                    <h2 id="servicesChecklistTitle">
+                        Electrical work should be compared with serious verification points.
+                    </h2>
+
+                    <p>
+                        Electrical requests can involve safety, local code, permits, property access, equipment
+                        compatibility,
+                        and final scope review. Homeowners should compare more than the first available price.
+                    </p>
+
+                    <div class="services-check-list">
+                        <article>
+                            <span class="check-bolt" aria-hidden="true"></span>
+                            <div>
+                                <strong>License and insurance</strong>
+                                <p>Ask providers to confirm credentials and insurance before work begins.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span class="check-bolt check-bolt-cyan" aria-hidden="true"></span>
+                            <div>
+                                <strong>Permits and code</strong>
+                                <p>Clarify local permit, inspection, and code expectations.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span class="check-bolt" aria-hidden="true"></span>
+                            <div>
+                                <strong>Scope and quote detail</strong>
+                                <p>Compare what is included, excluded, estimated, or dependent on site review.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span class="check-bolt check-bolt-cyan" aria-hidden="true"></span>
+                            <div>
+                                <strong>Timeline and warranty</strong>
+                                <p>Review scheduling, access, cleanup, and warranty terms before hiring.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Four categories</p>
-                    <h2>Service modules built for comparison.</h2>
+        <!-- =========================
+             ELECTRICAL SERVICE MAP
+             ========================= -->
+        <section class="services-map section-sm" aria-labelledby="servicesMapTitle">
+            <div class="container-wide">
+                <div class="services-map-panel reveal-up">
+                    <div class="services-map-current" aria-hidden="true"></div>
+
+                    <div class="services-map-copy">
+                        <p class="eyebrow">Matching logic</p>
+
+                        <h2 id="servicesMapTitle">
+                            The right category helps make provider conversations cleaner.
+                        </h2>
+
+                        <p>
+                            A panel upgrade request is not the same as a lighting request. EV charger planning can
+                            involve
+                            capacity questions. Wiring can depend heavily on access and renovation conditions. Voltly
+                            keeps
+                            these paths separated so homeowners can compare more clearly.
+                        </p>
+                    </div>
+
+                    <div class="services-map-lines" aria-label="Service category routing overview">
+                        <article>
+                            <span>Panel</span>
+                            <strong>Capacity / permits / utility context</strong>
+                        </article>
+
+                        <article>
+                            <span>Wiring</span>
+                            <strong>Rooms / access / renovation context</strong>
+                        </article>
+
+                        <article>
+                            <span>EV charger</span>
+                            <strong>Charger location / panel review context</strong>
+                        </article>
+
+                        <article>
+                            <span>Lighting</span>
+                            <strong>Fixtures / layout / indoor-outdoor scope</strong>
+                        </article>
+                    </div>
                 </div>
-                <div class="services-detail-grid" data-service-cards="details"></div>
             </div>
         </section>
 
-        <section class="section comparison-console">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Before choosing</p>
-                    <h2>Compare provider fit before choosing.</h2>
-                </div>
-                <div class="comparison-list">
-                    <span class="comparison-pill reveal-up">License and insurance questions</span>
-                    <span class="comparison-pill reveal-up">Permit and code considerations</span>
-                    <span class="comparison-pill reveal-up">Quote clarity</span>
-                    <span class="comparison-pill reveal-up">Timeline discussion</span>
-                    <span class="comparison-pill reveal-up">Warranty questions</span>
-                    <span class="comparison-pill reveal-up">Project experience</span>
-                    <span class="comparison-pill reveal-up">Availability by ZIP code</span>
+        <!-- =========================
+             CTA
+             ========================= -->
+        <section class="services-cta section-sm" aria-labelledby="servicesCtaTitle">
+            <div class="container-wide">
+                <div class="cta-photo reveal-up">
+                    <div class="cta-photo-bg" aria-hidden="true">
+                        <img src="assets/images/electrical-cta.jpg" alt="">
+                    </div>
+
+                    <div class="services-cta-bolt" aria-hidden="true"></div>
+
+                    <div class="cta-photo-inner">
+                        <div class="cta-photo-copy">
+                            <p class="eyebrow">Ready to compare?</p>
+
+                            <h2 id="servicesCtaTitle">
+                                Start with a focused electrical request category.
+                            </h2>
+
+                            <p>
+                                Share your service type, ZIP code, timing, and project notes so your request is easier
+                                to
+                                review before comparing independent local provider options.
+                            </p>
+                        </div>
+
+                        <div class="section-actions">
+                            <a class="btn btn-primary" href="contact.html">
+                                <span>Start request</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container reminder-panel">
-                <article class="does-card reveal-up">
-                    <h2>Voltly helps with</h2>
-                    <ul class="check-list">
-                        <li>Request preparation</li>
-                        <li>Service category structure</li>
-                        <li>Provider option comparison</li>
-                        <li>Direct verification reminders</li>
-                    </ul>
-                </article>
-                <article class="does-card reveal-up">
-                    <h2>Voltly does not do</h2>
-                    <ul class="check-list">
-                        <li>Perform electrical work</li>
-                        <li>Provide direct quotes</li>
-                        <li>Verify licenses or insurance</li>
-                        <li>Set pricing, warranties, or timelines</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
+        <!-- =========================
+             FAQ
+             ========================= -->
+        <section class="services-faq section-sm" aria-labelledby="servicesFaqTitle">
+            <div class="container-wide services-faq-grid">
+                <div class="services-faq-copy reveal-up">
+                    <p class="eyebrow">Questions</p>
 
-        <section class="section final-cta">
-            <div class="container cta-panel reveal-up">
-                <div>
-                    <p class="kicker">Ready to organize details</p>
-                    <h2>Start your electrical provider matching request.</h2>
-                    <p>Prepare your project details and compare independent local electrical provider options with more clarity.</p>
+                    <h2 id="servicesFaqTitle">
+                        Electrical matching without contractor confusion.
+                    </h2>
+
+                    <p>
+                        Voltly helps homeowners organize and compare. It does not perform the electrical work, employ
+                        electricians, or guarantee provider workmanship.
+                    </p>
+
+                    <div class="services-faq-bolt" aria-hidden="true"></div>
                 </div>
-                <a class="btn btn-primary" href="contact.html">Start electrical request</a>
-                <p class="disclaimer" data-disclaimer></p>
+
+                <div class="faq-shell reveal-up">
+                    <div class="faq-list" data-faq-list></div>
+                    <script type="application/ld+json" data-faq-schema></script>
+                </div>
             </div>
         </section>
     </main>
 
     <div data-site-footer></div>
+
+    <div data-policy-banner></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/services.js" defer></script>
 </body>
+
 </html>

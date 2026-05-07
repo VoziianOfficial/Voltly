@@ -1,143 +1,549 @@
+"use strict";
+
+/* ==========================================================
+   VOLTLY — SERVICE PAGE LOGIC
+   File: /js/service-page.js
+
+   This file powers:
+   - panel-upgrades.html
+   - wiring-rewiring.html
+   - ev-charger-installation.html
+   - lighting-installation.html
+   ========================================================== */
+
 (function () {
-    "use strict";
+    document.addEventListener("DOMContentLoaded", () => {
+        const service = getCurrentService();
 
-    const api = window.Voltly;
-    const config = window.SITE_CONFIG;
-    if (!api || !config) return;
+        if (!service) {
+            console.warn("No service data found for this page. Check body[data-service-id] and SITE_CONFIG.services.");
+            return;
+        }
 
-    const mount = document.querySelector("[data-service-page]");
-    if (!mount) return;
+        renderServicePage(service);
+        initServiceHeroMotion();
+        initServiceMediaMotion();
+        initEvaluationInteraction();
+        initPreparationInteraction();
+        initFlowInteraction();
+        initServiceCtaMotion();
 
-    const service = api.serviceByHref(api.currentPage());
-    if (!service) {
-        console.warn(`Service content is missing for ${api.currentPage()}`);
-        return;
+        if (window.Voltly && typeof window.Voltly.renderFaq === "function") {
+            window.Voltly.renderFaq();
+        }
+
+        if (window.Voltly && typeof window.Voltly.injectFaqSchema === "function") {
+            window.Voltly.injectFaqSchema();
+        }
+
+        if (window.Voltly && typeof window.Voltly.refreshIcons === "function") {
+            window.Voltly.refreshIcons();
+        }
+    });
+
+    /* =========================
+       HELPERS
+       ========================= */
+
+    function getCurrentService() {
+        if (!window.Voltly || !window.Voltly.config) {
+            console.warn("Voltly helpers are missing. Make sure main.js loads before service-page.js.");
+            return null;
+        }
+
+        const serviceId = document.body.dataset.serviceId;
+
+        if (!serviceId) {
+            console.warn("Missing body[data-service-id] on service page.");
+            return null;
+        }
+
+        return window.Voltly.getServiceById(serviceId);
     }
 
-    const comparisonPoints = [
-        "Licensing and insurance",
-        "Permit and code questions",
-        "Quote clarity",
-        "Timeline discussion",
-        "Warranty terms",
-        "Project experience"
-    ];
+    function escapeHtml(value) {
+        if (window.Voltly && typeof window.Voltly.escapeHtml === "function") {
+            return window.Voltly.escapeHtml(value);
+        }
 
-    mount.innerHTML = `
-        <section class="service-hero section">
-            <div class="container service-hero-grid">
-                <div class="service-hero-copy reveal-up">
-                    <p class="kicker">${service.pageKicker}</p>
-                    <h1>${service.heroTitle}</h1>
-                    <p>${service.heroText}</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="contact.html">${config.phoneLabel}</a>
-                        <a class="btn btn-ghost" href="services.html">Compare all services</a>
-                    </div>
-                    <p class="note">Voltly does not perform this work directly.</p>
-                </div>
-                <div class="service-visual ${service.image} reveal-up" aria-hidden="true">
-                    <div class="visual-grid"></div>
-                    <svg class="lightning-svg" viewBox="0 0 520 360">
-                        <path class="lightning-path" d="M40 228 C130 110 170 286 248 158 S380 116 480 70"/>
-                        <path class="lightning-path path-2" d="M62 286 C150 224 210 318 292 226 S410 202 492 142"/>
-                    </svg>
-                    <div class="signal-stack">
-                        ${service.checklist.slice(0, 4).map((item) => `<span>${item}</span>`).join("")}
-                    </div>
-                </div>
-            </div>
-        </section>
+        return String(value || "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+    }
 
-        <section class="section service-overview">
-            <div class="container split-layout">
-                <div class="section-copy reveal-up">
-                    <p class="kicker">Service overview</p>
-                    <h2>${service.title}</h2>
-                    <p>${service.pageIntro}</p>
-                    <p class="fine-print">Independent providers may offer this service depending on location, availability, licensing, and project details. Homeowners should verify all service scope, pricing, permits, warranties, timelines, licensing, and insurance directly.</p>
-                </div>
-                <div class="diagnostic-card reveal-up">
-                    <span class="console-label">Request context</span>
-                    <ul class="check-list">
-                        ${service.evaluationPoints.map((item) => `<li>${item}</li>`).join("")}
-                    </ul>
-                </div>
-            </div>
-        </section>
+    function setText(selector, value) {
+        document.querySelectorAll(selector).forEach((element) => {
+            element.textContent = value || "";
+        });
+    }
 
-        <section class="section request-checklist">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Prepare before contact</p>
-                    <h2>Request checklist for ${service.title.toLowerCase()}.</h2>
-                </div>
-                <div class="check-grid">
-                    ${service.checklist.map((item, index) => `
-                        <article class="check-tile reveal-up">
+    function setImage(selector, src, alt) {
+        document.querySelectorAll(selector).forEach((image) => {
+            image.setAttribute("src", src || "");
+            image.setAttribute("alt", alt || "");
+        });
+    }
+
+    function getDetailImage(service) {
+        const imageMap = {
+            "panel-upgrades": "assets/images/electrical-panel-detail.jpg",
+            "wiring-rewiring": "assets/images/wiring-detail.jpg",
+            "ev-charger-installation": "assets/images/ev-charger-detail.jpg",
+            "lighting-installation": "assets/images/lighting-detail.jpg"
+        };
+
+        return service.detailImage || imageMap[service.id] || service.image;
+    }
+
+    function getContextPoints(service) {
+        const fallback = {
+            "panel-upgrades": [
+                "Homeowners planning added capacity, new major appliances, remodels, or EV charging readiness.",
+                "Requests where provider review may involve panel condition, amperage, breakers, and local code context.",
+                "Projects where utility coordination, permits, or inspection expectations should be discussed before hiring.",
+                "Situations where homeowners want clearer quote structure before choosing a provider."
+            ],
+            "wiring-rewiring": [
+                "Homes with room updates, renovation work, outlet changes, or wiring layout concerns.",
+                "Requests where access through walls, ceilings, attic, crawlspace, or basement may affect scope.",
+                "Older-home wiring conversations where provider qualifications and code discussion matter.",
+                "Projects where homeowners need clearer expectations around disruption, timing, and finishing details."
+            ],
+            "ev-charger-installation": [
+                "Homeowners preparing for Level 2 EV charging or dedicated charger installation.",
+                "Requests where panel capacity, charger location, and route distance may affect provider review.",
+                "Garage, driveway, or exterior charger planning where installation conditions may vary.",
+                "Projects where homeowners should compare permit expectations, equipment compatibility, and quote clarity."
+            ],
+            "lighting-installation": [
+                "Fixture installation, recessed lighting, exterior lighting, or lighting layout update requests.",
+                "Projects where ceiling height, wiring access, fixture type, or switch location may affect scope.",
+                "Indoor and outdoor lighting requests where product compatibility and installation conditions matter.",
+                "Situations where homeowners want to compare provider options before choosing who to hire."
+            ]
+        };
+
+        return service.contextPoints || fallback[service.id] || [];
+    }
+
+    function getPreparationVisualItems(service) {
+        const fallback = {
+            "panel-upgrades": [
+                { label: "Panel context", value: "Current panel size, age, or known limitation" },
+                { label: "Project reason", value: "Capacity upgrade, remodel, EV charger, or appliance addition" },
+                { label: "Access", value: "Panel location, photos, and utility area notes" },
+                { label: "Timing", value: "Preferred schedule and flexibility" }
+            ],
+            "wiring-rewiring": [
+                { label: "Area", value: "Rooms, outlets, circuits, or renovation zones involved" },
+                { label: "Condition", value: "Known wiring concerns or outdated electrical context" },
+                { label: "Access", value: "Open walls, finished walls, attic, crawlspace, or basement notes" },
+                { label: "Timing", value: "Renovation schedule or preferred provider follow-up window" }
+            ],
+            "ev-charger-installation": [
+                { label: "Charger", value: "Vehicle or charger type if known" },
+                { label: "Location", value: "Garage, driveway, exterior wall, or parking setup" },
+                { label: "Distance", value: "Approximate distance from panel to charging location" },
+                { label: "Timing", value: "Preferred installation window and access notes" }
+            ],
+            "lighting-installation": [
+                { label: "Fixture", value: "Fixture type, quantity, and style preferences" },
+                { label: "Location", value: "Room, exterior area, ceiling height, or layout notes" },
+                { label: "Controls", value: "Switch, dimmer, or lighting control needs" },
+                { label: "Timing", value: "Preferred schedule and remodel context if relevant" }
+            ]
+        };
+
+        return service.prepVisualItems || fallback[service.id] || [];
+    }
+
+    /* =========================
+       RENDER SERVICE PAGE
+       ========================= */
+
+    function renderServicePage(service) {
+        setText("[data-service-title]", service.title);
+        setText("[data-service-short-title]", service.shortTitle || service.title);
+        setText("[data-service-kicker]", service.pageKicker || "Electrical service category");
+        setText("[data-service-hero-title]", service.heroTitle || service.title);
+        setText("[data-service-hero-text]", service.heroText || service.summary);
+        setText("[data-service-summary]", service.summary);
+        setText("[data-service-intro]", service.pageIntro || service.summary);
+
+        setImage(
+            "[data-service-hero-image]",
+            service.image,
+            `${service.title} provider matching background`
+        );
+
+        setImage(
+            "[data-service-detail-image]",
+            getDetailImage(service),
+            `${service.title} electrical planning detail`
+        );
+
+        renderContextPoints(service);
+        renderEvaluationPoints(service);
+        renderPreparationPoints(service);
+        renderPreparationVisual(service);
+        renderMatchingFlow(service);
+        updateServiceLinks(service);
+    }
+
+    function renderContextPoints(service) {
+        const mounts = document.querySelectorAll("[data-service-context-points]");
+        const points = getContextPoints(service);
+
+        mounts.forEach((mount) => {
+            mount.innerHTML = points
+                .map((point) => `<li>${escapeHtml(point)}</li>`)
+                .join("");
+        });
+    }
+
+    function renderEvaluationPoints(service) {
+        const mounts = document.querySelectorAll("[data-service-evaluation-points]");
+        const points = service.evaluationPoints || [];
+
+        mounts.forEach((mount) => {
+            mount.innerHTML = points
+                .map((point) => {
+                    return `
+                        <article tabindex="0">
+                            <strong>${escapeHtml(point)}</strong>
+                            <p>Compare how each independent provider explains this point before choosing who to contact or hire.</p>
+                        </article>
+                    `;
+                })
+                .join("");
+        });
+    }
+
+    function renderPreparationPoints(service) {
+        const mounts = document.querySelectorAll("[data-service-prep-points]");
+        const points = service.prepPoints || [];
+
+        mounts.forEach((mount) => {
+            mount.innerHTML = points
+                .map((point, index) => {
+                    return `
+                        <article tabindex="0">
                             <span>${String(index + 1).padStart(2, "0")}</span>
-                            <h3>${item}</h3>
+                            <div>
+                                <strong>${escapeHtml(point)}</strong>
+                                <p>This detail can help providers better understand the request before discussing scope or quote terms.</p>
+                            </div>
                         </article>
-                    `).join("")}
-                </div>
-            </div>
-        </section>
+                    `;
+                })
+                .join("");
+        });
+    }
 
-        <section class="section comparison-console">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Provider comparison</p>
-                    <h2>Questions that support provider fit review.</h2>
-                    <p>Voltly helps organize the comparison structure. Homeowners should ask providers directly and confirm each detail before making a decision.</p>
-                </div>
-                <div class="console-grid">
-                    ${comparisonPoints.map((point) => `
-                        <article class="console-card reveal-up">
-                            <div class="mini-bolt" aria-hidden="true"></div>
-                            <h3>${point}</h3>
-                            <p>Use this topic to compare provider options and prepare direct follow-up questions.</p>
+    function renderPreparationVisual(service) {
+        const mounts = document.querySelectorAll("[data-service-prep-visual]");
+        const items = getPreparationVisualItems(service);
+
+        mounts.forEach((mount) => {
+            mount.innerHTML = items
+                .map((item) => {
+                    return `
+                        <article tabindex="0">
+                            <span>${escapeHtml(item.label)}</span>
+                            <strong>${escapeHtml(item.value)}</strong>
                         </article>
-                    `).join("")}
-                </div>
-            </div>
-        </section>
+                    `;
+                })
+                .join("");
+        });
+    }
 
-        <section class="section helps-band">
-            <div class="container helps-grid">
-                <div class="reveal-up">
-                    <p class="kicker">How Voltly helps</p>
-                    <h2>Clarity before provider conversations.</h2>
-                </div>
-                <div class="helps-copy reveal-up">
-                    <p>Voltly helps homeowners turn early project notes into structured request details, compare independent local electrical provider options, and keep decision control.</p>
-                    <p>Voltly does not perform electrical work directly, provide quotes, guarantee provider availability, verify licenses or insurance, set pricing, or provide warranties.</p>
-                </div>
-            </div>
-        </section>
+    function renderMatchingFlow(service) {
+        const mounts = document.querySelectorAll("[data-service-flow]");
+        const shortTitle = service.shortTitle || service.title;
 
-        <section class="section faq-section">
-            <div class="container narrow">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">FAQ</p>
-                    <h2>${service.title} questions.</h2>
-                </div>
-                <div class="faq-list" id="service-faq" data-faq-list="service"></div>
-            </div>
-        </section>
+        const flow = [
+            {
+                title: "Choose category",
+                text: `${shortTitle} is selected as the request path.`
+            },
+            {
+                title: "Add project notes",
+                text: "Homeowner shares ZIP code, timing, photos, access notes, or project context."
+            },
+            {
+                title: "Compare options",
+                text: "Independent local provider options can be reviewed by fit, scope, and availability."
+            },
+            {
+                title: "Verify before hiring",
+                text: "Homeowner confirms license, insurance, permits, quote terms, and qualifications."
+            }
+        ];
 
-        <section class="section final-cta">
-            <div class="container cta-panel reveal-up">
-                <div>
-                    <p class="kicker">Structured request</p>
-                    <h2>Start your electrical provider matching request.</h2>
-                    <p>Prepare your project details and compare independent local electrical provider options with more clarity.</p>
-                </div>
-                <a class="btn btn-primary" href="contact.html">${config.phoneLabel}</a>
-                <p class="disclaimer">${config.disclaimer}</p>
-            </div>
-        </section>
-    `;
+        mounts.forEach((mount) => {
+            mount.innerHTML = flow
+                .map((item, index) => {
+                    return `
+                        <article tabindex="0">
+                            <span>${String(index + 1).padStart(2, "0")}</span>
+                            <strong>${escapeHtml(item.title)}</strong>
+                            <p>${escapeHtml(item.text)}</p>
+                        </article>
+                    `;
+                })
+                .join("");
+        });
+    }
 
-    api.renderFAQ();
-    api.initReveal();
-}());
+    function updateServiceLinks(service) {
+        document.querySelectorAll("[data-service-contact-link]").forEach((link) => {
+            link.setAttribute("href", `contact.html?service=${encodeURIComponent(service.id)}`);
+        });
+    }
+
+    /* =========================
+       HERO MOTION
+       ========================= */
+
+    function initServiceHeroMotion() {
+        const hero = document.querySelector(".service-hero");
+        if (!hero) return;
+
+        const bolt = hero.querySelector(".service-hero-bolt-main");
+        const currentOne = hero.querySelector(".service-hero-current-one");
+        const currentTwo = hero.querySelector(".service-hero-current-two");
+
+        hero.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+
+                const rect = hero.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                if (bolt) {
+                    bolt.style.transform = `translate(${x * 18}px, ${y * 12}px) rotate(${8 + x * 5}deg)`;
+                }
+
+                if (currentOne) {
+                    currentOne.style.transform = `translate(${x * 14}px, ${y * 8}px) rotate(${-6 + x * 2}deg)`;
+                }
+
+                if (currentTwo) {
+                    currentTwo.style.transform = `translate(${x * -12}px, ${y * -6}px) rotate(${5 - x * 2}deg)`;
+                }
+            },
+            { passive: true }
+        );
+
+        hero.addEventListener("pointerleave", () => {
+            if (bolt) bolt.style.transform = "rotate(8deg)";
+            if (currentOne) currentOne.style.transform = "rotate(-6deg)";
+            if (currentTwo) currentTwo.style.transform = "rotate(5deg)";
+        });
+    }
+
+    /* =========================
+       MEDIA / BOLT MOTION
+       ========================= */
+
+    function initServiceMediaMotion() {
+        const mediaBlocks = Array.from(document.querySelectorAll(".service-context-media"));
+
+        mediaBlocks.forEach((block) => {
+            const bolt = block.querySelector(".service-context-bolt");
+
+            block.addEventListener(
+                "pointermove",
+                (event) => {
+                    if (window.matchMedia("(max-width: 900px)").matches) return;
+                    if (!bolt) return;
+
+                    const rect = block.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - 0.5;
+                    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                    bolt.style.transform = `translate(${x * 16}px, ${y * 12}px) rotate(${x * 5}deg)`;
+                },
+                { passive: true }
+            );
+
+            block.addEventListener("pointerleave", () => {
+                if (bolt) {
+                    bolt.style.transform = "";
+                }
+            });
+        });
+    }
+
+    /* =========================
+       EVALUATION INTERACTION
+       ========================= */
+
+    function initEvaluationInteraction() {
+        const shell = document.querySelector(".service-evaluation-shell");
+        const items = Array.from(document.querySelectorAll(".service-evaluation-list article"));
+
+        if (!shell || !items.length) return;
+
+        items.forEach((item, index) => {
+            item.addEventListener("pointerenter", () => {
+                shell.classList.add("is-evaluation-active");
+                shell.dataset.activeEvaluation = String(index + 1);
+
+                items.forEach((card) => card.classList.remove("is-active-evaluation"));
+                item.classList.add("is-active-evaluation");
+            });
+
+            item.addEventListener("pointerleave", () => {
+                shell.classList.remove("is-evaluation-active");
+                shell.removeAttribute("data-active-evaluation");
+                item.classList.remove("is-active-evaluation");
+            });
+
+            item.addEventListener("focusin", () => {
+                shell.classList.add("is-evaluation-active");
+                item.classList.add("is-active-evaluation");
+            });
+
+            item.addEventListener("focusout", () => {
+                shell.classList.remove("is-evaluation-active");
+                item.classList.remove("is-active-evaluation");
+            });
+        });
+    }
+
+    /* =========================
+       PREPARATION INTERACTION
+       ========================= */
+
+    function initPreparationInteraction() {
+        const visual = document.querySelector(".service-prep-visual");
+        const items = Array.from(document.querySelectorAll(".service-prep-visual-grid article"));
+
+        if (!visual || !items.length) return;
+
+        items.forEach((item, index) => {
+            item.addEventListener("pointerenter", () => {
+                visual.classList.add("is-prep-active");
+                visual.dataset.activePrep = String(index + 1);
+
+                items.forEach((card) => card.classList.remove("is-active-prep"));
+                item.classList.add("is-active-prep");
+            });
+
+            item.addEventListener("pointerleave", () => {
+                visual.classList.remove("is-prep-active");
+                visual.removeAttribute("data-active-prep");
+                item.classList.remove("is-active-prep");
+            });
+
+            item.addEventListener("focusin", () => {
+                visual.classList.add("is-prep-active");
+                item.classList.add("is-active-prep");
+            });
+
+            item.addEventListener("focusout", () => {
+                visual.classList.remove("is-prep-active");
+                item.classList.remove("is-active-prep");
+            });
+        });
+
+        const bolt = visual.querySelector(".service-prep-visual-bolt");
+
+        visual.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+                if (!bolt) return;
+
+                const rect = visual.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                bolt.style.transform = `translate(${x * 16}px, ${y * 12}px) rotate(${x * 5}deg)`;
+            },
+            { passive: true }
+        );
+
+        visual.addEventListener("pointerleave", () => {
+            if (bolt) {
+                bolt.style.transform = "";
+            }
+        });
+    }
+
+    /* =========================
+       FLOW INTERACTION
+       ========================= */
+
+    function initFlowInteraction() {
+        const shell = document.querySelector(".service-flow-shell");
+        const items = Array.from(document.querySelectorAll(".service-flow-steps article"));
+
+        if (!shell || !items.length) return;
+
+        items.forEach((item, index) => {
+            item.addEventListener("pointerenter", () => {
+                shell.classList.add("is-flow-active");
+                shell.dataset.activeFlow = String(index + 1);
+
+                items.forEach((card) => card.classList.remove("is-active-flow"));
+                item.classList.add("is-active-flow");
+            });
+
+            item.addEventListener("pointerleave", () => {
+                shell.classList.remove("is-flow-active");
+                shell.removeAttribute("data-active-flow");
+                item.classList.remove("is-active-flow");
+            });
+
+            item.addEventListener("focusin", () => {
+                shell.classList.add("is-flow-active");
+                item.classList.add("is-active-flow");
+            });
+
+            item.addEventListener("focusout", () => {
+                shell.classList.remove("is-flow-active");
+                item.classList.remove("is-active-flow");
+            });
+        });
+    }
+
+    /* =========================
+       CTA MOTION
+       ========================= */
+
+    function initServiceCtaMotion() {
+        const cta = document.querySelector(".service-cta .cta-photo");
+        if (!cta) return;
+
+        const bolt = cta.querySelector(".service-cta-bolt");
+
+        cta.addEventListener(
+            "pointermove",
+            (event) => {
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+                if (!bolt) return;
+
+                const rect = cta.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+                bolt.style.transform = `translate(${x * 18}px, ${y * 12}px) rotate(${x * 5}deg)`;
+            },
+            { passive: true }
+        );
+
+        cta.addEventListener("pointerleave", () => {
+            if (bolt) {
+                bolt.style.transform = "";
+            }
+        });
+    }
+})();

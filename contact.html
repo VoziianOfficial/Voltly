@@ -1,100 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <title>Voltly</title>
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <title>Contact Voltly | Start Electrical Request Matching</title>
+    <meta name="description"
+        content="Start an electrical request with Voltly by sharing your service type, ZIP code, project timing, and notes.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/config.js"></script>
-    <script defer src="js/main.js"></script>
-    <script defer src="js/contact.js"></script>
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
+
+<body data-page="contact">
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
     <div data-site-header></div>
 
-    <main id="main">
-        <section class="page-hero">
-            <div class="container">
-                <div class="section-heading reveal-up">
-                    <p class="kicker">Request console</p>
-                    <h1>Prepare your electrical matching request.</h1>
-                    <p>Share your service category, ZIP code, timing, and project notes so your request is easier to compare with independent local electrical provider options.</p>
-                    <p class="note">Voltly is not a contractor and does not perform electrical work directly.</p>
+    <main id="mainContent">
+        <!-- =========================
+             CONTACT HERO
+             ========================= -->
+        <section class="contact-hero page-hero compact" aria-labelledby="contactHeroTitle">
+            <div class="page-hero-bg" aria-hidden="true">
+                <img src="assets/images/hero-contact.jpg" alt="">
+            </div>
+
+            <div class="contact-hero-bolt contact-hero-bolt-main" aria-hidden="true"></div>
+            <div class="contact-hero-current contact-hero-current-one" aria-hidden="true"></div>
+            <div class="contact-hero-current contact-hero-current-two" aria-hidden="true"></div>
+
+            <div class="page-hero-content">
+                <div class="page-hero-copy reveal-up">
+                    <p class="kicker">Start electrical request</p>
+
+                    <h1 id="contactHeroTitle">
+                        Share the project details before comparing providers.
+                    </h1>
+
+                    <p class="lead">
+                        Use the request form to organize the electrical category, ZIP code, timing, and project notes
+                        before
+                        comparing independent local electrical provider options.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#requestForm">
+                            <span>Open request form</span>
+                            <i data-lucide="arrow-down" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="btn btn-ghost" href="services.html">
+                            <span>View categories</span>
+                            <i data-lucide="zap" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <p class="hero-safe-note">
+                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                        <span>
+                            Voltly does not perform electrical work directly. Homeowners should verify provider license,
+                            insurance, permits, qualifications, quote terms, and suitability before hiring.
+                        </span>
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container contact-grid">
-                <div class="request-console reveal-up">
-                    <form class="request-form" data-request-form novalidate>
-                        <div class="form-grid">
-                            <div class="field-group">
-                                <label for="name">Name</label>
-                                <input id="name" name="name" autocomplete="name" required>
-                                <span class="field-error" aria-live="polite"></span>
-                            </div>
-                            <div class="field-group">
-                                <label for="phone">Phone</label>
-                                <input id="phone" name="phone" inputmode="tel" autocomplete="tel">
-                                <span class="field-error" aria-live="polite"></span>
-                            </div>
-                            <div class="field-group">
-                                <label for="email">Email</label>
-                                <input id="email" name="email" type="email" autocomplete="email">
-                                <span class="field-error" aria-live="polite"></span>
-                            </div>
-                            <div class="field-group">
-                                <label for="zip">ZIP code</label>
-                                <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" required>
-                                <span class="field-error" aria-live="polite"></span>
-                            </div>
-                            <div class="field-group full">
-                                <label for="service-type">Service type</label>
-                                <select id="service-type" name="service" required>
-                                    <option value="">Select a category</option>
-                                </select>
-                                <span class="field-error" aria-live="polite"></span>
-                            </div>
-                            <div class="field-group full">
-                                <label for="notes">Project notes</label>
-                                <textarea id="notes" name="notes" placeholder="Panel location, wiring concerns, EV charger placement, lighting area, timing, or direct provider questions."></textarea>
-                                <span class="field-error" aria-live="polite"></span>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Prepare request</button>
-                        <p class="form-status" data-form-status aria-live="polite"></p>
-                        <p class="disclaimer" data-disclaimer></p>
-                    </form>
+<section class="contact-electric-request" id="requestForm" aria-labelledby="requestFormTitle">
+    <div class="contact-electric-bg" aria-hidden="true">
+        <img src="assets/images/hero-contact.jpg" alt="">
+    </div>
+
+    <div class="contact-electric-current contact-electric-current-one" aria-hidden="true"></div>
+    <div class="contact-electric-current contact-electric-current-two" aria-hidden="true"></div>
+    <div class="contact-electric-big-bolt" aria-hidden="true"></div>
+
+    <div class="container-wide contact-electric-inner">
+        <div class="contact-electric-copy reveal-up">
+            <p class="eyebrow">Start request</p>
+
+            <h2 id="requestFormTitle">
+                Prepare the request. Then compare electrical providers.
+            </h2>
+
+            <p>
+                Share only the key details: service type, ZIP code, timing, and a short project note. Voltly helps
+                organize the request before homeowners compare independent local electrical provider options.
+            </p>
+
+            <div class="contact-electric-points" aria-label="Request preparation points">
+                <article>
+                    <span aria-hidden="true"></span>
+                    <strong>Service path</strong>
+                    <p>Panel, wiring, EV charger, or lighting.</p>
+                </article>
+
+                <article>
+                    <span aria-hidden="true"></span>
+                    <strong>Local context</strong>
+                    <p>ZIP code and provider availability.</p>
+                </article>
+
+                <article>
+                    <span aria-hidden="true"></span>
+                    <strong>Verification</strong>
+                    <p>License, insurance, permits, and quote terms.</p>
+                </article>
+            </div>
+
+            <p class="contact-electric-safe">
+                Voltly does not perform electrical work directly. Providers are independent.
+            </p>
+        </div>
+
+        <form class="electric-mini-form reveal-up" data-voltly-form novalidate>
+            <div class="electric-mini-form-head">
+                <span class="electric-mini-bolt" aria-hidden="true"></span>
+
+                <div>
+                    <strong>Request details</strong>
+                    <p>Compact provider matching form</p>
+                </div>
+            </div>
+
+            <div class="electric-mini-grid">
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input class="input-control" type="text" id="name" name="name" placeholder="Your name"
+                        data-required>
+                    <span class="form-error" data-error></span>
                 </div>
 
-                <aside class="contact-side">
-                    <article class="info-card reveal-up">
-                        <p class="kicker">Contact details</p>
-                        <h2>Voltly</h2>
-                        <div class="contact-list">
-                            <span data-company-id></span>
-                            <a data-phone-link href="#"></a>
-                            <a data-email-link href="#"></a>
-                            <span data-address-text></span>
-                            <span data-service-area></span>
+                <div class="form-field">
+                    <label for="phone">Phone</label>
+                    <input class="input-control" type="tel" id="phone" name="phone" placeholder="(555) 000-0000"
+                        data-required>
+                    <span class="form-error" data-error></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input class="input-control" type="email" id="email" name="email" placeholder="you@example.com"
+                        data-required>
+                    <span class="form-error" data-error></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="zip">ZIP</label>
+                    <input class="input-control" type="text" id="zip" name="zip" inputmode="numeric"
+                        placeholder="ZIP code" data-required>
+                    <span class="form-error" data-error></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="serviceType">Service</label>
+                    <div class="select-wrap">
+                        <select class="select-control" id="serviceType" name="serviceType" data-required>
+                            <option value="" selected disabled>Choose service</option>
+                            <option value="Panel Upgrades">Panel Upgrades</option>
+                            <option value="Wiring & Rewiring">Wiring & Rewiring</option>
+                            <option value="EV Charger Installation">EV Charger Installation</option>
+                            <option value="Lighting Installation">Lighting Installation</option>
+                        </select>
+                    </div>
+                    <span class="form-error" data-error></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="timing">Timing</label>
+                    <div class="select-wrap">
+                        <select class="select-control" id="timing" name="timing" data-required>
+                            <option value="" selected disabled>Choose timing</option>
+                            <option value="As soon as possible">As soon as possible</option>
+                            <option value="Within 1–2 weeks">Within 1–2 weeks</option>
+                            <option value="Within 30 days">Within 30 days</option>
+                            <option value="Planning ahead">Planning ahead</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </div>
+                    <span class="form-error" data-error></span>
+                </div>
+
+                <div class="form-field full">
+                    <label for="notes">Project notes</label>
+                    <textarea class="textarea-control" id="notes" name="notes"
+                        placeholder="Short project note, access details, location, or provider questions."
+                        data-required></textarea>
+                    <span class="form-error" data-error></span>
+                </div>
+            </div>
+
+            <div class="electric-mini-bottom">
+                <div class="checkbox-field electric-mini-check">
+                    <label class="checkbox-row" for="verification">
+                        <input type="checkbox" id="verification" name="verification" data-required>
+                        <span class="checkbox-custom" aria-hidden="true"></span>
+                        <span class="checkbox-label">
+                            I understand Voltly does not perform electrical work directly.
+                        </span>
+                    </label>
+                    <span class="form-error" data-error></span>
+                </div>
+
+                <button class="btn btn-primary electric-mini-submit" type="submit">
+                    <span>Submit</span>
+                    <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <p class="form-status electric-mini-status" data-form-status aria-live="polite"></p>
+        </form>
+    </div>
+</section>
+
+        <!-- =========================
+             MAP VISUAL
+             ========================= -->
+        <section class="contact-map-section section-sm" aria-labelledby="contactMapTitle">
+            <div class="container-wide contact-map-grid">
+                <div class="contact-map-copy reveal-up">
+                    <p class="eyebrow">Service area visual</p>
+
+                    <h2 id="contactMapTitle">
+                        ZIP-based provider availability across electrical categories.
+                    </h2>
+
+                    <p>
+                        Voltly is designed for USA electrical provider matching. Availability can vary by location,
+                        service
+                        category, timing, provider schedule, and project scope.
+                    </p>
+
+                    <div class="section-actions">
+                        <a class="btn btn-primary" href="#requestForm">
+                            <span>Start request</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-map-card reveal-up" aria-label="Abstract USA service area map">
+                    <div class="contact-map-current" aria-hidden="true"></div>
+                    <div class="contact-map-bolt" aria-hidden="true"></div>
+
+                    <div class="map-node map-node-one">
+                        <span></span>
+                        Panel
+                    </div>
+
+                    <div class="map-node map-node-two">
+                        <span></span>
+                        Wiring
+                    </div>
+
+                    <div class="map-node map-node-three">
+                        <span></span>
+                        EV
+                    </div>
+
+                    <div class="map-node map-node-four">
+                        <span></span>
+                        Lighting
+                    </div>
+
+                    <div class="map-address">
+                        <strong>Platform address</strong>
+                        <span data-address-text></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             BEFORE SUBMIT CHECKLIST
+             ========================= -->
+        <section class="contact-before section" aria-labelledby="beforeSubmitTitle">
+            <div class="container-wide">
+                <div class="contact-before-shell reveal-up">
+                    <div class="contact-before-current" aria-hidden="true"></div>
+                    <div class="contact-before-bolt" aria-hidden="true"></div>
+
+                    <div class="contact-before-heading">
+                        <p class="eyebrow">Before submitting</p>
+
+                        <h2 id="beforeSubmitTitle">
+                            A better request starts with the details providers usually ask about.
+                        </h2>
+
+                        <p>
+                            The form does not replace provider review. It simply helps organize the request so
+                            comparison
+                            conversations can start with clearer context.
+                        </p>
+                    </div>
+
+                    <div class="contact-before-list">
+                        <article>
+                            <span>01</span>
+                            <strong>Project type</strong>
+                            <p>Choose panel upgrades, wiring, EV charging, or lighting installation.</p>
+                        </article>
+
+                        <article>
+                            <span>02</span>
+                            <strong>ZIP code</strong>
+                            <p>Provider availability may vary by local area and service category.</p>
+                        </article>
+
+                        <article>
+                            <span>03</span>
+                            <strong>Timeline</strong>
+                            <p>Share whether the request is urgent, planned, flexible, or part of a larger project.</p>
+                        </article>
+
+                        <article>
+                            <span>04</span>
+                            <strong>Quote expectations</strong>
+                            <p>Ask providers what is included, excluded, estimated, or dependent on site review.</p>
+                        </article>
+
+                        <article>
+                            <span>05</span>
+                            <strong>Verification</strong>
+                            <p>Confirm licenses, insurance, permits, qualifications, and warranty terms before hiring.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             DISCLAIMER CTA
+             ========================= -->
+        <section class="contact-disclaimer section-sm" aria-labelledby="contactDisclaimerTitle">
+            <div class="container-wide">
+                <div class="cta-photo reveal-up">
+                    <div class="cta-photo-bg" aria-hidden="true">
+                        <img src="assets/images/electrical-cta.jpg" alt="">
+                    </div>
+
+                    <div class="contact-cta-bolt" aria-hidden="true"></div>
+
+                    <div class="cta-photo-inner">
+                        <div class="cta-photo-copy">
+                            <p class="eyebrow">Independent platform</p>
+
+                            <h2 id="contactDisclaimerTitle">
+                                Voltly helps organize comparison, not perform the work.
+                            </h2>
+
+                            <p>
+                                Providers are independent. Homeowners are responsible for reviewing provider
+                                credentials,
+                                insurance, permits, pricing, contract terms, and suitability before hiring.
+                            </p>
                         </div>
-                    </article>
-                    <div class="map-card reveal-up" aria-label="Voltly provider matching coverage">
-                        <div class="map-pin" aria-hidden="true"></div>
-                        <div class="map-label">
-                            <strong>U.S. provider matching coverage</strong>
-                            <span data-address-text></span>
+
+                        <div class="section-actions">
+                            <a class="btn btn-primary" href="#requestForm">
+                                <span>Return to form</span>
+                                <i data-lucide="arrow-up" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
-                </aside>
+                </div>
+
+                <div class="disclaimer-strip contact-legal-strip reveal-up">
+                    <strong>Required disclaimer</strong>
+                    <span data-disclaimer></span>
+                </div>
             </div>
         </section>
     </main>
 
     <div data-site-footer></div>
+
+    <div data-policy-banner></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/contact.js" defer></script>
 </body>
+
 </html>

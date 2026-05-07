@@ -1,289 +1,409 @@
+"use strict";
+
+/* ==========================================================
+   VOLTLY — GLOBAL CONFIG
+   File: /js/config.js
+   ========================================================== */
+
 window.SITE_CONFIG = {
     companyName: "Voltly",
-    companyId: "VLT-ELEC-4827",
-    brand: "Voltly",
-    phone: "+1 888 410 7624",
-    phoneHref: "+18884107624",
-    phoneLabel: "Start Electrical Request",
+    companyId: "Voltly Home Services Matching LLC",
+    brand: {
+        shortName: "Voltly",
+        tagline: "",
+        logoLabel: "Voltly home"
+    },
+
+    phone: "(800) 314-2218",
+    phoneHref: "tel:+18003142218",
+    phoneLabel: "Call Voltly at (800) 314-2218",
+
     email: "hello@voltlymatch.com",
-    address: "600 Congress Avenue, Austin, TX 78701, USA",
-    serviceArea: "Independent electrical provider matching across the United States",
-    footerText: "Voltly is an independent electrical provider matching platform that helps homeowners prepare electrical project details and compare local provider options across panel upgrades, wiring and rewiring, EV charger installation, and lighting installation requests.",
-    disclaimer: "Voltly is an independent electrical provider matching platform. Voltly does not perform electrical work directly, provide quotes, guarantee provider availability, verify licenses or insurance, set pricing, or provide warranties. All providers are independent. Homeowners should verify licensing, insurance, permits, quotes, warranties, timelines, and service details directly before hiring any provider.",
-    legalNotice: "Information on this website is provided for general matching and request-preparation purposes only. Provider availability and service details may vary by location, service category, and project requirements.",
+
+    address: {
+        line1: "845 W Madison St",
+        city: "Chicago",
+        state: "IL",
+        zip: "60607",
+        country: "USA",
+        full: "845 W Madison St, Chicago, IL 60607, USA"
+    },
+
+    serviceArea: "USA electrical provider matching platform",
+    footerText:
+        "Voltly helps homeowners organize electrical project details and compare independent local provider options for common residential electrical request categories.",
+
+    disclaimer:
+        "Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.",
+
+    legalNotice:
+        "Voltly is an independent matching platform and does not perform electrical work directly. Provider availability may vary by ZIP code, service type, and scheduling conditions.",
+
     navigation: [
         { label: "Home", href: "index.html" },
         { label: "Services", href: "services.html" },
         { label: "About", href: "about.html" },
         { label: "Contact", href: "contact.html" }
     ],
+
     legalLinks: [
         { label: "Privacy Policy", href: "privacy-policy.html" },
         { label: "Cookie Policy", href: "cookie-policy.html" },
         { label: "Terms of Service", href: "terms-of-service.html" }
     ],
+
     services: [
         {
             id: "panel-upgrades",
             title: "Panel Upgrades",
-            shortTitle: "Panels",
+            shortTitle: "Panel Upgrades",
             href: "panel-upgrades.html",
-            icon: "panel",
-            image: "css-panel",
-            summary: "Prepare panel capacity questions, load calculation context, permit topics, inspection notes, and comparison details for independent provider conversations.",
-            cardText: "Organize capacity, panel location, modern home power needs, permit expectations, and inspection questions before comparing provider fit.",
-            heroTitle: "Panel upgrade provider comparison starts with clear request details.",
-            heroText: "Voltly helps homeowners prepare panel upgrade context around electrical capacity, load calculation questions, code requirements, permits, inspections, and provider fit.",
-            pageKicker: "Panel capacity context",
-            pageIntro: "Panel upgrade requests often need more than a short description. Homeowners may need to discuss current panel capacity, future electrical needs, access conditions, permits, inspection expectations, and quote clarity directly with independent providers.",
+            icon: "panel-top",
+            image: "assets/images/panel-upgrades.jpg",
+            cardText:
+                "Compare local provider options for electrical panel expansion, replacement context, service capacity updates, and related project planning.",
+            summary:
+                "Voltly helps homeowners prepare panel upgrade request details and compare independent local provider options.",
+            heroTitle: "Compare local panel upgrade provider options.",
+            heroText:
+                "Share property details, current panel context, timing, and project notes before reviewing independent local provider options.",
+            pageKicker: "Electrical service category",
+            pageIntro:
+                "Panel upgrade requests often involve electrical capacity, utility coordination, permit requirements, and property-specific conditions.",
             evaluationPoints: [
-                "Current panel capacity and visible panel labeling",
-                "Modern appliance, HVAC, EV, or home office power needs",
-                "Load calculation questions to ask independent providers",
-                "Permit and inspection requirements in the local jurisdiction",
-                "Main panel location, access, and working clearance notes",
-                "Quote scope, timeline, warranty terms, and follow-up questions"
+                "License and insurance verification",
+                "Permit and inspection approach",
+                "Scope clarity and electrical capacity context",
+                "Timeline and utility coordination",
+                "Quote structure and warranty details"
             ],
-            checklist: [
-                "Current panel amperage if known",
-                "Panel location and access details",
-                "Recent breaker trips or capacity concerns",
-                "Planned appliance, HVAC, or EV charger additions",
-                "Permit and inspection questions",
-                "Photos or notes homeowners may share directly with providers"
+            prepPoints: [
+                "Current panel age or known limitations",
+                "Requested amperage or capacity concerns",
+                "Appliance additions or remodel context",
+                "Photos or notes about panel location",
+                "Preferred project timing"
             ],
             faq: [
                 {
-                    question: "Does Voltly complete panel upgrades?",
-                    answer: "No. Voltly does not perform electrical work directly. The platform helps homeowners prepare request details and compare independent local electrical provider options."
+                    question: "When might a homeowner request a panel upgrade category?",
+                    answer:
+                        "This category may fit when a homeowner is planning capacity changes, addressing an outdated panel, or preparing for additional electrical demand at the property."
                 },
                 {
-                    question: "What should homeowners confirm directly with providers?",
-                    answer: "Homeowners should confirm licensing, insurance, permits, inspections, quote details, pricing, warranties, timelines, and service scope directly with independent providers."
+                    question: "Does Voltly perform panel upgrades directly?",
+                    answer:
+                        "No. Voltly does not perform electrical work directly. The platform helps organize request details and compare independent local provider options."
                 },
                 {
-                    question: "Can provider availability vary?",
-                    answer: "Yes. Provider availability may vary by ZIP code, service category, timing, licensing, and project details."
+                    question: "What should homeowners compare before choosing a panel upgrade provider?",
+                    answer:
+                        "Homeowners should review licensing, insurance, permit expectations, quote clarity, service capacity details, timeline, and warranty information."
+                },
+                {
+                    question: "Can provider availability vary by ZIP code?",
+                    answer:
+                        "Yes. Provider availability may vary by service type, location, and scheduling conditions."
                 }
             ]
         },
         {
             id: "wiring-rewiring",
             title: "Wiring & Rewiring",
-            shortTitle: "Wiring",
+            shortTitle: "Wiring & Rewiring",
             href: "wiring-rewiring.html",
-            icon: "wiring",
-            image: "css-wiring",
-            summary: "Prepare request details for older wiring, renovations, room additions, access constraints, walls, safety questions, permits, inspections, and timeline discussion.",
-            cardText: "Map older wiring concerns, renovation context, access needs, wall conditions, safety questions, and permit topics before comparing providers.",
-            heroTitle: "Wiring and rewiring requests need structured project context.",
-            heroText: "Voltly helps homeowners organize wiring and rewiring details for renovations, older homes, room additions, safety questions, permit considerations, and direct provider conversations.",
-            pageKicker: "Wiring request structure",
-            pageIntro: "Wiring and rewiring conversations can depend on property age, wall access, renovation scope, visible wiring concerns, inspection needs, and local code requirements. Voltly helps shape those details into a clearer request.",
+            icon: "cable",
+            image: "assets/images/wiring-rewiring.jpg",
+            cardText:
+                "Compare provider options for wiring updates, rewiring scope, room additions, renovation-related electrical planning, and older-home electrical concerns.",
+            summary:
+                "Voltly helps homeowners organize wiring and rewiring request details before comparing local providers.",
+            heroTitle: "Compare local wiring and rewiring provider options.",
+            heroText:
+                "Prepare a cleaner request for electrical wiring updates, renovation work, room additions, or older-home rewiring context.",
+            pageKicker: "Electrical service category",
+            pageIntro:
+                "Wiring requests often depend on home age, renovation plans, access conditions, room scope, and local code requirements.",
             evaluationPoints: [
-                "Property age and known wiring type if available",
-                "Room-by-room scope and renovation context",
-                "Wall, ceiling, attic, crawlspace, or basement access notes",
-                "Safety concerns to discuss directly with providers",
-                "Permit and inspection questions",
-                "Timeline expectations around access and repair surfaces"
+                "Experience relevant to the requested scope",
+                "Permit and code discussion",
+                "Project access and wall/finish expectations",
+                "Quote detail and exclusions",
+                "Timeline and cleanup expectations"
             ],
-            checklist: [
-                "Rooms or areas involved",
-                "Known older wiring concerns",
-                "Renovation or room addition details",
-                "Access notes for walls, ceilings, attic, or crawlspace",
-                "Permit and inspection questions",
-                "Timing and occupancy considerations"
+            prepPoints: [
+                "Rooms or areas affected",
+                "Known electrical issues or outdated wiring concerns",
+                "Renovation or addition context",
+                "Property type and approximate age",
+                "Preferred timeline"
             ],
             faq: [
                 {
-                    question: "Does Voltly assess wiring safety?",
-                    answer: "No. Voltly provides request-preparation and matching structure only. Homeowners should ask independent providers directly about safety, code, licensing, insurance, permits, and inspection needs."
+                    question: "What projects may fit the wiring and rewiring category?",
+                    answer:
+                        "This category may be useful for room updates, renovation-related electrical work, older-home rewiring concerns, or broader electrical wiring changes."
                 },
                 {
-                    question: "Why do access details matter?",
-                    answer: "Access through walls, ceilings, attic space, crawlspace, or unfinished areas can affect provider conversations, timeline discussion, and quote clarity."
+                    question: "Does Voltly send its own electricians?",
+                    answer:
+                        "No. Voltly is not an electrician company. It helps homeowners compare independent local provider options."
                 },
                 {
-                    question: "Should homeowners discuss permits?",
-                    answer: "Yes. Homeowners should confirm permit and inspection requirements directly with independent providers and local authorities when appropriate."
+                    question: "What should homeowners clarify in a wiring request?",
+                    answer:
+                        "It helps to note which rooms are affected, whether this is part of a renovation, the property type, and any known wiring concerns."
+                },
+                {
+                    question: "Should homeowners ask about permits and inspections?",
+                    answer:
+                        "Yes. Permit and inspection needs may vary, so homeowners should confirm those details directly with any provider they consider hiring."
                 }
             ]
         },
         {
             id: "ev-charger-installation",
             title: "EV Charger Installation",
-            shortTitle: "EV Charger",
+            shortTitle: "EV Charger Installation",
             href: "ev-charger-installation.html",
-            icon: "charger",
-            image: "css-ev",
-            summary: "Prepare Level 2 charger readiness details, garage or outdoor placement notes, panel capacity questions, circuit requirements, and permit considerations.",
-            cardText: "Collect charger location, panel capacity, route distance, indoor or outdoor placement, circuit questions, and permit topics before comparing provider options.",
-            heroTitle: "EV charger installation matching starts with readiness details.",
-            heroText: "Voltly helps homeowners prepare Level 2 charger context around panel capacity, placement, circuit requirements, garage or outdoor routing, permits, and provider comparison.",
-            pageKicker: "EV readiness context",
-            pageIntro: "EV charger installation requests often involve panel capacity, charger type, parking location, conduit route, weather exposure, circuit requirements, and permit questions. Voltly helps homeowners prepare a structured request before provider conversations.",
+            icon: "battery-charging",
+            image: "assets/images/ev-charger.jpg",
+            cardText:
+                "Compare local provider options for home EV charger installation planning, panel capacity review context, charger location, and electrical readiness.",
+            summary:
+                "Voltly helps homeowners prepare EV charger installation request details and compare local provider options.",
+            heroTitle: "Compare local EV charger installation provider options.",
+            heroText:
+                "Prepare the request around charger type, location, electrical capacity context, and project timing before comparing independent providers.",
+            pageKicker: "Electrical service category",
+            pageIntro:
+                "EV charger requests often involve panel capacity, parking layout, charger preferences, mounting location, and installation logistics.",
             evaluationPoints: [
-                "Charger type and Level 2 readiness questions",
-                "Garage, driveway, carport, or outdoor placement",
-                "Distance from panel to charging location",
-                "Panel capacity and dedicated circuit questions",
-                "Permit and inspection considerations",
-                "Quote details, timeline, warranty terms, and scope confirmation"
+                "Panel and capacity review discussion",
+                "Equipment compatibility context",
+                "Permit expectations",
+                "Installation location planning",
+                "Quote transparency and scheduling"
             ],
-            checklist: [
-                "Preferred charger location",
-                "Indoor or outdoor placement",
-                "Panel location and approximate distance",
-                "Charger model if already selected",
-                "Panel capacity questions",
-                "Permit and inspection discussion points"
+            prepPoints: [
+                "Vehicle or charger type if known",
+                "Garage, driveway, or parking location",
+                "Distance from panel to install point",
+                "Photos of the installation area",
+                "Desired project timing"
             ],
             faq: [
                 {
-                    question: "Does Voltly install EV chargers?",
-                    answer: "No. Voltly does not perform electrical work directly. The site helps homeowners prepare request details and compare independent local electrical provider options."
+                    question: "What details help with an EV charger installation request?",
+                    answer:
+                        "Helpful details include charger type if known, install location, parking setup, distance from the panel, and photos or notes about the area."
                 },
                 {
-                    question: "What should homeowners ask about Level 2 chargers?",
-                    answer: "Homeowners should ask providers directly about panel capacity, circuit requirements, permits, inspections, charger placement, weather exposure, quote details, pricing, warranties, and timelines."
+                    question: "Does Voltly install EV chargers directly?",
+                    answer:
+                        "No. Voltly does not perform electrical work directly and does not provide installation services itself."
                 },
                 {
-                    question: "Can outdoor placement change the request?",
-                    answer: "Yes. Outdoor placement may create questions about weather exposure, routing, mounting, local code, and permit requirements that homeowners should confirm directly."
+                    question: "Should homeowners ask about panel capacity?",
+                    answer:
+                        "Yes. EV charger projects may involve capacity considerations, so homeowners should discuss that directly with any provider they compare."
+                },
+                {
+                    question: "Can permits apply to EV charger projects?",
+                    answer:
+                        "Yes. Permit requirements may vary by project and location, so homeowners should confirm permit expectations with providers."
                 }
             ]
         },
         {
             id: "lighting-installation",
             title: "Lighting Installation",
-            shortTitle: "Lighting",
+            shortTitle: "Lighting Installation",
             href: "lighting-installation.html",
-            icon: "lighting",
-            image: "css-lighting",
-            summary: "Prepare details for indoor lighting, outdoor lighting, recessed lighting, fixture replacement, smart lighting, switches, and exterior safety questions.",
-            cardText: "Clarify fixture type, interior or exterior location, switch needs, smart lighting goals, ceiling access, and safety questions before comparing provider fit.",
-            heroTitle: "Lighting requests become clearer with fixture and location details.",
-            heroText: "Voltly helps homeowners prepare lighting project context for indoor fixtures, outdoor lighting, recessed lighting, smart controls, switches, and provider comparison.",
-            pageKicker: "Lighting project details",
-            pageIntro: "Lighting installation requests can vary by fixture type, wiring conditions, ceiling access, exterior exposure, switch layout, and smart control requirements. Voltly helps homeowners organize the details providers may ask about.",
+            icon: "lightbulb",
+            image: "assets/images/lighting-installation.jpg",
+            cardText:
+                "Compare local provider options for indoor or outdoor lighting installation requests, fixture changes, layout updates, and lighting improvement projects.",
+            summary:
+                "Voltly helps homeowners organize lighting installation request details and compare independent local providers.",
+            heroTitle: "Compare local lighting installation provider options.",
+            heroText:
+                "Share fixture plans, room context, property needs, and timing before comparing local provider options for lighting projects.",
+            pageKicker: "Electrical service category",
+            pageIntro:
+                "Lighting requests can range from fixture updates to layout improvements, exterior lighting changes, and broader design-related electrical needs.",
             evaluationPoints: [
-                "Indoor, outdoor, recessed, fixture, or smart lighting scope",
-                "Existing fixture locations and switch layout",
-                "Ceiling height, attic access, or exterior mounting notes",
-                "Weather exposure and exterior safety questions",
-                "Permit or inspection considerations when applicable",
-                "Quote scope, timeline, warranty terms, and direct provider questions"
+                "Scope clarity and fixture discussion",
+                "Indoor vs. outdoor electrical context",
+                "Access needs and installation logistics",
+                "Quote detail and exclusions",
+                "Timeline and finishing expectations"
             ],
-            checklist: [
-                "Fixture type and quantity",
-                "Indoor or outdoor project area",
-                "Existing switch and wiring notes if known",
-                "Ceiling height or access notes",
-                "Smart lighting or dimmer preferences",
-                "Exterior weather and safety questions"
+            prepPoints: [
+                "Type of lighting requested",
+                "Rooms or exterior areas involved",
+                "Fixture preferences if known",
+                "Whether this is part of a remodel",
+                "Desired timing"
             ],
             faq: [
                 {
-                    question: "Does Voltly replace or install lighting?",
-                    answer: "No. Voltly does not perform electrical work directly. Homeowners use Voltly to prepare request details and compare independent local provider options."
+                    question: "What projects fit the lighting installation category?",
+                    answer:
+                        "This category may fit fixture replacements, new lighting layouts, exterior lighting changes, or broader residential lighting improvement requests."
                 },
                 {
-                    question: "What lighting details help provider conversations?",
-                    answer: "Fixture type, quantity, placement, switch needs, ceiling access, exterior exposure, smart lighting preferences, and permit questions can help homeowners compare provider fit."
+                    question: "Does Voltly provide direct lighting installation?",
+                    answer:
+                        "No. Voltly is an independent matching platform and does not perform electrical work directly."
                 },
                 {
-                    question: "Should exterior lighting include safety questions?",
-                    answer: "Yes. Homeowners should ask providers directly about weather exposure, mounting, wiring protection, code requirements, licensing, insurance, warranties, and timelines."
+                    question: "What details should homeowners include in a lighting request?",
+                    answer:
+                        "It helps to include the area involved, fixture type if known, whether the project is indoors or outdoors, and whether the work is part of a remodel."
+                },
+                {
+                    question: "Should lighting providers be compared on more than price?",
+                    answer:
+                        "Yes. Homeowners should also compare scope clarity, qualifications, insurance, timing, and overall project fit."
                 }
             ]
         }
     ],
+
     forms: {
-        fields: ["Name", "Phone", "Email", "ZIP code", "Service type", "Project notes"],
-        serviceOptions: [
-            "Panel upgrades",
-            "Wiring & rewiring",
-            "EV charger installation",
-            "Lighting installation",
-            "Not sure yet"
-        ],
-        successMessage: "Your request details have been prepared. Independent provider follow-up may depend on availability and project details."
+        contact: {
+            title: "Start electrical request",
+            intro:
+                "Share the category, ZIP code, timing, and project notes so the request is easier to review.",
+            submitText: "Submit request",
+            successTitle: "Request received.",
+            successText:
+                "Your information has been prepared successfully. A follow-up step can continue from here.",
+            errorText:
+                "Please review the highlighted fields and confirm the homeowner verification reminder."
+        }
     },
+
     cookieBanner: {
-        storageKey: "voltly_cookie_choice_v1",
-        title: "Privacy choices",
-        text: "Voltly uses essential site storage and may use limited preference storage to improve this request-preparation experience.",
-        acceptLabel: "Accept",
-        declineLabel: "Decline"
+        storageKey: "voltly_cookie_choice",
+        title: "Privacy and policy preferences",
+        text:
+            "Voltly uses a simple cookie preference choice to remember your selection and improve site functionality.",
+        accept: "Accept",
+        decline: "Decline",
+        links: [
+            { label: "Privacy Policy", href: "privacy-policy.html" },
+            { label: "Cookie Policy", href: "cookie-policy.html" },
+            { label: "Terms of Service", href: "terms-of-service.html" }
+        ]
     },
+
     faq: [
         {
-            question: "What does Voltly do?",
-            answer: "Voltly helps homeowners prepare structured electrical request details and compare independent local electrical provider options."
+            question: "How does Voltly help compare local electrical providers?",
+            answer:
+                "Voltly helps homeowners organize project details, select a service category, and compare independent local electrical provider options based on the request context."
         },
         {
-            question: "Is Voltly an electrical contractor?",
-            answer: "No. Voltly is not a contractor and does not perform electrical work directly."
+            question: "Does Voltly perform electrical work directly?",
+            answer:
+                "No. Voltly is not a direct contractor or electrician company. It is an independent matching platform."
         },
         {
-            question: "Does Voltly provide quotes or set pricing?",
-            answer: "No. Voltly does not provide quotes or set pricing. Homeowners should confirm all quote details and pricing directly with independent providers."
+            question: "What should homeowners check before hiring an electrical provider?",
+            answer:
+                "Homeowners should verify licensing, insurance, permit expectations, qualifications, scope clarity, scheduling, and warranty details before hiring."
         },
         {
-            question: "Does Voltly verify licenses or insurance?",
-            answer: "No. Homeowners should verify licensing, insurance, permits, warranties, timelines, and service details directly with providers."
+            question: "Are quotes from providers usually free?",
+            answer:
+                "Quote policies can vary by provider and project type. Homeowners should confirm pricing and estimate terms directly with the provider."
         },
         {
-            question: "Can provider availability change by location?",
-            answer: "Yes. Provider availability may vary by ZIP code, service category, timing, and project details."
+            question: "Does provider availability vary by ZIP code?",
+            answer:
+                "Yes. Availability may vary by ZIP code, service type, project timing, and provider scheduling."
         }
     ],
+
+    socialProof: {
+        eyebrow: "Why homeowners use Voltly",
+        title: "A cleaner way to compare electrical provider options",
+        items: [
+            {
+                label: "Focused categories",
+                value: "4",
+                text: "Simple electrical request paths for common homeowner needs."
+            },
+            {
+                label: "Platform role",
+                value: "Independent",
+                text: "Voltly helps organize comparison, not perform the work."
+            },
+            {
+                label: "Coverage",
+                value: "USA",
+                text: "Provider matching context designed for homeowners across the United States."
+            }
+        ]
+    },
+
     pageMeta: {
         "index.html": {
-            title: "Voltly | Electrical Provider Matching Platform",
-            description: "Prepare a structured electrical request and compare independent local electrical provider options for panels, wiring, EV chargers, and lighting."
+            title: "Voltly | Compare Local Electrical Provider Options",
+            description:
+                "Voltly helps homeowners prepare project details and compare independent local electrical provider options for panel upgrades, wiring, EV charger installation, and lighting."
         },
         "services.html": {
             title: "Electrical Service Categories | Voltly",
-            description: "Compare independent local electrical provider options across panel upgrades, wiring and rewiring, EV charger installation, and lighting installation."
+            description:
+                "Explore Voltly service categories for panel upgrades, wiring and rewiring, EV charger installation, and lighting provider matching."
         },
         "about.html": {
-            title: "About Voltly | Electrical Request Preparation",
-            description: "Learn how Voltly helps homeowners organize electrical project details and compare independent local provider options."
+            title: "About Voltly | Independent Electrical Matching Platform",
+            description:
+                "Learn how Voltly helps homeowners organize electrical request details and compare independent local provider options."
         },
         "contact.html": {
-            title: "Prepare Electrical Matching Request | Voltly",
-            description: "Share project notes, ZIP code, and service category to prepare an electrical provider matching request with Voltly."
+            title: "Contact Voltly | Start Electrical Request Matching",
+            description:
+                "Start an electrical request with Voltly by sharing your service type, ZIP code, project timing, and notes."
+        },
+        "panel-upgrades.html": {
+            title: "Panel Upgrades | Compare Local Provider Options | Voltly",
+            description:
+                "Prepare a panel upgrade request and compare independent local electrical provider options with Voltly."
+        },
+        "wiring-rewiring.html": {
+            title: "Wiring & Rewiring | Compare Local Provider Options | Voltly",
+            description:
+                "Organize a wiring or rewiring request and compare independent local electrical provider options with Voltly."
+        },
+        "ev-charger-installation.html": {
+            title: "EV Charger Installation | Compare Local Provider Options | Voltly",
+            description:
+                "Prepare an EV charger installation request and compare independent local provider options with Voltly."
+        },
+        "lighting-installation.html": {
+            title: "Lighting Installation | Compare Local Provider Options | Voltly",
+            description:
+                "Prepare a lighting installation request and compare independent local provider options with Voltly."
         },
         "privacy-policy.html": {
             title: "Privacy Policy | Voltly",
-            description: "Read the Voltly privacy policy for the electrical request-preparation and provider matching platform."
+            description:
+                "Review the Voltly Privacy Policy for information about data handling, contact details, and platform use."
         },
         "cookie-policy.html": {
             title: "Cookie Policy | Voltly",
-            description: "Read the Voltly cookie policy and privacy choice information."
+            description:
+                "Review the Voltly Cookie Policy and learn how the site handles cookie preference choices."
         },
         "terms-of-service.html": {
             title: "Terms of Service | Voltly",
-            description: "Read the Voltly terms for using the electrical request-preparation and provider matching platform."
-        },
-        "panel-upgrades.html": {
-            title: "Panel Upgrade Provider Comparison | Voltly",
-            description: "Prepare panel upgrade request details and compare independent local electrical provider options."
-        },
-        "wiring-rewiring.html": {
-            title: "Wiring and Rewiring Provider Comparison | Voltly",
-            description: "Prepare wiring or rewiring request details and compare independent local electrical provider options."
-        },
-        "ev-charger-installation.html": {
-            title: "EV Charger Installation Provider Comparison | Voltly",
-            description: "Prepare EV charger installation request details and compare independent local electrical provider options."
-        },
-        "lighting-installation.html": {
-            title: "Lighting Installation Provider Comparison | Voltly",
-            description: "Prepare lighting installation request details and compare independent local electrical provider options."
+            description:
+                "Review the Voltly Terms of Service, platform role, user responsibilities, and legal notices."
         }
     }
 };
