@@ -1,11 +1,6 @@
-/* ==========================================================
-   VOLTLY — LEGAL PAGES REDESIGN
-   File: /css/legal.css
-   ========================================================== */
 
-/* =========================
-   LEGAL HERO
-   ========================= */
+
+
 
 .legal-hero {
     position: relative;
@@ -84,9 +79,7 @@
     transform: rotate(5deg);
 }
 
-/* =========================
-   LEGAL LAYOUT
-   ========================= */
+
 
 .legal-content {
     position: relative;
@@ -115,9 +108,7 @@
     align-items: start;
 }
 
-/* =========================
-   LEGAL SIDEBAR
-   ========================= */
+
 
 .legal-sidebar {
     position: sticky;
@@ -245,9 +236,7 @@
     line-height: 1.5;
 }
 
-/* =========================
-   LEGAL DOCUMENT
-   ========================= */
+
 
 .legal-document {
     position: relative;
@@ -420,18 +409,14 @@
     line-height: 1.58;
 }
 
-/* =========================
-   JS STATES
-   ========================= */
+
 
 .legal-sidebar.is-legal-active,
 .legal-document.is-legal-active {
     border-color: rgba(255, 203, 69, 0.34);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1024px) {
     .legal-layout {

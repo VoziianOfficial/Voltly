@@ -1,9 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — GLOBAL CONFIG
-   File: /js/config.js
-   ========================================================== */
 
 window.SITE_CONFIG = {
     companyName: "Voltly",

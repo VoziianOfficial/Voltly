@@ -1,16 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — HOME REDESIGN INTERACTIONS
-   File: /js/home.js
 
-   Adds:
-   - subtle electrical parallax
-   - hero arc movement
-   - power panel glow
-   - service card current effect
-   - high-voltage CTA movement
-   ========================================================== */
 
 (function () {
     document.addEventListener("DOMContentLoaded", () => {
@@ -21,9 +11,7 @@
         initHighVoltMotion();
     });
 
-    /* =========================
-       HERO ELECTRICAL MOTION
-       ========================= */
+    
 
     function initHeroElectricalMotion() {
         const hero = document.querySelector(".home-hero");
@@ -73,9 +61,7 @@
         });
     }
 
-    /* =========================
-       POWER PANEL PULSE
-       ========================= */
+    
 
     function initPowerPanelPulse() {
         const panel = document.querySelector(".home-power-panel");
@@ -97,9 +83,7 @@
         }, 1100);
     }
 
-    /* =========================
-       SERVICE CARD CURRENT EFFECT
-       ========================= */
+    
 
     function initServiceCardCurrent() {
         const cards = Array.from(document.querySelectorAll(".home-service-grid .service-card"));
@@ -125,9 +109,7 @@
         });
     }
 
-    /* =========================
-       LIVE WIRE CHECK HOVER
-       ========================= */
+    
 
     function initLiveWireHover() {
         const section = document.querySelector(".home-live-wire");
@@ -146,9 +128,7 @@
         });
     }
 
-    /* =========================
-       HIGH VOLT CTA MOTION
-       ========================= */
+    
 
     function initHighVoltMotion() {
         const card = document.querySelector(".highvolt-card");

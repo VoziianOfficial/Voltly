@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — SERVICES PAGE INTERACTIONS
-   File: /js/services.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", () => {
@@ -13,9 +10,7 @@
         initServicesPhotoCurrent();
     });
 
-    /* =========================
-       HERO MOTION
-       ========================= */
+    
 
     function initServicesHeroMotion() {
         const hero = document.querySelector(".services-hero");
@@ -62,9 +57,7 @@
         });
     }
 
-    /* =========================
-       POWER ROUTE INTERACTION
-       ========================= */
+    
 
     function initPowerRouteInteraction() {
         const shell = document.querySelector(".power-route-shell");
@@ -99,9 +92,7 @@
         });
     }
 
-    /* =========================
-       SERVICE MAP INTERACTION
-       ========================= */
+    
 
     function initServicesMapInteraction() {
         const panel = document.querySelector(".services-map-panel");
@@ -122,9 +113,7 @@
         });
     }
 
-    /* =========================
-       PHOTO CURRENT MOTION
-       ========================= */
+    
 
     function initServicesPhotoCurrent() {
         const photo = document.querySelector(".services-check-photo");

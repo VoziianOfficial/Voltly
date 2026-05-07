@@ -1,18 +1,6 @@
-/* ==========================================================
-   VOLTLY — HOME REDESIGN
-   File: /css/home.css
 
-   Direction:
-   - real electrical / lightning energy
-   - premium dark industrial
-   - strong photo sections
-   - visible bolts and current lines
-   - no boring nested cards
-   ========================================================== */
 
-/* =========================
-   HERO
-   ========================= */
+
 
 .home-hero {
     position: relative;
@@ -204,9 +192,7 @@
     color: var(--color-accent-hot);
 }
 
-/* =========================
-   HERO POWER PANEL
-   ========================= */
+
 
 .home-power-panel {
     position: relative;
@@ -391,9 +377,7 @@
     line-height: 1.55;
 }
 
-/* =========================
-   CURRENT STRIP
-   ========================= */
+
 
 .home-current-strip {
     position: relative;
@@ -537,9 +521,7 @@
     background: linear-gradient(180deg, #FFFFFF, var(--color-accent-hot));
 }
 
-/* =========================
-   SERVICES
-   ========================= */
+
 
 .home-services {
     position: relative;
@@ -617,9 +599,7 @@
     letter-spacing: 0.14em;
 }
 
-/* =========================
-   LIVE WIRE SECTION
-   ========================= */
+
 
 .home-live-wire {
     position: relative;
@@ -788,9 +768,7 @@
     pointer-events: none;
 }
 
-/* =========================
-   SPLIT POWER
-   ========================= */
+
 
 .home-split-power {
     position: relative;
@@ -994,9 +972,7 @@
     line-height: 1.5;
 }
 
-/* =========================
-   HIGH VOLT CTA
-   ========================= */
+
 
 .home-highvolt {
     position: relative;
@@ -1099,9 +1075,7 @@
     text-align: right;
 }
 
-/* =========================
-   FAQ
-   ========================= */
+
 
 .home-faq {
     position: relative;
@@ -1164,9 +1138,7 @@
     transform: rotate(18deg);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1280px) {
     .home-service-grid {
@@ -1545,9 +1517,7 @@
     }
 }
 
-/* =========================
-   HOME JS STATES
-   ========================= */
+
 
 .power-flow span.is-active-current {
     transform: scale(1.28);
@@ -1585,9 +1555,7 @@
     transform: rotate(0deg) translateY(12px);
 }
 
-/* ==========================================================
-   FINAL FIX — LIVE WIRE CHECKLIST LAYOUT
-   ========================================================== */
+
 
 .live-wire-checks {
     width: 100%;
@@ -1651,9 +1619,7 @@
     }
 }
 
-/* ==========================================================
-   FINAL POLISH — HERO SCALE
-   ========================================================== */
+
 
 @media (min-width: 1025px) {
     .home-hero {

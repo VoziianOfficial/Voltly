@@ -1,21 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — SHARED REDESIGN LOGIC
-   File: /js/main.js
 
-   Handles:
-   - config injection
-   - page meta
-   - lightning logo header/footer
-   - navigation + services dropdown
-   - mobile menu with inert focus safety
-   - service cards
-   - FAQ accordion + schema
-   - cookie banner
-   - form validation
-   - reveal animations
-   ========================================================== */
 
 (function () {
     const config = window.SITE_CONFIG;
@@ -84,9 +69,7 @@
         refreshIcons();
     });
 
-    /* =========================
-       BASIC HELPERS
-       ========================= */
+    
 
     function qs(selector, scope = document) {
         return scope.querySelector(selector);
@@ -181,9 +164,7 @@
         });
     }
 
-    /* =========================
-       PAGE META
-       ========================= */
+    
 
     function applyPageMeta() {
         const filename = getCurrentFilename();
@@ -211,9 +192,7 @@
         }
     }
 
-    /* =========================
-       LOGO
-       ========================= */
+    
 
     function renderLogo(extraClass = "") {
         const className = extraClass ? ` site-logo ${extraClass}` : "site-logo";
@@ -229,9 +208,7 @@
         `;
     }
 
-    /* =========================
-       CONFIG VALUE INJECTION
-       ========================= */
+    
 
     function injectConfigValues() {
         qsa(selectors.companyName).forEach((element) => {
@@ -283,9 +260,7 @@
         });
     }
 
-    /* =========================
-       HEADER
-       ========================= */
+    
 
     function renderHeader() {
         const headerMount = qs(selectors.siteHeader);
@@ -463,13 +438,13 @@
                 }, closeDelayMs);
             };
 
-            // Mouse behavior (desktop): keep open while moving between trigger and dropdown.
+            
             item.addEventListener("mouseenter", openNow);
             item.addEventListener("mouseleave", closeSoon);
             dropdown.addEventListener("mouseenter", openNow);
             dropdown.addEventListener("mouseleave", closeSoon);
 
-            // Keyboard: open on focus within, close when focus leaves the whole dropdown container.
+            
             item.addEventListener("focusin", openNow);
             item.addEventListener("focusout", () => {
                 window.setTimeout(() => {
@@ -486,14 +461,12 @@
                 toggle.focus();
             });
 
-            // Ensure a consistent starting state.
+            
             setExpanded(false);
         });
     }
 
-    /* =========================
-       FOOTER
-       ========================= */
+    
 
     function renderFooter() {
         const footerMount = qs(selectors.siteFooter);
@@ -594,9 +567,7 @@
         });
     }
 
-    /* =========================
-       SERVICE CARDS
-       ========================= */
+    
 
     function renderServiceCards() {
         const mounts = qsa(selectors.serviceCards);
@@ -643,9 +614,7 @@
         return String(index + 1).padStart(2, "0");
     }
 
-    /* =========================
-       FAQ
-       ========================= */
+    
 
     function renderFaq() {
         const faqMounts = qsa(selectors.faqList);
@@ -736,9 +705,7 @@
         });
     }
 
-    /* =========================
-       MOBILE MENU
-       ========================= */
+    
 
     function initMobileMenu() {
         const menu = qs("[data-mobile-menu]");
@@ -829,9 +796,7 @@
         }
     }
 
-    /* =========================
-       STICKY HEADER
-       ========================= */
+    
 
     function initStickyHeader() {
         const header = qs("[data-header]");
@@ -845,9 +810,7 @@
         window.addEventListener("scroll", updateHeader, { passive: true });
     }
 
-    /* =========================
-       COOKIE BANNER
-       ========================= */
+    
 
     function initCookieBanner() {
         const bannerMount = qs(selectors.policyBanner);
@@ -907,10 +870,6 @@
             }, 260);
         }
     }
-
-    /* =========================
-       FORM VALIDATION
-       ========================= */
 
     function initFormValidation() {
         const forms = qsa("[data-voltly-form]");
@@ -1073,10 +1032,6 @@
         });
     }
 
-    /* =========================
-       ACTIVE NAVIGATION
-       ========================= */
-
     function setActiveNavigation() {
         const filename = getCurrentFilename();
 
@@ -1100,10 +1055,6 @@
             }
         });
     }
-
-    /* =========================
-       ELECTRIC POINTER GLOW
-       ========================= */
 
     function initElectricalPointerGlow() {
         const glowTargets = qsa(".service-card, .surface-panel, .cta-photo, .form-shell");
@@ -1130,10 +1081,6 @@
             });
         });
     }
-
-    /* =========================
-       PUBLIC HELPERS
-       ========================= */
 
     window.Voltly = {
         config,

@@ -1,11 +1,6 @@
-/* ==========================================================
-   VOLTLY — SERVICE PAGES REDESIGN
-   File: /css/service-page.css
-   ========================================================== */
 
-/* =========================
-   SERVICE HERO
-   ========================= */
+
+
 
 .service-hero {
     position: relative;
@@ -84,9 +79,7 @@
     transform: rotate(5deg);
 }
 
-/* =========================
-   SERVICE CONTEXT
-   ========================= */
+
 
 .service-context {
     position: relative;
@@ -238,9 +231,7 @@
     text-transform: uppercase;
 }
 
-/* =========================
-   EVALUATION
-   ========================= */
+
 
 .service-evaluation {
     position: relative;
@@ -379,9 +370,7 @@
     line-height: 1.48;
 }
 
-/* =========================
-   PREPARATION
-   ========================= */
+
 
 .service-prep {
     position: relative;
@@ -621,9 +610,7 @@
     line-height: 1.28;
 }
 
-/* =========================
-   MATCHING FLOW
-   ========================= */
+
 
 .service-flow {
     position: relative;
@@ -771,9 +758,7 @@
     line-height: 1.45;
 }
 
-/* =========================
-   FAQ / CTA
-   ========================= */
+
 
 .service-page-faq {
     position: relative;
@@ -849,9 +834,7 @@
     pointer-events: none;
 }
 
-/* =========================
-   SERVICE PAGE BODY DATA VARIATIONS
-   ========================= */
+
 
 body[data-service-id="panel-upgrades"] .service-hero .page-hero-bg img,
 body[data-service-id="panel-upgrades"] .service-context-media img {
@@ -873,9 +856,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     object-position: center 40%;
 }
 
-/* =========================
-   JS STATES
-   ========================= */
+
 
 .service-evaluation-shell.is-evaluation-active .service-evaluation-current,
 .service-flow-shell.is-flow-active .service-flow-current,
@@ -890,9 +871,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     background: rgba(246, 183, 60, 0.075);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1280px) {
     .service-evaluation-shell {
@@ -1077,9 +1056,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     }
 }
 
-/* ==========================================================
-   FINAL REDESIGN — COMPACT SERVICE EVALUATION SECTION
-   ========================================================== */
+
 
 .service-evaluation.section-sm {
     padding-block: clamp(28px, 3.5vw, 46px);
@@ -1260,9 +1237,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     }
 }
 
-/* ==========================================================
-   FINAL CLEANUP — SERVICE PREP ONE CLEAR CURRENT SYSTEM
-   ========================================================== */
+
 
 .service-prep.section {
     padding-block: clamp(34px, 4vw, 56px) !important;
@@ -1275,7 +1250,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     align-items: center !important;
 }
 
-/* subtle shared current line behind both columns */
+
 .service-prep-grid::before {
     content: "";
     position: absolute;
@@ -1316,12 +1291,12 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     line-height: 1.58 !important;
 }
 
-/* IMPORTANT: remove duplicate left timeline/list */
+
 .service-prep-list {
     display: none !important;
 }
 
-/* right side becomes the only visual system */
+
 .service-prep-visual {
     position: relative;
     z-index: 2;
@@ -1334,7 +1309,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     overflow: visible !important;
 }
 
-/* main electric rail */
+
 .service-prep-visual::before {
     content: "";
     position: absolute;
@@ -1358,7 +1333,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     pointer-events: none;
 }
 
-/* moving current */
+
 .service-prep-visual::after {
     content: "";
     position: absolute;
@@ -1402,7 +1377,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     opacity: 0.48 !important;
 }
 
-/* four nodes only — no cards */
+
 .service-prep-visual-grid {
     position: relative;
     z-index: 2;
@@ -1502,7 +1477,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     }
 }
 
-/* tablet: one clean centered block */
+
 @media (max-width: 1024px) {
     .service-prep-grid {
         grid-template-columns: 1fr !important;
@@ -1537,7 +1512,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     }
 }
 
-/* mobile: vertical current rail, clean and readable */
+
 @media (max-width: 720px) {
     .service-prep.section {
         padding-block: 32px !important;
@@ -1658,9 +1633,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     }
 }
 
-/* ==========================================================
-   SERVICE FLOW — PHOTO BACKGROUND PER SERVICE PAGE
-   ========================================================== */
+
 
 .service-flow-shell {
     isolation: isolate;
@@ -1669,7 +1642,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     background-position: center !important;
 }
 
-/* общая затемняющая фото-подложка, чтобы текст читался */
+
 .service-flow-shell::before {
     z-index: 0;
     background:
@@ -1691,7 +1664,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     mask-image: none;
 }
 
-/* чтобы контент был поверх фото */
+
 .service-flow-heading,
 .service-flow-steps,
 .service-flow-current,
@@ -1700,7 +1673,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     z-index: 2;
 }
 
-/* карточки внутри flow делаем читабельнее поверх фото */
+
 .service-flow-steps article {
     background:
         linear-gradient(180deg, rgba(8, 12, 18, 0.82), rgba(8, 12, 18, 0.58)) !important;
@@ -1708,7 +1681,7 @@ body[data-service-id="lighting-installation"] .service-context-media img {
     border-color: rgba(255, 255, 255, 0.13) !important;
 }
 
-/* Panel Upgrades */
+
 body[data-service-id="panel-upgrades"] .service-flow-shell {
     background-image:
         linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
@@ -1716,7 +1689,7 @@ body[data-service-id="panel-upgrades"] .service-flow-shell {
     background-position: center 48% !important;
 }
 
-/* Wiring & Rewiring */
+
 body[data-service-id="wiring-rewiring"] .service-flow-shell {
     background-image:
         linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
@@ -1724,7 +1697,7 @@ body[data-service-id="wiring-rewiring"] .service-flow-shell {
     background-position: center 42% !important;
 }
 
-/* EV Charger Installation */
+
 body[data-service-id="ev-charger-installation"] .service-flow-shell {
     background-image:
         linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
@@ -1732,7 +1705,7 @@ body[data-service-id="ev-charger-installation"] .service-flow-shell {
     background-position: center 52% !important;
 }
 
-/* Lighting Installation */
+
 body[data-service-id="lighting-installation"] .service-flow-shell {
     background-image:
         linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
@@ -1740,14 +1713,14 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     background-position: center 44% !important;
 }
 
-/* фото должно быть заметным, но не мешать */
+
 .service-flow-shell {
     box-shadow:
         var(--shadow-card),
         inset 0 0 0 1px rgba(255, 255, 255, 0.025);
 }
 
-/* hover чуть оживляет карточки поверх фото */
+
 @media (hover: hover) and (pointer: fine) {
     .service-flow-steps article:hover {
         background:
@@ -1756,7 +1729,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* tablet */
+
 @media (max-width: 1024px) {
     .service-flow-shell::before {
         background:
@@ -1777,7 +1750,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* mobile */
+
 @media (max-width: 768px) {
     .service-flow-shell {
         background-position: center center !important;
@@ -1805,9 +1778,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* ==========================================================
-   FINAL FIX — COMPACT SERVICE FLOW SECTION
-   ========================================================== */
+
 
 .service-flow.section-sm {
     padding-block: clamp(26px, 3vw, 40px) !important;
@@ -1819,7 +1790,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     min-height: auto !important;
 }
 
-/* Заголовок делаем компактнее */
+
 .service-flow-heading {
     gap: 10px !important;
     max-width: 760px !important;
@@ -1842,7 +1813,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     line-height: 1.5 !important;
 }
 
-/* Карточки компактнее */
+
 .service-flow-steps {
     gap: 10px !important;
 }
@@ -1874,7 +1845,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     line-height: 1.35 !important;
 }
 
-/* Молния и ток меньше, чтобы не раздували визуально секцию */
+
 .service-flow-bolt {
     top: -26px !important;
     right: clamp(16px, 4vw, 54px) !important;
@@ -1888,7 +1859,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     opacity: 0.42 !important;
 }
 
-/* Фото-подложку оставляем, но делаем чуть чище */
+
 .service-flow-shell::before {
     background:
         linear-gradient(90deg,
@@ -1907,7 +1878,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
         38px 38px !important;
 }
 
-/* Tablet */
+
 @media (max-width: 1024px) {
     .service-flow.section-sm {
         padding-block: 30px !important;
@@ -1927,7 +1898,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
     .service-flow.section-sm {
         padding-block: 26px !important;
@@ -1980,7 +1951,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* Small mobile */
+
 @media (max-width: 520px) {
     .service-flow-steps {
         grid-template-columns: 1fr !important;
@@ -2011,9 +1982,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* ==========================================================
-   EXTRA COMPACT — SERVICE FLOW MORE DENSE
-   ========================================================== */
+
 
 .service-flow.section-sm {
     padding-block: clamp(18px, 2.4vw, 30px) !important;
@@ -2024,7 +1993,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     padding: clamp(14px, 2vw, 22px) !important;
 }
 
-/* heading еще компактнее */
+
 .service-flow-heading {
     gap: 7px !important;
     max-width: 720px !important;
@@ -2045,7 +2014,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     line-height: 1.42 !important;
 }
 
-/* карточки еще ниже */
+
 .service-flow-steps {
     gap: 8px !important;
 }
@@ -2077,7 +2046,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     line-height: 1.28 !important;
 }
 
-/* декоративные элементы тише */
+
 .service-flow-bolt {
     top: -18px !important;
     width: 34px !important;
@@ -2089,7 +2058,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     opacity: 0.28 !important;
 }
 
-/* overlay чуть плотнее, потому секция ниже и фото может мешать тексту */
+
 .service-flow-shell::before {
     background:
         linear-gradient(90deg,
@@ -2100,7 +2069,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
         radial-gradient(circle at 12% 90%, rgba(53, 217, 255, 0.08), transparent 34%) !important;
 }
 
-/* tablet */
+
 @media (max-width: 1024px) {
     .service-flow-shell {
         padding: 16px !important;
@@ -2112,7 +2081,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* mobile */
+
 @media (max-width: 768px) {
     .service-flow.section-sm {
         padding-block: 20px !important;
@@ -2161,17 +2130,14 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* ==========================================================
-   FINAL ALTERNATIVE — SERVICE FLOW RAIL SECTION
-   Clean compact section, not banner, not photo card
-   ========================================================== */
+
 
 .service-flow.section-sm {
     position: relative;
     padding-block: clamp(36px, 4.5vw, 64px) !important;
 }
 
-/* remove old banner/card/photo look */
+
 .service-flow.section-sm .service-flow-shell {
     position: relative !important;
     display: grid !important;
@@ -2196,9 +2162,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     display: none !important;
 }
 
-/* =========================
-   LEFT COPY
-   ========================= */
+
 
 .service-flow.section-sm .service-flow-heading {
     position: relative !important;
@@ -2216,7 +2180,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     border-left: 2px solid rgba(255, 203, 69, 0.58);
 }
 
-/* small electric accent behind text */
+
 .service-flow.section-sm .service-flow-heading::before {
     content: "";
     position: absolute;
@@ -2273,9 +2237,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     text-align: left !important;
 }
 
-/* =========================
-   RIGHT FLOW RAIL
-   ========================= */
+
 
 .service-flow.section-sm .service-flow-steps {
     position: relative !important;
@@ -2287,7 +2249,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     padding-left: 34px !important;
 }
 
-/* static rail */
+
 .service-flow.section-sm .service-flow-steps::before {
     content: "";
     position: absolute;
@@ -2306,7 +2268,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
         0 0 22px rgba(53, 217, 255, 0.14);
 }
 
-/* moving current */
+
 .service-flow.section-sm .service-flow-steps::after {
     content: "";
     position: absolute;
@@ -2347,7 +2309,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* flow row */
+
 .service-flow.section-sm .service-flow-steps article {
     position: relative !important;
     display: grid !important;
@@ -2375,7 +2337,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     border-bottom: 0 !important;
 }
 
-/* bolt node */
+
 .service-flow.section-sm .service-flow-steps article::before {
     content: "" !important;
     position: absolute !important;
@@ -2402,7 +2364,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
         drop-shadow(0 0 10px rgba(53, 217, 255, 0.46)) drop-shadow(0 0 18px rgba(53, 217, 255, 0.18)) !important;
 }
 
-/* number on the right */
+
 .service-flow.section-sm .service-flow-steps span {
     position: static !important;
     grid-column: 2 !important;
@@ -2415,7 +2377,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     line-height: 1 !important;
 }
 
-/* title/text */
+
 .service-flow.section-sm .service-flow-steps strong {
     grid-column: 1 !important;
     color: var(--color-heading) !important;
@@ -2432,7 +2394,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     line-height: 1.48 !important;
 }
 
-/* hover */
+
 @media (hover: hover) and (pointer: fine) {
     .service-flow.section-sm .service-flow-steps article:hover {
         transform: translateX(4px) !important;
@@ -2451,9 +2413,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* =========================
-   TABLET
-   ========================= */
+
 
 @media (max-width: 1024px) {
     .service-flow.section-sm {
@@ -2506,9 +2466,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+
 
 @media (max-width: 768px) {
     .service-flow.section-sm {
@@ -2591,10 +2549,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* ==========================================================
-   SERVICE FLOW — SWAP LEFT / RIGHT BLOCKS
-   Steps left, text right
-   ========================================================== */
+
 
 @media (min-width: 1025px) {
     .service-flow.section-sm .service-flow-shell {
@@ -2612,9 +2567,7 @@ body[data-service-id="lighting-installation"] .service-flow-shell {
     }
 }
 
-/* ==========================================================
-   HIDE SERVICE FLOW ON TABLET + MOBILE
-   ========================================================== */
+
 
 @media (max-width: 1024px) {
     .service-flow.section-sm {

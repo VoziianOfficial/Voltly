@@ -7,23 +7,9 @@
 @import url("./service-page.css");
 @import url("./legal.css");
 
-/* ==========================================================
-   VOLTLY — GLOBAL REDESIGN SYSTEM
-   File: /css/style.css
 
-   Direction:
-   - real electrical energy
-   - premium dark industrial
-   - sharp lightning identity
-   - stronger amber + controlled cyan
-   - no logo box / no logo subtitle
-   - compact sections
-   - no generic contractor template feeling
-   ========================================================== */
 
-/* =========================
-   DESIGN TOKENS
-   ========================= */
+
 
 :root {
     --color-bg: #05070A;
@@ -82,9 +68,7 @@
     --transition-slow: 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* =========================
-   RESET / BASE
-   ========================= */
+
 
 *,
 *::before,
@@ -193,9 +177,7 @@ main {
     background: var(--color-accent-hot);
 }
 
-/* =========================
-   ACCESSIBILITY
-   ========================= */
+
 
 .skip-link {
     position: fixed;
@@ -252,9 +234,7 @@ main {
     }
 }
 
-/* =========================
-   TYPOGRAPHY
-   ========================= */
+
 
 h1,
 h2,
@@ -360,9 +340,7 @@ p {
     display: none;
 }
 
-/* =========================
-   LAYOUT
-   ========================= */
+
 
 .container,
 .container-wide {
@@ -457,9 +435,7 @@ body[data-page="service"] {
     z-index: 1;
 }
 
-/* =========================
-   ELECTRIC / LIGHTNING DECOR
-   ========================= */
+
 
 .lightning-strike,
 .electric-strike,
@@ -540,9 +516,7 @@ body[data-page="service"] {
         linear-gradient(90deg, transparent 0 62%, rgba(255, 255, 255, 0.08) 62% 62.1%, transparent 62.1% 100%);
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
+
 
 .btn {
     position: relative;
@@ -665,17 +639,15 @@ body[data-page="service"] {
     gap: 12px;
 }
 
-/* =========================
-   REVEAL — SMOOTH, NO BLANK CONTENT
-   ========================= */
 
-/* по умолчанию контент видимый, чтобы не было пустоты если JS тормозит */
+
+
 .reveal-up {
     opacity: 1;
     transform: none;
 }
 
-/* анимация включается только когда JS готов */
+
 body.reveal-ready .reveal-up {
     opacity: 0;
     transform: translateY(10px);
@@ -685,22 +657,20 @@ body.reveal-ready .reveal-up {
     transition-delay: 0ms !important;
 }
 
-/* появление */
+
 body.reveal-ready .reveal-up.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* если пользователь быстро скроллит — не держим контент скрытым */
+
 body.reveal-ready.is-fast-scroll .reveal-up {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
 }
 
-/* =========================
-   HEADER
-   ========================= */
+
 
 .site-header {
     position: relative;
@@ -993,9 +963,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     height: 21px;
 }
 
-/* =========================
-   MOBILE MENU
-   ========================= */
+
 
 .mobile-menu-backdrop {
     position: fixed;
@@ -1181,9 +1149,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     line-height: 1.5;
 }
 
-/* =========================
-   PAGE HERO BASE
-   ========================= */
+
 
 .page-hero {
     position: relative;
@@ -1274,9 +1240,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     color: var(--color-accent-hot);
 }
 
-/* =========================
-   SERVICE CARDS GLOBAL
-   ========================= */
+
 
 .service-card {
     position: relative;
@@ -1415,9 +1379,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     margin-top: 5px;
 }
 
-/* =========================
-   FAQ
-   ========================= */
+
 
 .faq-shell {
     display: grid;
@@ -1537,9 +1499,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     line-height: 1.62;
 }
 
-/* =========================
-   FORMS
-   ========================= */
+
 
 .form-shell {
     position: relative;
@@ -1777,9 +1737,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     background: var(--color-danger-soft);
 }
 
-/* =========================
-   CTA / STRIPS
-   ========================= */
+
 
 .cta-photo {
     position: relative;
@@ -1931,9 +1889,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     }
 }
 
-/* =========================
-   FOOTER
-   ========================= */
+
 
 .site-footer {
     position: relative;
@@ -2069,9 +2025,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     font-size: 0.82rem;
 }
 
-/* =========================
-   COOKIE BANNER
-   ========================= */
+
 
 .policy-banner {
     position: fixed;
@@ -2137,9 +2091,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     gap: 10px;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1180px) {
     .grid-4 {
@@ -2479,9 +2431,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     }
 }
 
-/* =========================
-   EXTRA LIGHTNING MARKS
-   ========================= */
+
 
 .dropdown-bolt,
 .mobile-service-bolt {
@@ -2508,9 +2458,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     clip-path: polygon(50% 0, 100% 16%, 88% 100%, 12% 100%, 0 16%);
 }
 
-/* ==========================================================
-   FINAL POLISH — PHOTO SERVICE CARDS
-   ========================================================== */
+
 
 .service-card-image img {
     filter: saturate(1.18) contrast(1.08) brightness(0.82);
@@ -2526,9 +2474,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
         radial-gradient(circle at 88% 12%, rgba(246, 183, 60, 0.22), transparent 28%);
 }
 
-/* ==========================================================
-   FINAL POLISH — HEADER ACTIVE STATE
-   ========================================================== */
+
 
 .nav-link.is-active {
     color: var(--color-accent-hot);
@@ -2539,9 +2485,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
         0 0 22px rgba(246, 183, 60, 0.08);
 }
 
-/* ==========================================================
-   HEADER NAV CENTER FIX
-   ========================================================== */
+
 
 .site-header-inner {
     display: grid;
@@ -2562,12 +2506,12 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     justify-self: end;
 }
 
-/* чтобы меню не растягивалось и реально сидело по центру */
+
 .nav-list {
     justify-content: center;
 }
 
-/* mobile/tablet: возвращаем нормальный layout */
+
 @media (max-width: 1024px) {
     .site-header-inner {
         display: flex;
@@ -2584,9 +2528,7 @@ body.reveal-ready.is-fast-scroll .reveal-up {
     }
 }
 
-/* ==========================================================
-   HARD FIX — FIXED HEADER
-   ========================================================== */
+
 
 html {
     scroll-padding-top: var(--header-height);
@@ -2608,18 +2550,18 @@ html {
     width: 100%;
 }
 
-/* чтобы fixed header не перекрывал контент на обычных страницах */
+
 main {
     position: relative;
     z-index: 1;
 }
 
-/* dropdown должен быть поверх hero */
+
 .services-dropdown {
     z-index: 3100;
 }
 
-/* mobile menu поверх всего */
+
 .mobile-menu-backdrop {
     z-index: 3200;
 }
@@ -2628,9 +2570,7 @@ main {
     z-index: 3300;
 }
 
-/* ==========================================================
-   MOBILE FIX — COMPACT EQUAL BUTTONS
-   ========================================================== */
+
 
 @media (max-width: 768px) {
     .btn {

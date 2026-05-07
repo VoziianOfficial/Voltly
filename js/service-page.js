@@ -1,15 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — SERVICE PAGE LOGIC
-   File: /js/service-page.js
 
-   This file powers:
-   - panel-upgrades.html
-   - wiring-rewiring.html
-   - ev-charger-installation.html
-   - lighting-installation.html
-   ========================================================== */
 
 (function () {
     document.addEventListener("DOMContentLoaded", () => {
@@ -41,9 +32,7 @@
         }
     });
 
-    /* =========================
-       HELPERS
-       ========================= */
+    
 
     function getCurrentService() {
         if (!window.Voltly || !window.Voltly.config) {
@@ -160,9 +149,7 @@
         return service.prepVisualItems || fallback[service.id] || [];
     }
 
-    /* =========================
-       RENDER SERVICE PAGE
-       ========================= */
+    
 
     function renderServicePage(service) {
         setText("[data-service-title]", service.title);
@@ -305,9 +292,7 @@
         });
     }
 
-    /* =========================
-       HERO MOTION
-       ========================= */
+    
 
     function initServiceHeroMotion() {
         const hero = document.querySelector(".service-hero");
@@ -348,9 +333,7 @@
         });
     }
 
-    /* =========================
-       MEDIA / BOLT MOTION
-       ========================= */
+    
 
     function initServiceMediaMotion() {
         const mediaBlocks = Array.from(document.querySelectorAll(".service-context-media"));
@@ -381,9 +364,7 @@
         });
     }
 
-    /* =========================
-       EVALUATION INTERACTION
-       ========================= */
+    
 
     function initEvaluationInteraction() {
         const shell = document.querySelector(".service-evaluation-shell");
@@ -418,9 +399,7 @@
         });
     }
 
-    /* =========================
-       PREPARATION INTERACTION
-       ========================= */
+    
 
     function initPreparationInteraction() {
         const visual = document.querySelector(".service-prep-visual");
@@ -478,9 +457,7 @@
         });
     }
 
-    /* =========================
-       FLOW INTERACTION
-       ========================= */
+    
 
     function initFlowInteraction() {
         const shell = document.querySelector(".service-flow-shell");
@@ -515,9 +492,7 @@
         });
     }
 
-    /* =========================
-       CTA MOTION
-       ========================= */
+    
 
     function initServiceCtaMotion() {
         const cta = document.querySelector(".service-cta .cta-photo");

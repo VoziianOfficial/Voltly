@@ -1,11 +1,6 @@
-/* ==========================================================
-   VOLTLY — ABOUT PAGE REDESIGN
-   File: /css/about.css
-   ========================================================== */
 
-/* =========================
-   ABOUT HERO
-   ========================= */
+
+
 
 .about-hero {
     position: relative;
@@ -84,9 +79,7 @@
     transform: rotate(5deg);
 }
 
-/* =========================
-   STORY
-   ========================= */
+
 
 .about-story {
     position: relative;
@@ -204,9 +197,7 @@
     text-transform: uppercase;
 }
 
-/* =========================
-   ROLE — DOES / DOES NOT
-   ========================= */
+
 
 .about-role {
     position: relative;
@@ -370,9 +361,7 @@
     filter: drop-shadow(0 0 10px rgba(53, 217, 255, 0.38));
 }
 
-/* =========================
-   VERIFY SECTION
-   ========================= */
+
 
 .about-verify {
     position: relative;
@@ -547,9 +536,7 @@
     line-height: 1.5;
 }
 
-/* =========================
-   PRINCIPLES
-   ========================= */
+
 
 .about-principles {
     position: relative;
@@ -732,9 +719,7 @@
     line-height: 1.5;
 }
 
-/* =========================
-   CTA / FAQ
-   ========================= */
+
 
 .about-cta {
     position: relative;
@@ -810,9 +795,7 @@
     transform: rotate(18deg);
 }
 
-/* =========================
-   JS STATES
-   ========================= */
+
 
 .about-role-shell.is-role-active .about-role-current {
     opacity: 1;
@@ -832,9 +815,7 @@
     opacity: 1;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1280px) {
     .about-principles-shell {

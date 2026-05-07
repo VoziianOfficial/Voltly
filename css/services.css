@@ -1,11 +1,6 @@
-/* ==========================================================
-   VOLTLY — SERVICES PAGE REDESIGN
-   File: /css/services.css
-   ========================================================== */
 
-/* =========================
-   SERVICES HERO
-   ========================= */
+
+
 
 .services-hero {
     position: relative;
@@ -94,9 +89,7 @@
     transform: rotate(5deg);
 }
 
-/* =========================
-   SWITCHBOARD
-   ========================= */
+
 
 .services-switchboard {
     position: relative;
@@ -167,9 +160,7 @@
     transform: translateY(24px);
 }
 
-/* =========================
-   POWER ROUTE
-   ========================= */
+
 
 .services-power-route {
     position: relative;
@@ -331,9 +322,7 @@
     line-height: 1.45;
 }
 
-/* =========================
-   PHOTO CHECKLIST
-   ========================= */
+
 
 .services-check-current {
     position: relative;
@@ -516,9 +505,7 @@
     }
 }
 
-/* =========================
-   SERVICE MAP
-   ========================= */
+
 
 .services-map {
     position: relative;
@@ -641,9 +628,7 @@
     line-height: 1.3;
 }
 
-/* =========================
-   CTA / FAQ
-   ========================= */
+
 
 .services-cta {
     position: relative;
@@ -719,9 +704,7 @@
     transform: rotate(18deg);
 }
 
-/* =========================
-   JS STATES
-   ========================= */
+
 
 .power-route-shell.is-route-active .power-route-current {
     opacity: 1;
@@ -736,9 +719,7 @@
     opacity: 1;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1280px) {
     .services-switchboard-grid {

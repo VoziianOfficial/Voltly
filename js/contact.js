@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — CONTACT PAGE INTERACTIONS
-   File: /js/contact.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", () => {
@@ -15,9 +12,7 @@
         initContactCtaMotion();
     });
 
-    /* =========================
-       HERO MOTION
-       ========================= */
+    
 
     function initContactHeroMotion() {
         const hero = document.querySelector(".contact-hero");
@@ -58,9 +53,7 @@
         });
     }
 
-    /* =========================
-       CONTACT SIDE MOTION
-       ========================= */
+    
 
     function initContactSideMotion() {
         const side = document.querySelector(".contact-side");
@@ -90,9 +83,7 @@
         });
     }
 
-    /* =========================
-       MAP INTERACTION
-       ========================= */
+    
 
     function initContactMapInteraction() {
         const mapCard = document.querySelector(".contact-map-card");
@@ -165,9 +156,7 @@
         });
     }
 
-    /* =========================
-       BEFORE SUBMIT INTERACTION
-       ========================= */
+    
 
     function initBeforeSubmitInteraction() {
         const shell = document.querySelector(".contact-before-shell");
@@ -202,9 +191,7 @@
         });
     }
 
-    /* =========================
-       BEFORE SUBMIT SWIPER (TABLET/MOBILE)
-       ========================= */
+    
 
     function initBeforeSubmitSwiper() {
         const shell = document.querySelector(".contact-before-shell");
@@ -298,7 +285,7 @@
             state.slidesPerView = readSlidesPerView();
             buildClones();
 
-            // Ensure track is in swiper mode
+            
             shell.classList.add("is-before-swiper");
 
             const slideEls = Array.from(track.children).filter((node) => node.nodeType === 1);
@@ -353,15 +340,15 @@
             const realCount = slides.filter((node) => node.getAttribute("data-before-clone") !== "true").length;
             if (!realCount) return;
 
-            // Update index from scroll position.
+            
             const rawIndex = state.step ? Math.round(viewport.scrollLeft / state.step) : state.index;
             state.index = rawIndex;
 
             if (state.index >= realCount + state.cloneCount) {
-                // Moved into head clones -> jump to first real
+                
                 snapToIndex(state.cloneCount, { animated: false });
             } else if (state.index < state.cloneCount) {
-                // Moved into tail clones -> jump to last full view (keeps 2-up layout on tablet)
+                
                 const lastRealStartIndex = Math.max(
                     state.cloneCount,
                     realCount + state.cloneCount - state.slidesPerView
@@ -415,11 +402,11 @@
                 return;
             }
 
-            // Re-layout for 1/2 slides per view.
+            
             layoutSlides();
         };
 
-        // MediaQueryList change listener compatibility.
+        
         [mediaTablet, mediaMobile, mediaCoarseTablet].forEach((mq) => {
             if (!mq) return;
             if (typeof mq.addEventListener === "function") {
@@ -435,9 +422,7 @@
         });
     }
 
-    /* =========================
-       CTA MOTION
-       ========================= */
+    
 
     function initContactCtaMotion() {
         const cta = document.querySelector(".contact-disclaimer .cta-photo");

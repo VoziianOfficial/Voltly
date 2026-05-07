@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — ABOUT PAGE INTERACTIONS
-   File: /js/about.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", () => {
@@ -15,9 +12,7 @@
         initAboutCtaMotion();
     });
 
-    /* =========================
-       PAGE FAQ CONTENT
-       ========================= */
+    
 
     function initAboutFaqContent() {
         window.PAGE_FAQ = [
@@ -57,9 +52,7 @@
         }
     }
 
-    /* =========================
-       HERO MOTION
-       ========================= */
+    
 
     function initAboutHeroMotion() {
         const hero = document.querySelector(".about-hero");
@@ -100,9 +93,7 @@
         });
     }
 
-    /* =========================
-       ROLE INTERACTION
-       ========================= */
+    
 
     function initAboutRoleInteraction() {
         const shell = document.querySelector(".about-role-shell");
@@ -137,9 +128,7 @@
         });
     }
 
-    /* =========================
-       PHOTO BOLT MOTION
-       ========================= */
+    
 
     function initAboutPhotoBoltMotion() {
         const photoBlocks = Array.from(document.querySelectorAll(".about-story-media, .about-verify-photo"));
@@ -172,9 +161,7 @@
         });
     }
 
-    /* =========================
-       PRINCIPLES INTERACTION
-       ========================= */
+    
 
     function initAboutPrinciplesInteraction() {
         const shell = document.querySelector(".about-principles-shell");
@@ -195,9 +182,7 @@
         });
     }
 
-    /* =========================
-       CTA MOTION
-       ========================= */
+    
 
     function initAboutCtaMotion() {
         const cta = document.querySelector(".about-cta .cta-photo");

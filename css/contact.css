@@ -1,11 +1,6 @@
-/* ==========================================================
-   VOLTLY — CONTACT PAGE REDESIGN
-   File: /css/contact.css
-   ========================================================== */
 
-/* =========================
-   CONTACT HERO
-   ========================= */
+
+
 
 .contact-hero {
     position: relative;
@@ -84,9 +79,7 @@
     transform: rotate(5deg);
 }
 
-/* =========================
-   REQUEST FORM SECTION
-   ========================= */
+
 
 .contact-request {
     position: relative;
@@ -155,9 +148,7 @@
     width: fit-content;
 }
 
-/* =========================
-   CONTACT SIDE PANEL
-   ========================= */
+
 
 .contact-side {
     position: sticky;
@@ -288,9 +279,7 @@
     line-height: 1.5;
 }
 
-/* =========================
-   MAP VISUAL
-   ========================= */
+
 
 .contact-map-section {
     position: relative;
@@ -551,9 +540,7 @@
     line-height: 1.45;
 }
 
-/* =========================
-   BEFORE SUBMIT
-   ========================= */
+
 
 .contact-before {
     position: relative;
@@ -740,9 +727,7 @@
     line-height: 1.45;
 }
 
-/* =========================
-   DISCLAIMER CTA
-   ========================= */
+
 
 .contact-disclaimer {
     position: relative;
@@ -765,9 +750,7 @@
     margin-top: 16px;
 }
 
-/* =========================
-   JS STATES
-   ========================= */
+
 
 .contact-map-card.is-map-active .contact-map-current,
 .contact-before-shell.is-before-active .contact-before-current {
@@ -779,9 +762,7 @@
     background: rgba(246, 183, 60, 0.075);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1280px) {
     .contact-before-track {
@@ -974,9 +955,7 @@
     }
 }
 
-/* ==========================================================
-   CONTACT REQUEST — FINAL BIG SECTION + SMALL FORM
-   ========================================================== */
+
 
 .contact-electric-request {
     position: relative;
@@ -1169,9 +1148,7 @@
     pointer-events: none;
 }
 
-/* =========================
-   SMALL FORM CARD
-   ========================= */
+
 
 .electric-mini-form {
     position: relative;
@@ -1388,9 +1365,7 @@
     padding: 8px 9px;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1180px) {
     .contact-electric-inner {

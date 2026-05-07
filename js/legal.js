@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   VOLTLY — LEGAL PAGE INTERACTIONS
-   File: /js/legal.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", () => {
@@ -14,9 +11,7 @@
         markLegalPage();
     });
 
-    /* =========================
-       LEGAL HERO MOTION
-       ========================= */
+    
 
     function initLegalHeroMotion() {
         const hero = document.querySelector(".legal-hero");
@@ -57,9 +52,7 @@
         });
     }
 
-    /* =========================
-       POINTER GLOW
-       ========================= */
+    
 
     function initLegalPanelGlow() {
         const panels = Array.from(document.querySelectorAll(".legal-sidebar, .legal-document"));
@@ -89,9 +82,7 @@
         });
     }
 
-    /* =========================
-       SIDEBAR MOTION
-       ========================= */
+    
 
     function initLegalSidebarMotion() {
         const sidebar = document.querySelector(".legal-sidebar");
@@ -138,9 +129,7 @@
         });
     }
 
-    /* =========================
-       DOCUMENT MOTION
-       ========================= */
+    
 
     function initLegalDocumentMotion() {
         const documentPanel = document.querySelector(".legal-document");
@@ -167,9 +156,7 @@
         });
     }
 
-    /* =========================
-       ACTIVE LEGAL PAGE
-       ========================= */
+    
 
     function markLegalPage() {
         const legalPage = document.body.dataset.legalPage;
