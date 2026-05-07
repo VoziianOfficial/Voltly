@@ -577,10 +577,17 @@
 .contact-before-shell.is-before-swiper .contact-before-list {
     display: block;
     grid-template-columns: none;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     max-width: 100%;
     overscroll-behavior-x: contain;
-    touch-action: pan-y;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.contact-before-shell.is-before-swiper .contact-before-list::-webkit-scrollbar {
+    display: none;
 }
 .contact-before-track {
     display: grid;
@@ -591,6 +598,11 @@
 .contact-before-shell.is-before-swiper .contact-before-track {
     display: flex;
     flex-wrap: nowrap;
+}
+
+.contact-before-shell.is-before-swiper .contact-before-track > article {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .contact-before-shell.is-before-swiper .contact-before-list article {

@@ -22,19 +22,19 @@
     function initAboutFaqContent() {
         window.PAGE_FAQ = [
             {
-                question: "Is Voltly an electrical contractor?",
+                question: "Is {{companyName}} an electrical contractor?",
                 answer:
-                    "No. Voltly is not an electrical contractor and does not perform electrical work directly. Voltly is an independent matching platform that helps homeowners compare local provider options."
+                    "No. {{companyName}} is not an electrical contractor and does not perform electrical work directly. {{companyName}} is an independent matching platform that helps homeowners compare local provider options."
             },
             {
-                question: "Does Voltly employ electricians?",
+                question: "Does {{companyName}} employ electricians?",
                 answer:
-                    "No. Voltly does not employ electricians or send a Voltly electrical team. Providers are independent companies."
+                    "No. {{companyName}} does not employ electricians or send a {{companyName}} electrical team. Providers are independent companies."
             },
             {
-                question: "What does Voltly help homeowners do?",
+                question: "What does {{companyName}} help homeowners do?",
                 answer:
-                    "Voltly helps homeowners organize electrical project details by service category, ZIP code, timing, and notes before comparing independent local provider options."
+                    "{{companyName}} helps homeowners organize electrical project details by service category, ZIP code, timing, and notes before comparing independent local provider options."
             },
             {
                 question: "What should homeowners verify before hiring a provider?",
@@ -42,9 +42,9 @@
                     "Homeowners should verify licensing, insurance, permits, qualifications, scope, quote terms, timeline, and warranty details before hiring any provider."
             },
             {
-                question: "Does Voltly guarantee provider work?",
+                question: "Does {{companyName}} guarantee provider work?",
                 answer:
-                    "No. Voltly does not warrant or guarantee any work performed by independent providers."
+                    "No. {{companyName}} does not warrant or guarantee any work performed by independent providers."
             }
         ];
 

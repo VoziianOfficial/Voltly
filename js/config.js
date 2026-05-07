@@ -11,12 +11,12 @@ window.SITE_CONFIG = {
     brand: {
         shortName: "Voltly",
         tagline: "",
-        logoLabel: "Voltly home"
+        logoLabel: "{{companyName}} home"
     },
 
     phone: "(800) 314-2218",
     phoneHref: "tel:+18003142218",
-    phoneLabel: "Call Voltly at (800) 314-2218",
+    phoneLabel: "Call {{companyName}} at {{phone}}",
 
     email: "hello@voltlymatch.com",
 
@@ -31,13 +31,13 @@ window.SITE_CONFIG = {
 
     serviceArea: "USA electrical provider matching platform",
     footerText:
-        "Voltly helps homeowners organize electrical project details and compare independent local provider options for common residential electrical request categories.",
+        "{{companyName}} helps homeowners organize electrical project details and compare independent local provider options for common residential electrical request categories.",
 
     disclaimer:
         "Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.",
 
     legalNotice:
-        "Voltly is an independent matching platform and does not perform electrical work directly. Provider availability may vary by ZIP code, service type, and scheduling conditions.",
+        "{{companyName}} is an independent matching platform and does not perform electrical work directly. Provider availability may vary by ZIP code, service type, and scheduling conditions.",
 
     navigation: [
         { label: "Home", href: "index.html" },
@@ -63,7 +63,7 @@ window.SITE_CONFIG = {
             cardText:
                 "Compare local provider options for electrical panel expansion, replacement context, service capacity updates, and related project planning.",
             summary:
-                "Voltly helps homeowners prepare panel upgrade request details and compare independent local provider options.",
+                "{{companyName}} helps homeowners prepare panel upgrade request details and compare independent local provider options.",
             heroTitle: "Compare local panel upgrade provider options.",
             heroText:
                 "Share property details, current panel context, timing, and project notes before reviewing independent local provider options.",
@@ -91,9 +91,9 @@ window.SITE_CONFIG = {
                         "This category may fit when a homeowner is planning capacity changes, addressing an outdated panel, or preparing for additional electrical demand at the property."
                 },
                 {
-                    question: "Does Voltly perform panel upgrades directly?",
+                    question: "Does {{companyName}} perform panel upgrades directly?",
                     answer:
-                        "No. Voltly does not perform electrical work directly. The platform helps organize request details and compare independent local provider options."
+                        "No. {{companyName}} does not perform electrical work directly. The platform helps organize request details and compare independent local provider options."
                 },
                 {
                     question: "What should homeowners compare before choosing a panel upgrade provider?",
@@ -117,7 +117,7 @@ window.SITE_CONFIG = {
             cardText:
                 "Compare provider options for wiring updates, rewiring scope, room additions, renovation-related electrical planning, and older-home electrical concerns.",
             summary:
-                "Voltly helps homeowners organize wiring and rewiring request details before comparing local providers.",
+                "{{companyName}} helps homeowners organize wiring and rewiring request details before comparing local providers.",
             heroTitle: "Compare local wiring and rewiring provider options.",
             heroText:
                 "Prepare a cleaner request for electrical wiring updates, renovation work, room additions, or older-home rewiring context.",
@@ -145,9 +145,9 @@ window.SITE_CONFIG = {
                         "This category may be useful for room updates, renovation-related electrical work, older-home rewiring concerns, or broader electrical wiring changes."
                 },
                 {
-                    question: "Does Voltly send its own electricians?",
+                    question: "Does {{companyName}} send its own electricians?",
                     answer:
-                        "No. Voltly is not an electrician company. It helps homeowners compare independent local provider options."
+                        "No. {{companyName}} is not an electrician company. It helps homeowners compare independent local provider options."
                 },
                 {
                     question: "What should homeowners clarify in a wiring request?",
@@ -171,7 +171,7 @@ window.SITE_CONFIG = {
             cardText:
                 "Compare local provider options for home EV charger installation planning, panel capacity review context, charger location, and electrical readiness.",
             summary:
-                "Voltly helps homeowners prepare EV charger installation request details and compare local provider options.",
+                "{{companyName}} helps homeowners prepare EV charger installation request details and compare local provider options.",
             heroTitle: "Compare local EV charger installation provider options.",
             heroText:
                 "Prepare the request around charger type, location, electrical capacity context, and project timing before comparing independent providers.",
@@ -199,9 +199,9 @@ window.SITE_CONFIG = {
                         "Helpful details include charger type if known, install location, parking setup, distance from the panel, and photos or notes about the area."
                 },
                 {
-                    question: "Does Voltly install EV chargers directly?",
+                    question: "Does {{companyName}} install EV chargers directly?",
                     answer:
-                        "No. Voltly does not perform electrical work directly and does not provide installation services itself."
+                        "No. {{companyName}} does not perform electrical work directly and does not provide installation services itself."
                 },
                 {
                     question: "Should homeowners ask about panel capacity?",
@@ -225,7 +225,7 @@ window.SITE_CONFIG = {
             cardText:
                 "Compare local provider options for indoor or outdoor lighting installation requests, fixture changes, layout updates, and lighting improvement projects.",
             summary:
-                "Voltly helps homeowners organize lighting installation request details and compare independent local providers.",
+                "{{companyName}} helps homeowners organize lighting installation request details and compare independent local providers.",
             heroTitle: "Compare local lighting installation provider options.",
             heroText:
                 "Share fixture plans, room context, property needs, and timing before comparing local provider options for lighting projects.",
@@ -253,9 +253,9 @@ window.SITE_CONFIG = {
                         "This category may fit fixture replacements, new lighting layouts, exterior lighting changes, or broader residential lighting improvement requests."
                 },
                 {
-                    question: "Does Voltly provide direct lighting installation?",
+                    question: "Does {{companyName}} provide direct lighting installation?",
                     answer:
-                        "No. Voltly is an independent matching platform and does not perform electrical work directly."
+                        "No. {{companyName}} is an independent matching platform and does not perform electrical work directly."
                 },
                 {
                     question: "What details should homeowners include in a lighting request?",
@@ -289,7 +289,7 @@ window.SITE_CONFIG = {
         storageKey: "voltly_cookie_choice",
         title: "Privacy and policy preferences",
         text:
-            "Voltly uses a simple cookie preference choice to remember your selection and improve site functionality.",
+            "{{companyName}} uses a simple cookie preference choice to remember your selection and improve site functionality.",
         accept: "Accept",
         decline: "Decline",
         links: [
@@ -301,14 +301,14 @@ window.SITE_CONFIG = {
 
     faq: [
         {
-            question: "How does Voltly help compare local electrical providers?",
+            question: "How does {{companyName}} help compare local electrical providers?",
             answer:
-                "Voltly helps homeowners organize project details, select a service category, and compare independent local electrical provider options based on the request context."
+                "{{companyName}} helps homeowners organize project details, select a service category, and compare independent local electrical provider options based on the request context."
         },
         {
-            question: "Does Voltly perform electrical work directly?",
+            question: "Does {{companyName}} perform electrical work directly?",
             answer:
-                "No. Voltly is not a direct contractor or electrician company. It is an independent matching platform."
+                "No. {{companyName}} is not a direct contractor or electrician company. It is an independent matching platform."
         },
         {
             question: "What should homeowners check before hiring an electrical provider?",
@@ -328,7 +328,7 @@ window.SITE_CONFIG = {
     ],
 
     socialProof: {
-        eyebrow: "Why homeowners use Voltly",
+        eyebrow: "Why homeowners use {{companyName}}",
         title: "A cleaner way to compare electrical provider options",
         items: [
             {
@@ -339,7 +339,7 @@ window.SITE_CONFIG = {
             {
                 label: "Platform role",
                 value: "Independent",
-                text: "Voltly helps organize comparison, not perform the work."
+                text: "{{companyName}} helps organize comparison, not perform the work."
             },
             {
                 label: "Coverage",
@@ -351,59 +351,59 @@ window.SITE_CONFIG = {
 
     pageMeta: {
         "index.html": {
-            title: "Voltly | Compare Local Electrical Provider Options",
+            title: "{{companyName}} | Compare Local Electrical Provider Options",
             description:
-                "Voltly helps homeowners prepare project details and compare independent local electrical provider options for panel upgrades, wiring, EV charger installation, and lighting."
+                "{{companyName}} helps homeowners prepare project details and compare independent local electrical provider options for panel upgrades, wiring, EV charger installation, and lighting."
         },
         "services.html": {
-            title: "Electrical Service Categories | Voltly",
+            title: "Electrical Service Categories | {{companyName}}",
             description:
-                "Explore Voltly service categories for panel upgrades, wiring and rewiring, EV charger installation, and lighting provider matching."
+                "Explore {{companyName}} service categories for panel upgrades, wiring and rewiring, EV charger installation, and lighting provider matching."
         },
         "about.html": {
-            title: "About Voltly | Independent Electrical Matching Platform",
+            title: "About {{companyName}} | Independent Electrical Matching Platform",
             description:
-                "Learn how Voltly helps homeowners organize electrical request details and compare independent local provider options."
+                "Learn how {{companyName}} helps homeowners organize electrical request details and compare independent local provider options."
         },
         "contact.html": {
-            title: "Contact Voltly | Start Electrical Request Matching",
+            title: "Contact {{companyName}} | Start Electrical Request Matching",
             description:
-                "Start an electrical request with Voltly by sharing your service type, ZIP code, project timing, and notes."
+                "Start an electrical request with {{companyName}} by sharing your service type, ZIP code, project timing, and notes."
         },
         "panel-upgrades.html": {
-            title: "Panel Upgrades | Compare Local Provider Options | Voltly",
+            title: "Panel Upgrades | Compare Local Provider Options | {{companyName}}",
             description:
-                "Prepare a panel upgrade request and compare independent local electrical provider options with Voltly."
+                "Prepare a panel upgrade request and compare independent local electrical provider options with {{companyName}}."
         },
         "wiring-rewiring.html": {
-            title: "Wiring & Rewiring | Compare Local Provider Options | Voltly",
+            title: "Wiring & Rewiring | Compare Local Provider Options | {{companyName}}",
             description:
-                "Organize a wiring or rewiring request and compare independent local electrical provider options with Voltly."
+                "Organize a wiring or rewiring request and compare independent local electrical provider options with {{companyName}}."
         },
         "ev-charger-installation.html": {
-            title: "EV Charger Installation | Compare Local Provider Options | Voltly",
+            title: "EV Charger Installation | Compare Local Provider Options | {{companyName}}",
             description:
-                "Prepare an EV charger installation request and compare independent local provider options with Voltly."
+                "Prepare an EV charger installation request and compare independent local provider options with {{companyName}}."
         },
         "lighting-installation.html": {
-            title: "Lighting Installation | Compare Local Provider Options | Voltly",
+            title: "Lighting Installation | Compare Local Provider Options | {{companyName}}",
             description:
-                "Prepare a lighting installation request and compare independent local provider options with Voltly."
+                "Prepare a lighting installation request and compare independent local provider options with {{companyName}}."
         },
         "privacy-policy.html": {
-            title: "Privacy Policy | Voltly",
+            title: "Privacy Policy | {{companyName}}",
             description:
-                "Review the Voltly Privacy Policy for information about data handling, contact details, and platform use."
+                "Review the {{companyName}} Privacy Policy for information about data handling, contact details, and platform use."
         },
         "cookie-policy.html": {
-            title: "Cookie Policy | Voltly",
+            title: "Cookie Policy | {{companyName}}",
             description:
-                "Review the Voltly Cookie Policy and learn how the site handles cookie preference choices."
+                "Review the {{companyName}} Cookie Policy and learn how the site handles cookie preference choices."
         },
         "terms-of-service.html": {
-            title: "Terms of Service | Voltly",
+            title: "Terms of Service | {{companyName}}",
             description:
-                "Review the Voltly Terms of Service, platform role, user responsibilities, and legal notices."
+                "Review the {{companyName}} Terms of Service, platform role, user responsibilities, and legal notices."
         }
     }
 };

@@ -105,6 +105,19 @@
             .replaceAll("'", "&#039;");
     }
 
+    function resolveConfigText(value) {
+        return String(value || "")
+            .replaceAll("{{companyName}}", config.companyName || "")
+            .replaceAll("{{companyId}}", config.companyId || "")
+            .replaceAll("{{phone}}", config.phone || "")
+            .replaceAll("{{email}}", config.email || "")
+            .replaceAll("{{serviceArea}}", config.serviceArea || "")
+            .replaceAll(
+                "{{addressFull}}",
+                config.address && config.address.full ? config.address.full : ""
+            );
+    }
+
     function getCurrentFilename() {
         const pathname = window.location.pathname;
         const filename = pathname.substring(pathname.lastIndexOf("/") + 1);
@@ -182,7 +195,7 @@
         }
 
         if (meta.title) {
-            document.title = meta.title;
+            document.title = resolveConfigText(meta.title);
         }
 
         if (meta.description) {
@@ -194,7 +207,7 @@
                 document.head.appendChild(descriptionTag);
             }
 
-            descriptionTag.setAttribute("content", meta.description);
+            descriptionTag.setAttribute("content", resolveConfigText(meta.description));
         }
     }
 
@@ -204,9 +217,10 @@
 
     function renderLogo(extraClass = "") {
         const className = extraClass ? ` site-logo ${extraClass}` : "site-logo";
+        const label = config.brand && config.brand.logoLabel ? resolveConfigText(config.brand.logoLabel) : "";
 
         return `
-            <a class="${className}" href="index.html" aria-label="${escapeHtml(config.brand.logoLabel || config.companyName)}">
+            <a class="${className}" href="index.html" aria-label="${escapeHtml(label || config.companyName)}">
                 <span class="logo-mark" aria-hidden="true"></span>
                 <span class="logo-copy">
                     <span class="logo-text">${escapeHtml(config.companyName)}</span>
@@ -230,7 +244,10 @@
 
         qsa(selectors.phoneLink).forEach((element) => {
             element.setAttribute("href", config.phoneHref);
-            element.setAttribute("aria-label", config.phoneLabel || `Call ${config.companyName}`);
+            element.setAttribute(
+                "aria-label",
+                resolveConfigText(config.phoneLabel || `Call {{companyName}} at {{phone}}`)
+            );
         });
 
         qsa(selectors.phoneText).forEach((element) => {
@@ -250,7 +267,7 @@
         });
 
         qsa(selectors.footerText).forEach((element) => {
-            element.textContent = config.footerText;
+            element.textContent = resolveConfigText(config.footerText);
         });
 
         qsa(selectors.serviceArea).forEach((element) => {
@@ -258,11 +275,11 @@
         });
 
         qsa(selectors.disclaimer).forEach((element) => {
-            element.textContent = config.disclaimer;
+            element.textContent = resolveConfigText(config.disclaimer);
         });
 
         qsa(selectors.legalNotice).forEach((element) => {
-            element.textContent = config.legalNotice;
+            element.textContent = resolveConfigText(config.legalNotice);
         });
     }
 
@@ -334,7 +351,7 @@
                     </nav>
 
                     <div class="header-actions">
-                        <a class="btn btn-primary header-phone" href="${escapeHtml(config.phoneHref)}" aria-label="${escapeHtml(config.phoneLabel)}">
+                        <a class="btn btn-primary header-phone" href="${escapeHtml(config.phoneHref)}" aria-label="${escapeHtml(resolveConfigText(config.phoneLabel))}">
                             ${createIcon("phone")}
                             <span class="phone-text">${escapeHtml(config.phone)}</span>
                         </a>
@@ -390,7 +407,7 @@
                     </div>
 
                     <p class="mobile-disclaimer-note">
-                        ${escapeHtml(config.legalNotice)}
+                        ${escapeHtml(resolveConfigText(config.legalNotice))}
                     </p>
                 </div>
             </aside>
@@ -403,7 +420,7 @@
                 <span class="dropdown-bolt" aria-hidden="true"></span>
                 <span>
                     <strong>${escapeHtml(service.title)}</strong>
-                    <span>${escapeHtml(service.summary || service.cardText || "Compare local provider options.")}</span>
+                    <span>${escapeHtml(resolveConfigText(service.summary || service.cardText || "Compare local provider options."))}</span>
                 </span>
                 ${createIcon("arrow-up-right", "arrow")}
             </a>
@@ -503,11 +520,11 @@
                         <div class="footer-brand">
                             ${renderLogo("footer-logo")}
 
-                            <p data-footer-text>${escapeHtml(config.footerText)}</p>
+                            <p data-footer-text>${escapeHtml(resolveConfigText(config.footerText))}</p>
 
                             <div class="disclaimer-strip">
                                 <strong>Independent matching platform</strong>
-                                <span data-legal-notice>${escapeHtml(config.legalNotice)}</span>
+                                <span data-legal-notice>${escapeHtml(resolveConfigText(config.legalNotice))}</span>
                             </div>
                         </div>
 
@@ -561,7 +578,7 @@
                             ${legalLinks}
                         </div>
 
-                        <p data-disclaimer>${escapeHtml(config.disclaimer)}</p>
+                        <p data-disclaimer>${escapeHtml(resolveConfigText(config.disclaimer))}</p>
                     </div>
 
                     <div class="footer-bottom">
@@ -609,7 +626,7 @@
                     <span class="service-card-copy">
                         <span class="service-card-index">${escapeHtml(getServiceIndex(service.id))}</span>
                         <h3>${escapeHtml(service.title)}</h3>
-                        <p>${escapeHtml(service.cardText)}</p>
+                        <p>${escapeHtml(resolveConfigText(service.cardText))}</p>
 
                         <span class="btn-link service-card-link">
                             Compare options
@@ -665,7 +682,7 @@
         return `
             <article class="faq-item">
                 <button class="faq-question" type="button" aria-expanded="false" aria-controls="${escapeHtml(itemId)}">
-                    <span>${escapeHtml(item.question)}</span>
+                    <span>${escapeHtml(resolveConfigText(item.question))}</span>
                     <span class="faq-question-icon" aria-hidden="true">
                         ${createIcon("zap")}
                     </span>
@@ -673,7 +690,7 @@
 
                 <div class="faq-answer" id="${escapeHtml(itemId)}">
                     <div class="faq-answer-inner">
-                        <p>${escapeHtml(item.answer)}</p>
+                        <p>${escapeHtml(resolveConfigText(item.answer))}</p>
                     </div>
                 </div>
             </article>
@@ -706,10 +723,10 @@
                 "@type": "FAQPage",
                 mainEntity: items.map((item) => ({
                     "@type": "Question",
-                    name: item.question,
+                    name: resolveConfigText(item.question),
                     acceptedAnswer: {
                         "@type": "Answer",
-                        text: item.answer
+                        text: resolveConfigText(item.answer)
                     }
                 }))
             };
@@ -845,8 +862,8 @@
 
         bannerMount.innerHTML = `
             <div class="policy-banner-copy">
-                <strong class="policy-banner-title">${escapeHtml(config.cookieBanner.title)}</strong>
-                <p class="policy-banner-text">${escapeHtml(config.cookieBanner.text)}</p>
+                <strong class="policy-banner-title">${escapeHtml(resolveConfigText(config.cookieBanner.title))}</strong>
+                <p class="policy-banner-text">${escapeHtml(resolveConfigText(config.cookieBanner.text))}</p>
 
                 <div class="policy-banner-links">
                     ${config.cookieBanner.links.map((link) => {
@@ -857,11 +874,11 @@
 
             <div class="policy-banner-actions">
                 <button class="btn btn-ghost" type="button" data-cookie-decline>
-                    ${escapeHtml(config.cookieBanner.decline)}
+                    ${escapeHtml(resolveConfigText(config.cookieBanner.decline))}
                 </button>
 
                 <button class="btn btn-primary" type="button" data-cookie-accept>
-                    ${escapeHtml(config.cookieBanner.accept)}
+                    ${escapeHtml(resolveConfigText(config.cookieBanner.accept))}
                 </button>
             </div>
         `;
@@ -910,7 +927,7 @@
 
                 if (!isValid) {
                     status.className = "form-status is-error";
-                    status.textContent = config.forms.contact.errorText;
+                    status.textContent = resolveConfigText(config.forms.contact.errorText);
                     return;
                 }
 
@@ -925,7 +942,9 @@
                 });
 
                 status.className = "form-status is-success";
-                status.textContent = `${config.forms.contact.successTitle} ${config.forms.contact.successText}`;
+                status.textContent = resolveConfigText(
+                    `${config.forms.contact.successTitle} ${config.forms.contact.successText}`
+                );
             });
         });
     }
@@ -1121,6 +1140,7 @@
         qs,
         qsa,
         escapeHtml,
+        resolveConfigText,
         getCurrentFilename,
         getServiceById,
         getCurrentServiceFromBody,

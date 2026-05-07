@@ -212,7 +212,6 @@
 
         if (!shell || !viewport) return;
 
-        const supportsPointer = "PointerEvent" in window;
         const mediaTablet = window.matchMedia("(max-width: 1024px)");
         const mediaCoarseTablet = window.matchMedia("(pointer: coarse) and (max-width: 1400px)");
         const mediaMobile = window.matchMedia("(max-width: 640px)");
@@ -225,12 +224,7 @@
             cloneCount: 0,
             slideWidth: 0,
             step: 0,
-            currentTranslate: 0,
-            isDragging: false,
-            startX: 0,
-            startTranslate: 0,
-            pointerId: null,
-            transitionMs: 420
+            scrollEndTimer: null
         };
 
         let track = null;
@@ -255,21 +249,16 @@
 
         const readSlidesPerView = () => (mediaMobile.matches ? 1 : 2);
 
-        const setTransition = (enabled) => {
-            track.style.transition = enabled
-                ? `transform ${state.transitionMs}ms cubic-bezier(0.16, 1, 0.3, 1)`
-                : "none";
-        };
-
-        const setTranslate = (value) => {
-            state.currentTranslate = value;
-            track.style.transform = `translate3d(${value}px, 0, 0)`;
+        const clampIndex = (index) => {
+            if (index < 0) return 0;
+            return index;
         };
 
         const snapToIndex = (index, { animated } = { animated: true }) => {
+            index = clampIndex(index);
             state.index = index;
-            setTransition(Boolean(animated));
-            setTranslate(-state.step * state.index);
+            const left = state.step * state.index;
+            viewport.scrollTo({ left, behavior: animated ? "smooth" : "auto" });
         };
 
         const cleanupClones = () => {
@@ -321,7 +310,7 @@
             track.style.display = "flex";
             track.style.gap = `${state.gap}px`;
             track.style.width = "max-content";
-            track.style.willChange = "transform";
+            track.style.willChange = "";
 
             slideEls.forEach((slide) => {
                 slide.style.flex = `0 0 ${state.slideWidth}px`;
@@ -338,8 +327,6 @@
 
             shell.classList.remove("is-before-swiper");
             shell.removeAttribute("tabindex");
-            setTransition(false);
-            track.style.transform = "";
             track.style.display = "";
             track.style.gap = "";
             track.style.width = "";
@@ -361,10 +348,14 @@
             snapToIndex(state.index - 1, { animated: true });
         };
 
-        const normalizeIndexAfterTransition = () => {
+        const normalizeIndexAfterScroll = () => {
             const slides = Array.from(track.children).filter((node) => node.nodeType === 1);
             const realCount = slides.filter((node) => node.getAttribute("data-before-clone") !== "true").length;
             if (!realCount) return;
+
+            // Update index from scroll position.
+            const rawIndex = state.step ? Math.round(viewport.scrollLeft / state.step) : state.index;
+            state.index = rawIndex;
 
             if (state.index >= realCount + state.cloneCount) {
                 // Moved into head clones -> jump to first real
@@ -379,115 +370,17 @@
             }
         };
 
-        track.addEventListener("transitionend", (event) => {
-            if (event.propertyName !== "transform") return;
-            if (!state.active) return;
-            normalizeIndexAfterTransition();
-        });
-
-        const onPointerDown = (event) => {
-            if (!state.active) return;
-            if (!supportsPointer) return;
-            if (event.pointerType === "mouse" && event.button !== 0) return;
-
-            state.isDragging = true;
-            state.pointerId = event.pointerId;
-            state.startX = event.clientX;
-            state.startTranslate = state.currentTranslate;
-            setTransition(false);
-            track.setPointerCapture(event.pointerId);
-        };
-
-        const onPointerMove = (event) => {
-            if (!state.active || !state.isDragging) return;
-            if (state.pointerId !== event.pointerId) return;
-
-            const delta = event.clientX - state.startX;
-            setTranslate(state.startTranslate + delta);
-        };
-
-        const onPointerUp = (event) => {
-            if (!state.active || !state.isDragging) return;
-            if (state.pointerId !== event.pointerId) return;
-
-            state.isDragging = false;
-            state.pointerId = null;
-
-            const delta = state.currentTranslate - state.startTranslate;
-            const threshold = Math.min(80, state.slideWidth * 0.22);
-
-            if (delta <= -threshold) {
-                goNext();
-            } else if (delta >= threshold) {
-                goPrev();
-            } else {
-                snapToIndex(state.index, { animated: true });
-            }
-        };
-
-        if (supportsPointer) {
-            track.addEventListener("pointerdown", onPointerDown, { passive: true });
-            track.addEventListener("pointermove", onPointerMove, { passive: true });
-            track.addEventListener("pointerup", onPointerUp, { passive: true });
-            track.addEventListener("pointercancel", onPointerUp, { passive: true });
-            track.addEventListener("lostpointercapture", onPointerUp, { passive: true });
-        }
-        // Touch fallback (older Safari / environments without pointer events).
-        if (!supportsPointer) {
-            let touchStartX = 0;
-            let touchStartY = 0;
-            let touchStartTranslate = 0;
-            let isTouchDragging = false;
-
-            track.addEventListener(
-                "touchstart",
-                (event) => {
-                    if (!state.active) return;
-                    const touch = event.touches && event.touches[0];
-                    if (!touch) return;
-                    isTouchDragging = true;
-                    touchStartX = touch.clientX;
-                    touchStartY = touch.clientY;
-                    touchStartTranslate = state.currentTranslate;
-                    setTransition(false);
-                },
-                { passive: true }
-            );
-
-            track.addEventListener(
-                "touchmove",
-                (event) => {
-                    if (!state.active || !isTouchDragging) return;
-                    const touch = event.touches && event.touches[0];
-                    if (!touch) return;
-                    const deltaX = touch.clientX - touchStartX;
-                    const deltaY = touch.clientY - touchStartY;
-                    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                        event.preventDefault();
-                        setTranslate(touchStartTranslate + deltaX);
-                    }
-                },
-                { passive: false }
-            );
-
-            track.addEventListener(
-                "touchend",
-                () => {
-                    if (!state.active || !isTouchDragging) return;
-                    isTouchDragging = false;
-                    const delta = state.currentTranslate - touchStartTranslate;
-                    const threshold = Math.min(80, state.slideWidth * 0.22);
-                    if (delta <= -threshold) {
-                        goNext();
-                    } else if (delta >= threshold) {
-                        goPrev();
-                    } else {
-                        snapToIndex(state.index, { animated: true });
-                    }
-                },
-                { passive: true }
-            );
-        }
+        viewport.addEventListener(
+            "scroll",
+            () => {
+                if (!state.active) return;
+                if (state.scrollEndTimer) window.clearTimeout(state.scrollEndTimer);
+                state.scrollEndTimer = window.setTimeout(() => {
+                    normalizeIndexAfterScroll();
+                }, 90);
+            },
+            { passive: true }
+        );
 
         const onKeyDown = (event) => {
             if (!state.active) return;
