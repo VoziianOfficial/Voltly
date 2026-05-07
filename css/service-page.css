@@ -1076,3 +1076,1548 @@ body[data-service-id="lighting-installation"] .service-context-media img {
         min-height: 280px;
     }
 }
+
+/* ==========================================================
+   FINAL REDESIGN — COMPACT SERVICE EVALUATION SECTION
+   ========================================================== */
+
+.service-evaluation.section-sm {
+    padding-block: clamp(28px, 3.5vw, 46px);
+}
+
+.service-evaluation-shell {
+    grid-template-columns: 1fr !important;
+    gap: clamp(18px, 2.4vw, 28px) !important;
+    align-items: start !important;
+    min-height: auto !important;
+    padding: clamp(18px, 2.6vw, 30px) !important;
+    border-color: rgba(246, 183, 60, 0.18);
+    background:
+        radial-gradient(circle at 88% 10%, rgba(246, 183, 60, 0.12), transparent 28%),
+        radial-gradient(circle at 8% 100%, rgba(53, 217, 255, 0.07), transparent 30%),
+        rgba(9, 13, 19, 0.94);
+}
+
+.service-evaluation-shell::before {
+    background-size: 34px 34px;
+    opacity: 0.18;
+    mask-image: linear-gradient(90deg, black, transparent 92%);
+}
+
+.service-evaluation-current {
+    top: 48%;
+    opacity: 0.32;
+}
+
+.service-evaluation-bolt {
+    top: -34px;
+    right: clamp(18px, 4vw, 54px);
+    width: 52px;
+    height: 142px;
+    opacity: 0.46;
+}
+
+.service-evaluation-copy {
+    max-width: 920px;
+    gap: 10px;
+}
+
+.service-evaluation-copy .eyebrow {
+    margin-bottom: 4px;
+}
+
+.service-evaluation-copy h2 {
+    max-width: 920px;
+    font-size: clamp(1.55rem, 2.45vw, 2.55rem);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+}
+
+.service-evaluation-copy p:not(.eyebrow) {
+    max-width: 760px;
+    font-size: 0.93rem;
+    line-height: 1.55;
+}
+
+.service-evaluation-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+}
+
+.service-evaluation-list article {
+    min-height: 128px !important;
+    gap: 8px !important;
+    padding: 14px 13px !important;
+    border-color: rgba(255, 255, 255, 0.1);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016));
+}
+
+.service-evaluation-list article::before {
+    width: 22px !important;
+    height: 34px !important;
+    filter: drop-shadow(0 0 9px rgba(246, 183, 60, 0.34));
+}
+
+.service-evaluation-list article:nth-child(even)::before {
+    filter: drop-shadow(0 0 9px rgba(53, 217, 255, 0.34));
+}
+
+.service-evaluation-list strong {
+    font-size: 0.92rem !important;
+    line-height: 1.18 !important;
+}
+
+.service-evaluation-list p {
+    font-size: 0.78rem !important;
+    line-height: 1.38 !important;
+}
+
+.service-evaluation-list article:hover {
+    transform: translateY(-3px);
+    border-color: rgba(246, 183, 60, 0.3);
+    background: rgba(246, 183, 60, 0.055);
+    box-shadow: 0 0 22px rgba(246, 183, 60, 0.075);
+}
+
+@media (max-width: 1180px) {
+    .service-evaluation-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .service-evaluation-list article {
+        min-height: 116px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-evaluation.section-sm {
+        padding-block: 28px;
+    }
+
+    .service-evaluation-shell {
+        padding: 16px !important;
+        gap: 16px !important;
+    }
+
+    .service-evaluation-copy {
+        text-align: center;
+        justify-items: center;
+        margin-inline: auto;
+    }
+
+    .service-evaluation-copy h2,
+    .service-evaluation-copy p {
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .service-evaluation-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .service-evaluation-list article {
+        min-height: 112px !important;
+        padding: 12px !important;
+    }
+
+    .service-evaluation-list article::before {
+        width: 20px !important;
+        height: 30px !important;
+    }
+
+    .service-evaluation-list strong {
+        font-size: 0.86rem !important;
+    }
+
+    .service-evaluation-list p {
+        font-size: 0.74rem !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-evaluation-list {
+        grid-template-columns: 1fr !important;
+    }
+
+    .service-evaluation-list article {
+        min-height: auto !important;
+        grid-template-columns: 26px 1fr;
+        align-items: start;
+        column-gap: 10px;
+    }
+
+    .service-evaluation-list article::before {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        margin-top: 2px;
+    }
+
+    .service-evaluation-list strong,
+    .service-evaluation-list p {
+        grid-column: 2;
+    }
+}
+
+/* ==========================================================
+   FINAL CLEANUP — SERVICE PREP ONE CLEAR CURRENT SYSTEM
+   ========================================================== */
+
+.service-prep.section {
+    padding-block: clamp(34px, 4vw, 56px) !important;
+}
+
+.service-prep-grid {
+    position: relative;
+    grid-template-columns: minmax(0, 0.7fr) minmax(440px, 1fr) !important;
+    gap: clamp(34px, 6vw, 86px) !important;
+    align-items: center !important;
+}
+
+/* subtle shared current line behind both columns */
+.service-prep-grid::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 203, 69, 0.42),
+            rgba(255, 255, 255, 0.72),
+            rgba(114, 246, 255, 0.45),
+            transparent);
+    box-shadow:
+        0 0 16px rgba(246, 183, 60, 0.18),
+        0 0 24px rgba(53, 217, 255, 0.12);
+    transform: rotate(-1.5deg);
+    pointer-events: none;
+    opacity: 0.52;
+}
+
+.service-prep-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 640px !important;
+    gap: 14px !important;
+}
+
+.service-prep-copy h2 {
+    max-width: 620px !important;
+    font-size: clamp(1.75rem, 3vw, 3.05rem) !important;
+    line-height: 1.03 !important;
+}
+
+.service-prep-copy p:not(.eyebrow) {
+    max-width: 560px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.58 !important;
+}
+
+/* IMPORTANT: remove duplicate left timeline/list */
+.service-prep-list {
+    display: none !important;
+}
+
+/* right side becomes the only visual system */
+.service-prep-visual {
+    position: relative;
+    z-index: 2;
+    min-height: 280px !important;
+    display: grid;
+    align-items: center;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+/* main electric rail */
+.service-prep-visual::before {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top: 50%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 203, 69, 0.28) 10%,
+            var(--color-accent-hot) 28%,
+            #ffffff 50%,
+            var(--color-electric-strong) 70%,
+            rgba(53, 217, 255, 0.26) 90%,
+            transparent 100%) !important;
+    box-shadow:
+        0 0 18px rgba(246, 183, 60, 0.38),
+        0 0 28px rgba(53, 217, 255, 0.2);
+    transform: translateY(-50%);
+    opacity: 0.82;
+    pointer-events: none;
+}
+
+/* moving current */
+.service-prep-visual::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top: 50%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            transparent 20%,
+            rgba(255, 255, 255, 0.96) 24%,
+            var(--color-electric-strong) 27%,
+            transparent 34%,
+            transparent 100%) !important;
+    background-size: 240% 100%;
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.42),
+        0 0 28px rgba(53, 217, 255, 0.3);
+    transform: translateY(-50%);
+    animation: servicePrepCurrentRun 2.8s linear infinite;
+    opacity: 0.86;
+    pointer-events: none;
+}
+
+@keyframes servicePrepCurrentRun {
+    0% {
+        background-position: 180% 0;
+    }
+
+    100% {
+        background-position: -80% 0;
+    }
+}
+
+.service-prep-visual-bolt {
+    top: 50% !important;
+    right: -6px !important;
+    width: 42px !important;
+    height: 112px !important;
+    transform: translateY(-50%) rotate(8deg);
+    opacity: 0.48 !important;
+}
+
+/* four nodes only — no cards */
+.service-prep-visual-grid {
+    position: relative;
+    z-index: 2;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 28px) !important;
+    padding: 0 !important;
+    align-items: center;
+}
+
+.service-prep-visual-grid article {
+    position: relative;
+    min-height: 150px !important;
+    display: grid !important;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    gap: 8px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    overflow: visible !important;
+}
+
+.service-prep-visual-grid article::before {
+    content: "";
+    width: 34px;
+    height: 54px;
+    clip-path: polygon(48% 0, 100% 0, 60% 40%, 88% 40%, 17% 100%, 38% 53%, 0 53%);
+    background: var(--color-accent-hot);
+    filter:
+        drop-shadow(0 0 12px rgba(246, 183, 60, 0.55)) drop-shadow(0 0 22px rgba(246, 183, 60, 0.22));
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        filter var(--transition-base);
+}
+
+.service-prep-visual-grid article:nth-child(even)::before {
+    background: var(--color-electric-strong);
+    filter:
+        drop-shadow(0 0 12px rgba(53, 217, 255, 0.55)) drop-shadow(0 0 22px rgba(53, 217, 255, 0.2));
+}
+
+.service-prep-visual-grid article::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 54px;
+    height: 54px;
+    border: 1px solid rgba(246, 183, 60, 0.22);
+    background: radial-gradient(circle, rgba(246, 183, 60, 0.13), transparent 70%);
+    transform: translateY(-50%) rotate(45deg);
+    z-index: -1;
+    opacity: 0.9;
+}
+
+.service-prep-visual-grid article:nth-child(even)::after {
+    border-color: rgba(53, 217, 255, 0.22);
+    background: radial-gradient(circle, rgba(53, 217, 255, 0.12), transparent 70%);
+}
+
+.service-prep-visual-grid span {
+    margin-top: 2px;
+    color: var(--color-accent-hot);
+    font-size: 0.66rem !important;
+    line-height: 1.1 !important;
+    font-weight: 900;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+}
+
+.service-prep-visual-grid strong {
+    max-width: 145px;
+    color: var(--color-heading);
+    font-size: 0.8rem !important;
+    line-height: 1.25 !important;
+    font-weight: 800;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .service-prep-visual-grid article:hover {
+        transform: translateY(-3px);
+    }
+
+    .service-prep-visual-grid article:hover::before {
+        background: #ffffff;
+        transform: translateY(-3px) rotate(-4deg);
+        filter:
+            drop-shadow(0 0 12px rgba(255, 255, 255, 0.55)) drop-shadow(0 0 24px rgba(53, 217, 255, 0.42)) drop-shadow(0 0 30px rgba(246, 183, 60, 0.24));
+    }
+
+    .service-prep-visual-grid article:hover span {
+        color: var(--color-electric-strong);
+    }
+}
+
+/* tablet: one clean centered block */
+@media (max-width: 1024px) {
+    .service-prep-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    .service-prep-grid::before {
+        display: none;
+    }
+
+    .service-prep-copy {
+        max-width: 760px !important;
+        margin-inline: auto;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .service-prep-copy h2,
+    .service-prep-copy p {
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .service-prep-visual {
+        width: min(100%, 840px);
+        margin-inline: auto;
+        min-height: 240px !important;
+    }
+
+    .service-prep-visual-grid article {
+        min-height: 128px !important;
+    }
+}
+
+/* mobile: vertical current rail, clean and readable */
+@media (max-width: 720px) {
+    .service-prep.section {
+        padding-block: 32px !important;
+    }
+
+    .service-prep-visual {
+        width: min(100%, 520px);
+        min-height: auto !important;
+        padding-block: 4px;
+    }
+
+    .service-prep-visual::before,
+    .service-prep-visual::after {
+        left: 18px !important;
+        right: auto !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 3px !important;
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .service-prep-visual::before {
+        background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(255, 203, 69, 0.28) 10%,
+                var(--color-accent-hot) 28%,
+                #ffffff 50%,
+                var(--color-electric-strong) 70%,
+                rgba(53, 217, 255, 0.26) 90%,
+                transparent 100%) !important;
+    }
+
+    .service-prep-visual::after {
+        background: linear-gradient(180deg,
+                transparent 0%,
+                transparent 20%,
+                rgba(255, 255, 255, 0.96) 24%,
+                var(--color-electric-strong) 27%,
+                transparent 34%,
+                transparent 100%) !important;
+        background-size: 100% 240%;
+        animation: servicePrepCurrentRunMobile 2.8s linear infinite;
+    }
+
+    @keyframes servicePrepCurrentRunMobile {
+        0% {
+            background-position: 0 180%;
+        }
+
+        100% {
+            background-position: 0 -80%;
+        }
+    }
+
+    .service-prep-visual-bolt {
+        display: none;
+    }
+
+    .service-prep-visual-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        padding-left: 48px !important;
+    }
+
+    .service-prep-visual-grid article {
+        min-height: auto !important;
+        display: grid !important;
+        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 12px;
+        align-content: start;
+        justify-items: start;
+        text-align: left;
+        padding: 2px 0 !important;
+    }
+
+    .service-prep-visual-grid article::before {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 26px;
+        height: 42px;
+        margin-top: 2px;
+    }
+
+    .service-prep-visual-grid article::after {
+        display: none;
+    }
+
+    .service-prep-visual-grid span,
+    .service-prep-visual-grid strong {
+        grid-column: 2;
+        max-width: none;
+    }
+
+    .service-prep-visual-grid span {
+        margin-top: 0;
+        font-size: 0.62rem !important;
+    }
+
+    .service-prep-visual-grid strong {
+        font-size: 0.8rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-prep-copy h2 {
+        font-size: clamp(1.72rem, 9vw, 2.25rem) !important;
+    }
+
+    .service-prep-visual-grid {
+        padding-left: 42px !important;
+    }
+
+    .service-prep-visual::before,
+    .service-prep-visual::after {
+        left: 15px !important;
+    }
+}
+
+/* ==========================================================
+   SERVICE FLOW — PHOTO BACKGROUND PER SERVICE PAGE
+   ========================================================== */
+
+.service-flow-shell {
+    isolation: isolate;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+/* общая затемняющая фото-подложка, чтобы текст читался */
+.service-flow-shell::before {
+    z-index: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(2, 3, 5, 0.9) 0%,
+            rgba(2, 3, 5, 0.76) 42%,
+            rgba(2, 3, 5, 0.58) 100%),
+        radial-gradient(circle at 85% 12%, rgba(246, 183, 60, 0.18), transparent 34%),
+        radial-gradient(circle at 12% 90%, rgba(53, 217, 255, 0.11), transparent 34%),
+        linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size:
+        auto,
+        auto,
+        auto,
+        42px 42px,
+        42px 42px;
+    opacity: 1;
+    mask-image: none;
+}
+
+/* чтобы контент был поверх фото */
+.service-flow-heading,
+.service-flow-steps,
+.service-flow-current,
+.service-flow-bolt {
+    position: relative;
+    z-index: 2;
+}
+
+/* карточки внутри flow делаем читабельнее поверх фото */
+.service-flow-steps article {
+    background:
+        linear-gradient(180deg, rgba(8, 12, 18, 0.82), rgba(8, 12, 18, 0.58)) !important;
+    backdrop-filter: blur(10px);
+    border-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+/* Panel Upgrades */
+body[data-service-id="panel-upgrades"] .service-flow-shell {
+    background-image:
+        linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
+        url("../assets/images/services-down-detail.jpg") !important;
+    background-position: center 48% !important;
+}
+
+/* Wiring & Rewiring */
+body[data-service-id="wiring-rewiring"] .service-flow-shell {
+    background-image:
+        linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
+        url("../assets/images/services-down-detail.jpg") !important;
+    background-position: center 42% !important;
+}
+
+/* EV Charger Installation */
+body[data-service-id="ev-charger-installation"] .service-flow-shell {
+    background-image:
+        linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
+        url("../assets/images/services-down-detail.jpg") !important;
+    background-position: center 52% !important;
+}
+
+/* Lighting Installation */
+body[data-service-id="lighting-installation"] .service-flow-shell {
+    background-image:
+        linear-gradient(rgba(2, 3, 5, 0.34), rgba(2, 3, 5, 0.34)),
+        url("../assets/images/services-down-detail.jpg") !important;
+    background-position: center 44% !important;
+}
+
+/* фото должно быть заметным, но не мешать */
+.service-flow-shell {
+    box-shadow:
+        var(--shadow-card),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+/* hover чуть оживляет карточки поверх фото */
+@media (hover: hover) and (pointer: fine) {
+    .service-flow-steps article:hover {
+        background:
+            linear-gradient(180deg, rgba(246, 183, 60, 0.13), rgba(8, 12, 18, 0.68)) !important;
+        border-color: rgba(246, 183, 60, 0.34) !important;
+    }
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+    .service-flow-shell::before {
+        background:
+            linear-gradient(180deg,
+                rgba(2, 3, 5, 0.86) 0%,
+                rgba(2, 3, 5, 0.72) 48%,
+                rgba(2, 3, 5, 0.9) 100%),
+            radial-gradient(circle at 80% 10%, rgba(246, 183, 60, 0.16), transparent 34%),
+            radial-gradient(circle at 12% 88%, rgba(53, 217, 255, 0.1), transparent 34%),
+            linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+        background-size:
+            auto,
+            auto,
+            auto,
+            38px 38px,
+            38px 38px;
+    }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .service-flow-shell {
+        background-position: center center !important;
+    }
+
+    .service-flow-steps article {
+        background:
+            linear-gradient(180deg, rgba(8, 12, 18, 0.88), rgba(8, 12, 18, 0.7)) !important;
+    }
+
+    body[data-service-id="panel-upgrades"] .service-flow-shell {
+        background-position: center 46% !important;
+    }
+
+    body[data-service-id="wiring-rewiring"] .service-flow-shell {
+        background-position: center 40% !important;
+    }
+
+    body[data-service-id="ev-charger-installation"] .service-flow-shell {
+        background-position: center 50% !important;
+    }
+
+    body[data-service-id="lighting-installation"] .service-flow-shell {
+        background-position: center 42% !important;
+    }
+}
+
+/* ==========================================================
+   FINAL FIX — COMPACT SERVICE FLOW SECTION
+   ========================================================== */
+
+.service-flow.section-sm {
+    padding-block: clamp(26px, 3vw, 40px) !important;
+}
+
+.service-flow-shell {
+    gap: clamp(16px, 2.2vw, 24px) !important;
+    padding: clamp(18px, 2.6vw, 30px) !important;
+    min-height: auto !important;
+}
+
+/* Заголовок делаем компактнее */
+.service-flow-heading {
+    gap: 10px !important;
+    max-width: 760px !important;
+}
+
+.service-flow-heading .eyebrow {
+    margin-bottom: 2px !important;
+}
+
+.service-flow-heading h2 {
+    max-width: 760px !important;
+    font-size: clamp(1.55rem, 2.45vw, 2.55rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.055em !important;
+}
+
+.service-flow-heading p:not(.eyebrow) {
+    max-width: 640px !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+}
+
+/* Карточки компактнее */
+.service-flow-steps {
+    gap: 10px !important;
+}
+
+.service-flow-steps article {
+    min-height: 118px !important;
+    gap: 7px !important;
+    padding: 13px 12px !important;
+}
+
+.service-flow-steps article::before {
+    width: 21px !important;
+    height: 33px !important;
+}
+
+.service-flow-steps span {
+    top: 12px !important;
+    right: 12px !important;
+    font-size: 0.92rem !important;
+}
+
+.service-flow-steps strong {
+    font-size: 0.9rem !important;
+    line-height: 1.16 !important;
+}
+
+.service-flow-steps p {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+}
+
+/* Молния и ток меньше, чтобы не раздували визуально секцию */
+.service-flow-bolt {
+    top: -26px !important;
+    right: clamp(16px, 4vw, 54px) !important;
+    width: 48px !important;
+    height: 128px !important;
+    opacity: 0.46 !important;
+}
+
+.service-flow-current {
+    top: 58% !important;
+    opacity: 0.42 !important;
+}
+
+/* Фото-подложку оставляем, но делаем чуть чище */
+.service-flow-shell::before {
+    background:
+        linear-gradient(90deg,
+            rgba(2, 3, 5, 0.86) 0%,
+            rgba(2, 3, 5, 0.7) 42%,
+            rgba(2, 3, 5, 0.56) 100%),
+        radial-gradient(circle at 85% 12%, rgba(246, 183, 60, 0.14), transparent 34%),
+        radial-gradient(circle at 12% 90%, rgba(53, 217, 255, 0.09), transparent 34%),
+        linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px) !important;
+    background-size:
+        auto,
+        auto,
+        auto,
+        38px 38px,
+        38px 38px !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .service-flow.section-sm {
+        padding-block: 30px !important;
+    }
+
+    .service-flow-shell {
+        padding: 20px !important;
+        gap: 18px !important;
+    }
+
+    .service-flow-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .service-flow-steps article {
+        min-height: 108px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .service-flow.section-sm {
+        padding-block: 26px !important;
+    }
+
+    .service-flow-shell {
+        padding: 16px !important;
+        gap: 16px !important;
+    }
+
+    .service-flow-heading {
+        text-align: center;
+        justify-items: center;
+        margin-inline: auto;
+    }
+
+    .service-flow-heading h2,
+    .service-flow-heading p {
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    .service-flow-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .service-flow-steps article {
+        min-height: 104px !important;
+        padding: 11px !important;
+    }
+
+    .service-flow-steps article::before {
+        width: 18px !important;
+        height: 28px !important;
+    }
+
+    .service-flow-steps strong {
+        font-size: 0.82rem !important;
+    }
+
+    .service-flow-steps p {
+        font-size: 0.7rem !important;
+    }
+
+    .service-flow-bolt {
+        width: 40px !important;
+        height: 106px !important;
+        opacity: 0.32 !important;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 520px) {
+    .service-flow-steps {
+        grid-template-columns: 1fr !important;
+    }
+
+    .service-flow-steps article {
+        min-height: auto !important;
+        display: grid !important;
+        grid-template-columns: 24px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 10px;
+        align-items: start;
+    }
+
+    .service-flow-steps article::before {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        margin-top: 2px;
+    }
+
+    .service-flow-steps strong,
+    .service-flow-steps p {
+        grid-column: 2;
+    }
+
+    .service-flow-steps span {
+        display: none;
+    }
+}
+
+/* ==========================================================
+   EXTRA COMPACT — SERVICE FLOW MORE DENSE
+   ========================================================== */
+
+.service-flow.section-sm {
+    padding-block: clamp(18px, 2.4vw, 30px) !important;
+}
+
+.service-flow-shell {
+    gap: clamp(12px, 1.8vw, 18px) !important;
+    padding: clamp(14px, 2vw, 22px) !important;
+}
+
+/* heading еще компактнее */
+.service-flow-heading {
+    gap: 7px !important;
+    max-width: 720px !important;
+}
+
+.service-flow-heading .eyebrow {
+    margin-bottom: 0 !important;
+}
+
+.service-flow-heading h2 {
+    font-size: clamp(1.35rem, 2.1vw, 2.15rem) !important;
+    line-height: 1.03 !important;
+}
+
+.service-flow-heading p:not(.eyebrow) {
+    max-width: 600px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.42 !important;
+}
+
+/* карточки еще ниже */
+.service-flow-steps {
+    gap: 8px !important;
+}
+
+.service-flow-steps article {
+    min-height: 88px !important;
+    padding: 10px 10px !important;
+    gap: 5px !important;
+}
+
+.service-flow-steps article::before {
+    width: 16px !important;
+    height: 25px !important;
+}
+
+.service-flow-steps span {
+    top: 9px !important;
+    right: 10px !important;
+    font-size: 0.78rem !important;
+}
+
+.service-flow-steps strong {
+    font-size: 0.78rem !important;
+    line-height: 1.12 !important;
+}
+
+.service-flow-steps p {
+    font-size: 0.68rem !important;
+    line-height: 1.28 !important;
+}
+
+/* декоративные элементы тише */
+.service-flow-bolt {
+    top: -18px !important;
+    width: 34px !important;
+    height: 92px !important;
+    opacity: 0.28 !important;
+}
+
+.service-flow-current {
+    opacity: 0.28 !important;
+}
+
+/* overlay чуть плотнее, потому секция ниже и фото может мешать тексту */
+.service-flow-shell::before {
+    background:
+        linear-gradient(90deg,
+            rgba(2, 3, 5, 0.88) 0%,
+            rgba(2, 3, 5, 0.74) 44%,
+            rgba(2, 3, 5, 0.62) 100%),
+        radial-gradient(circle at 85% 12%, rgba(246, 183, 60, 0.12), transparent 34%),
+        radial-gradient(circle at 12% 90%, rgba(53, 217, 255, 0.08), transparent 34%) !important;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+    .service-flow-shell {
+        padding: 16px !important;
+        gap: 14px !important;
+    }
+
+    .service-flow-steps article {
+        min-height: 82px !important;
+    }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .service-flow.section-sm {
+        padding-block: 20px !important;
+    }
+
+    .service-flow-shell {
+        padding: 14px !important;
+        gap: 13px !important;
+    }
+
+    .service-flow-heading h2 {
+        font-size: clamp(1.32rem, 7vw, 1.85rem) !important;
+    }
+
+    .service-flow-heading p:not(.eyebrow) {
+        font-size: 0.78rem !important;
+    }
+
+    .service-flow-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+    }
+
+    .service-flow-steps article {
+        min-height: 78px !important;
+        padding: 9px !important;
+    }
+
+    .service-flow-steps strong {
+        font-size: 0.74rem !important;
+    }
+
+    .service-flow-steps p {
+        font-size: 0.64rem !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-flow-steps {
+        grid-template-columns: 1fr !important;
+    }
+
+    .service-flow-steps article {
+        min-height: auto !important;
+        padding: 9px 10px !important;
+    }
+}
+
+/* ==========================================================
+   FINAL ALTERNATIVE — SERVICE FLOW RAIL SECTION
+   Clean compact section, not banner, not photo card
+   ========================================================== */
+
+.service-flow.section-sm {
+    position: relative;
+    padding-block: clamp(36px, 4.5vw, 64px) !important;
+}
+
+/* remove old banner/card/photo look */
+.service-flow.section-sm .service-flow-shell {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(280px, 0.78fr) minmax(420px, 1fr) !important;
+    gap: clamp(30px, 5vw, 76px) !important;
+    align-items: center !important;
+
+    min-height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    isolation: isolate;
+}
+
+.service-flow.section-sm .service-flow-shell::before,
+.service-flow.section-sm .service-flow-shell::after,
+.service-flow.section-sm .service-flow-current,
+.service-flow.section-sm .service-flow-bolt {
+    display: none !important;
+}
+
+/* =========================
+   LEFT COPY
+   ========================= */
+
+.service-flow.section-sm .service-flow-heading {
+    position: relative !important;
+    z-index: 2;
+    display: grid !important;
+    gap: 14px !important;
+
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 !important;
+    padding: clamp(18px, 2.4vw, 28px) 0 clamp(18px, 2.4vw, 28px) clamp(18px, 2vw, 28px) !important;
+
+    text-align: left !important;
+    justify-items: start !important;
+    border-left: 2px solid rgba(255, 203, 69, 0.58);
+}
+
+/* small electric accent behind text */
+.service-flow.section-sm .service-flow-heading::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    width: 2px;
+    height: 42%;
+    background: linear-gradient(180deg,
+            var(--color-accent-hot),
+            #ffffff,
+            var(--color-electric-strong));
+    box-shadow:
+        0 0 16px rgba(246, 183, 60, 0.34),
+        0 0 24px rgba(53, 217, 255, 0.18);
+}
+
+.service-flow.section-sm .service-flow-heading .eyebrow {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+
+    margin: 0 !important;
+    width: fit-content !important;
+    color: var(--color-accent-hot) !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.14em !important;
+    text-align: left !important;
+    justify-self: start !important;
+}
+
+.service-flow.section-sm .service-flow-heading .eyebrow::before {
+    display: none !important;
+}
+
+.service-flow.section-sm .service-flow-heading h2 {
+    max-width: 620px !important;
+    margin: 0 !important;
+    color: var(--color-heading) !important;
+
+    font-size: clamp(1.75rem, 3vw, 3.25rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.065em !important;
+    text-align: left !important;
+    text-wrap: balance;
+}
+
+.service-flow.section-sm .service-flow-heading p:not(.eyebrow) {
+    max-width: 520px !important;
+    margin: 0 !important;
+    color: var(--color-muted) !important;
+
+    font-size: clamp(0.9rem, 1vw, 1rem) !important;
+    line-height: 1.58 !important;
+    text-align: left !important;
+}
+
+/* =========================
+   RIGHT FLOW RAIL
+   ========================= */
+
+.service-flow.section-sm .service-flow-steps {
+    position: relative !important;
+    z-index: 2;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding-left: 34px !important;
+}
+
+/* static rail */
+.service-flow.section-sm .service-flow-steps::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    background: linear-gradient(180deg,
+            rgba(255, 203, 69, 0.15),
+            rgba(255, 203, 69, 0.76),
+            rgba(255, 255, 255, 0.8),
+            rgba(114, 246, 255, 0.7),
+            rgba(114, 246, 255, 0.12));
+    box-shadow:
+        0 0 14px rgba(246, 183, 60, 0.26),
+        0 0 22px rgba(53, 217, 255, 0.14);
+}
+
+/* moving current */
+.service-flow.section-sm .service-flow-steps::after {
+    content: "";
+    position: absolute;
+    left: 13px;
+    top: 18px;
+    width: 4px;
+    height: 54px;
+    border-radius: 999px;
+    background: linear-gradient(180deg,
+            transparent,
+            #ffffff,
+            var(--color-electric-strong),
+            transparent);
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.5),
+        0 0 24px rgba(53, 217, 255, 0.36);
+    animation: serviceFlowRailCurrent 3.2s linear infinite;
+    opacity: 0.78;
+}
+
+@keyframes serviceFlowRailCurrent {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.85;
+    }
+
+    88% {
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateY(230px);
+        opacity: 0;
+    }
+}
+
+/* flow row */
+.service-flow.section-sm .service-flow-steps article {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: start !important;
+    gap: 14px !important;
+
+    min-height: auto !important;
+    padding: 16px 0 16px 22px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.095) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        color var(--transition-base);
+}
+
+.service-flow.section-sm .service-flow-steps article:last-child {
+    border-bottom: 0 !important;
+}
+
+/* bolt node */
+.service-flow.section-sm .service-flow-steps article::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -31px !important;
+    top: 19px !important;
+
+    width: 22px !important;
+    height: 34px !important;
+    margin: 0 !important;
+
+    clip-path: polygon(48% 0, 100% 0, 60% 40%, 88% 40%, 17% 100%, 38% 53%, 0 53%);
+    background: var(--color-accent-hot) !important;
+    filter:
+        drop-shadow(0 0 10px rgba(246, 183, 60, 0.48)) drop-shadow(0 0 18px rgba(246, 183, 60, 0.2)) !important;
+    transition:
+        background var(--transition-base),
+        filter var(--transition-base),
+        transform var(--transition-base);
+}
+
+.service-flow.section-sm .service-flow-steps article:nth-child(even)::before {
+    background: var(--color-electric-strong) !important;
+    filter:
+        drop-shadow(0 0 10px rgba(53, 217, 255, 0.46)) drop-shadow(0 0 18px rgba(53, 217, 255, 0.18)) !important;
+}
+
+/* number on the right */
+.service-flow.section-sm .service-flow-steps span {
+    position: static !important;
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+
+    color: rgba(248, 250, 252, 0.18) !important;
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.75rem) !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+}
+
+/* title/text */
+.service-flow.section-sm .service-flow-steps strong {
+    grid-column: 1 !important;
+    color: var(--color-heading) !important;
+    font-size: clamp(0.95rem, 1.1vw, 1.08rem) !important;
+    line-height: 1.22 !important;
+    font-weight: 850 !important;
+}
+
+.service-flow.section-sm .service-flow-steps p {
+    grid-column: 1 !important;
+    max-width: 560px !important;
+    color: var(--color-muted) !important;
+    font-size: 0.84rem !important;
+    line-height: 1.48 !important;
+}
+
+/* hover */
+@media (hover: hover) and (pointer: fine) {
+    .service-flow.section-sm .service-flow-steps article:hover {
+        transform: translateX(4px) !important;
+        border-color: rgba(246, 183, 60, 0.26) !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps article:hover::before {
+        background: #ffffff !important;
+        transform: rotate(-5deg) translateY(-2px);
+        filter:
+            drop-shadow(0 0 12px rgba(255, 255, 255, 0.55)) drop-shadow(0 0 24px rgba(53, 217, 255, 0.34)) drop-shadow(0 0 28px rgba(246, 183, 60, 0.22)) !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps article:hover strong {
+        color: var(--color-accent-hot) !important;
+    }
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1024px) {
+    .service-flow.section-sm {
+        padding-block: 34px !important;
+    }
+
+    .service-flow.section-sm .service-flow-shell {
+        grid-template-columns: 1fr !important;
+        gap: 26px !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading {
+        max-width: 760px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading h2 {
+        max-width: 720px !important;
+        font-size: clamp(1.65rem, 4.4vw, 2.55rem) !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading p:not(.eyebrow) {
+        max-width: 660px !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps {
+        width: min(100%, 760px);
+        padding-left: 34px !important;
+    }
+
+    @keyframes serviceFlowRailCurrent {
+        0% {
+            transform: translateY(0);
+            opacity: 0;
+        }
+
+        12% {
+            opacity: 0.85;
+        }
+
+        88% {
+            opacity: 0.85;
+        }
+
+        100% {
+            transform: translateY(250px);
+            opacity: 0;
+        }
+    }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+    .service-flow.section-sm {
+        padding-block: 30px !important;
+    }
+
+    .service-flow.section-sm .service-flow-shell {
+        gap: 22px !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading {
+        padding-left: 16px !important;
+        gap: 10px !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading .eyebrow {
+        font-size: 0.66rem !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading h2 {
+        font-size: clamp(1.45rem, 7vw, 2.08rem) !important;
+        line-height: 1.06 !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading p:not(.eyebrow) {
+        font-size: 0.82rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps {
+        padding-left: 30px !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps::before {
+        left: 12px;
+    }
+
+    .service-flow.section-sm .service-flow-steps::after {
+        left: 11px;
+    }
+
+    .service-flow.section-sm .service-flow-steps article {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 5px !important;
+        padding: 13px 0 13px 18px !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps article::before {
+        left: -28px !important;
+        top: 16px !important;
+        width: 18px !important;
+        height: 28px !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps span {
+        display: none !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps strong {
+        font-size: 0.92rem !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps p {
+        font-size: 0.78rem !important;
+        line-height: 1.42 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-flow.section-sm {
+        padding-block: 26px !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading {
+        padding-left: 14px !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps {
+        padding-left: 28px !important;
+    }
+}
+
+/* ==========================================================
+   SERVICE FLOW — SWAP LEFT / RIGHT BLOCKS
+   Steps left, text right
+   ========================================================== */
+
+@media (min-width: 1025px) {
+    .service-flow.section-sm .service-flow-shell {
+        grid-template-columns: minmax(420px, 1fr) minmax(280px, 0.78fr) !important;
+    }
+
+    .service-flow.section-sm .service-flow-steps {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    .service-flow.section-sm .service-flow-heading {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+    }
+}
+
+/* ==========================================================
+   HIDE SERVICE FLOW ON TABLET + MOBILE
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    .service-flow.section-sm {
+        display: none !important;
+    }
+}

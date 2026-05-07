@@ -206,7 +206,7 @@
 
     function renderEvaluationPoints(service) {
         const mounts = document.querySelectorAll("[data-service-evaluation-points]");
-        const points = service.evaluationPoints || [];
+        const points = (service.evaluationPoints || []).slice(0, 4);
 
         mounts.forEach((mount) => {
             mount.innerHTML = points
