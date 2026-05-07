@@ -1,0 +1,48 @@
+.legal-hero {
+    padding: 78px 0 38px;
+    background:
+        radial-gradient(circle at 80% 14%, rgba(35, 226, 255, 0.13), transparent 24rem),
+        linear-gradient(180deg, rgba(7, 16, 24, 0.7), transparent);
+}
+
+.legal-layout {
+    display: grid;
+    gap: 18px;
+    padding-bottom: 82px;
+}
+
+.legal-card {
+    padding: 28px;
+}
+
+.legal-card h2 {
+    margin-bottom: 12px;
+    font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.legal-card p + p {
+    margin-top: 12px;
+}
+
+.legal-card ul {
+    display: grid;
+    gap: 9px;
+    margin-top: 12px;
+    padding-left: 20px;
+}
+
+.legal-meta {
+    display: grid;
+    gap: 8px;
+    color: var(--color-muted);
+}
+
+.legal-hero {
+    background:
+        radial-gradient(circle at 80% 14%, rgba(35, 226, 255, 0.18), transparent 24rem),
+        linear-gradient(180deg, rgba(7, 16, 24, 0.84), transparent);
+}
+
+.legal-card {
+    border-radius: 16px;
+}

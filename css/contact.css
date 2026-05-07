@@ -1,0 +1,216 @@
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.request-console {
+    border: 1px solid rgba(35, 226, 255, 0.24);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 94% 8%, rgba(35, 226, 255, 0.16), transparent 18rem),
+        rgba(11, 20, 29, 0.88);
+    box-shadow: var(--shadow-soft), var(--shadow-electric);
+    padding: 24px;
+}
+
+.request-form {
+    display: grid;
+    gap: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.field-group {
+    position: relative;
+    display: grid;
+    gap: 7px;
+}
+
+.field-group.full {
+    grid-column: 1 / -1;
+}
+
+.field-group label {
+    color: var(--color-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.field-group input,
+.field-group select {
+    height: 48px;
+    padding: 0 14px;
+}
+
+.field-group textarea {
+    height: 118px;
+    padding: 12px 14px;
+}
+
+.field-error {
+    min-height: 18px;
+    color: #FF9D9D;
+    font-size: 0.78rem;
+}
+
+.field-group.has-error input,
+.field-group.has-error textarea,
+.field-group.has-error select {
+    border-color: rgba(255, 157, 157, 0.8);
+}
+
+.field-group.is-valid input,
+.field-group.is-valid textarea,
+.field-group.is-valid select {
+    border-color: rgba(183, 255, 42, 0.34);
+}
+
+.form-status {
+    min-height: 22px;
+    font-weight: 700;
+}
+
+.form-status.is-success {
+    color: var(--color-lime);
+}
+
+.form-status.is-error {
+    color: #FFB0B0;
+}
+
+.contact-side {
+    display: grid;
+    gap: 18px;
+}
+
+.info-card {
+    padding: 24px;
+}
+
+.contact-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.contact-list span,
+.contact-list a {
+    color: var(--color-text);
+}
+
+.map-card {
+    position: relative;
+    min-height: 310px;
+    overflow: hidden;
+    border: 1px solid rgba(35, 226, 255, 0.24);
+    border-radius: 8px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 52% 48%, rgba(35, 226, 255, 0.22), transparent 12rem),
+        #071018;
+    background-size: 32px 32px;
+    box-shadow: var(--shadow-soft);
+}
+
+.map-pin {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50% 50% 50% 0;
+    background: var(--color-accent);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    box-shadow: 0 0 28px var(--color-accent);
+}
+
+.map-pin::before,
+.map-pin::after {
+    content: "";
+    position: absolute;
+    inset: -36px;
+    border: 1px solid rgba(35, 226, 255, 0.22);
+    border-radius: 50%;
+}
+
+.map-pin::after {
+    inset: -72px;
+    opacity: 0.55;
+}
+
+.map-label {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 8px;
+    background: rgba(2, 7, 11, 0.72);
+    padding: 14px;
+}
+
+.map-label strong {
+    display: block;
+    color: var(--color-heading);
+}
+
+@media (max-width: 920px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .request-console {
+        padding: 18px;
+    }
+}
+
+.contact-grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(340px, 0.82fr);
+    gap: clamp(24px, 4vw, 52px);
+}
+
+.request-console {
+    border-radius: 18px 18px 8px 18px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 92% 10%, rgba(35, 226, 255, 0.20), transparent 18rem),
+        rgba(11, 20, 29, 0.86);
+    background-size: 42px 42px, auto, auto;
+    padding: clamp(20px, 3vw, 34px);
+}
+
+.info-card {
+    border-radius: 18px;
+}
+
+.map-card {
+    min-height: 360px;
+    border-radius: 8px 18px 18px 18px;
+}
+
+.map-card::before {
+    content: "";
+    position: absolute;
+    inset: 40px;
+    border: 1px solid rgba(35, 226, 255, 0.16);
+    border-radius: 50%;
+}
+
+@media (max-width: 920px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

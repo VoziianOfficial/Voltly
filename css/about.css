@@ -1,0 +1,134 @@
+.about-model-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 34px;
+    align-items: start;
+}
+
+.model-card {
+    padding: 24px;
+}
+
+.model-stack {
+    display: grid;
+    gap: 14px;
+}
+
+.model-row {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 16px;
+    align-items: start;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 8px;
+    background: rgba(11, 20, 29, 0.72);
+    padding: 18px;
+}
+
+.model-row span {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    font-weight: 800;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.principle-card {
+    min-height: 220px;
+    padding: 22px;
+}
+
+.principle-card p {
+    margin-top: 12px;
+    color: var(--color-muted);
+}
+
+.about-service-preview {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+@media (max-width: 1120px) {
+    .principles-grid,
+    .about-service-preview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 920px) {
+    .about-model-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .principles-grid,
+    .about-service-preview {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-model-grid {
+    grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+}
+
+.about-model-grid .section-copy {
+    position: sticky;
+    top: calc(var(--header-height) + 28px);
+    border: 1px solid rgba(35, 226, 255, 0.18);
+    border-radius: 18px;
+    background: rgba(7, 16, 24, 0.58);
+    padding: 24px;
+}
+
+.model-row {
+    border-radius: 16px;
+    background:
+        linear-gradient(90deg, rgba(35, 226, 255, 0.06), transparent 34%),
+        rgba(11, 20, 29, 0.66);
+}
+
+.principles-grid {
+    grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr;
+}
+
+.principle-card {
+    border-radius: 18px;
+}
+
+.principle-card:nth-child(2),
+.principle-card:nth-child(3) {
+    margin-top: 34px;
+}
+
+@media (max-width: 1120px) {
+    .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .principle-card:nth-child(2),
+    .principle-card:nth-child(3) {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 920px) {
+    .about-model-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-model-grid .section-copy {
+        position: relative;
+        top: auto;
+    }
+}

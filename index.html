@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Voltly</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/config.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/home.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+        <section class="home-hero voltly-hero-ref" aria-labelledby="homeHeroTitle">
+            <div class="voltly-hero-bg" aria-hidden="true">
+                <img src="./assets/images/home/electrical-hero.jpg" alt="">
+            </div>
+
+            <div class="voltly-hero-grid-overlay" aria-hidden="true"></div>
+
+            <div class="voltly-hero-lightning" aria-hidden="true">
+                <svg viewBox="0 0 280 620" preserveAspectRatio="none">
+                    <path d="M190 0 L150 88 L218 132 L150 230 L226 292 L162 396 L210 458 L150 620" />
+                    <path d="M238 84 L212 150 L258 192 L218 272 L262 334 L224 430" />
+                    <path d="M132 34 L110 112 L142 154 L96 236 L136 292" />
+                </svg>
+            </div>
+
+            <div class="container voltly-hero-inner">
+                <div class="voltly-hero-copy reveal-up">
+                    <p class="kicker">Independent. Local. Electrical.</p>
+
+                    <h1 id="homeHeroTitle">
+                        <span>Compare local</span>
+                        <span class="accent-word">electrical</span>
+                        <span>providers.</span>
+                    </h1>
+
+                    <p class="voltly-hero-lead">
+                        Voltly helps homeowners prepare project details and compare independent local electrical
+                        provider options for panel upgrades, wiring, EV charger installation, and lighting projects.
+                    </p>
+
+                    <p class="voltly-hero-note">
+                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                        <span>Voltly is not a contractor and does not perform electrical work directly.</span>
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="contact.html">
+                            <i data-lucide="zap" aria-hidden="true"></i>
+                            <span>Start Electrical Request</span>
+                        </a>
+
+                        <a class="btn btn-ghost" href="services.html">
+                            <span>View Services</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="voltly-hero-chips reveal-up" aria-label="Electrical service highlights">
+                    <span class="voltly-chip chip-1">
+                        <i data-lucide="columns-3" aria-hidden="true"></i>
+                        <b>Panel upgrades</b>
+                    </span>
+
+                    <span class="voltly-chip chip-2">
+                        <i data-lucide="cable" aria-hidden="true"></i>
+                        <b>Wiring questions</b>
+                    </span>
+
+                    <span class="voltly-chip chip-3">
+                        <i data-lucide="battery-charging" aria-hidden="true"></i>
+                        <b>EV charger ready</b>
+                    </span>
+
+                    <span class="voltly-chip chip-4">
+                        <i data-lucide="lightbulb" aria-hidden="true"></i>
+                        <b>Lighting projects</b>
+                    </span>
+
+                    <span class="voltly-chip chip-5">
+                        <i data-lucide="network" aria-hidden="true"></i>
+                        <b>Provider comparison</b>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section route-strip electric-route">
+            <div class="container route-grid">
+                <div class="electric-line" aria-hidden="true"><span></span></div>
+                <article class="route-item reveal-up"><span class="route-dot">01</span>
+                    <h2>Describe your project</h2>
+                </article>
+                <article class="route-item reveal-up"><span class="route-dot">02</span>
+                    <h2>Match by service type</h2>
+                </article>
+                <article class="route-item reveal-up"><span class="route-dot">03</span>
+                    <h2>Compare provider options</h2>
+                </article>
+                <article class="route-item reveal-up"><span class="route-dot">04</span>
+                    <h2>Continue with provider questions</h2>
+                </article>
+            </div>
+        </section>
+
+        <section class="section module-section">
+            <div class="container">
+                <div class="section-heading reveal-up">
+                    <p class="kicker">Service categories</p>
+                    <h2>Electrical requests, structured by category.</h2>
+                </div>
+                <div class="service-grid" data-service-cards></div>
+            </div>
+        </section>
+
+        <section class="section fit-section diagnostic-section">
+            <div class="container fit-grid">
+                <div class="diagnostic-visual reveal-up" aria-hidden="true">
+                    <span class="console-label">Provider fit scan</span>
+                    <div class="scan-orbit"></div>
+                    <svg class="lightning-svg" viewBox="0 0 560 420">
+                        <path class="lightning-path" d="M40 250 C140 90 210 305 294 172 S430 135 512 70" />
+                        <path class="lightning-path path-2" d="M62 330 C166 250 240 352 318 268 S430 238 510 180" />
+                    </svg>
+                    <div class="console-readouts">
+                        <span>Category fit</span>
+                        <span>Permit questions</span>
+                        <span>Verification reminders</span>
+                    </div>
+                </div>
+                <div class="section-copy diagnostic-copy reveal-up">
+                    <p class="kicker">Provider fit</p>
+                    <h2>Compare provider fit before quote conversations.</h2>
+                    <p>Voltly does not set pricing or guarantee quotes. Homeowners should confirm scope, pricing,
+                        permits, warranties, licensing, insurance, and timelines directly with independent providers.
+                    </p>
+                    <div class="fit-console">
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>Service category fit</h3>
+                            <p>Compare whether the provider option aligns with the requested category.</p>
+                        </article>
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>License and insurance questions</h3>
+                            <p>Prepare direct verification topics before any homeowner decision.</p>
+                        </article>
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>Permit and code considerations</h3>
+                            <p>Ask providers directly about local requirements and inspection needs.</p>
+                        </article>
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>Quote clarity</h3>
+                            <p>Compare scope detail, exclusions, assumptions, and follow-up needs.</p>
+                        </article>
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>Timeline discussion</h3>
+                            <p>Confirm availability and timing directly with each provider.</p>
+                        </article>
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>Warranty questions</h3>
+                            <p>Ask providers directly about any warranty terms and limitations.</p>
+                        </article>
+                        <article class="console-card reveal-up">
+                            <div class="mini-bolt"></div>
+                            <h3>Homeowner decision control</h3>
+                            <p>Voltly helps structure comparison; homeowners choose next steps.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section current-flow-section">
+            <div class="container">
+                <div class="section-heading reveal-up">
+                    <p class="kicker">How it works</p>
+                    <h2>A clearer path from notes to provider conversations.</h2>
+                </div>
+                <div class="process-timeline current-flow">
+                    <article class="process-step reveal-up"><span>01</span>
+                        <h3>Tell us what you need</h3>
+                        <p>Start with service type, ZIP code, timing, and project notes.</p>
+                    </article>
+                    <article class="process-step reveal-up"><span>02</span>
+                        <h3>Review matching context</h3>
+                        <p>Organize details that independent providers may ask about.</p>
+                    </article>
+                    <article class="process-step reveal-up"><span>03</span>
+                        <h3>Compare provider options</h3>
+                        <p>Review provider fit and prepare direct verification questions.</p>
+                    </article>
+                    <article class="process-step reveal-up"><span>04</span>
+                        <h3>Continue directly with providers</h3>
+                        <p>Confirm scope, pricing, permits, warranties, licensing, insurance, and timelines directly.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section signal-section">
+            <div class="container split-layout signal-layout">
+                <div class="signal-panel reveal-up" aria-hidden="true">
+                    <div class="signal-photo-strip"></div>
+                    <div class="signal-status">
+                        <span>ZIP signal</span>
+                        <span>Category locked</span>
+                        <span>Questions ready</span>
+                    </div>
+                </div>
+                <div class="diagnostic-card signal-meter-card reveal-up">
+                    <span class="console-label">Request signal</span>
+                    <h2>Details that make comparison easier.</h2>
+                    <div class="signal-meters" aria-hidden="true">
+                        <span><i></i></span>
+                        <span><i></i></span>
+                        <span><i></i></span>
+                    </div>
+                    <ul class="check-list">
+                        <li>Service category</li>
+                        <li>ZIP code and service area</li>
+                        <li>Property type</li>
+                        <li>Panel location</li>
+                        <li>Indoor or outdoor project area</li>
+                        <li>Timing preference</li>
+                        <li>Permit questions</li>
+                        <li>Quote comparison reminders</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section comparison-block-section">
+            <div class="container does-grid comparison-block">
+                <article class="does-card reveal-up">
+                    <h2>Voltly helps you</h2>
+                    <ul class="check-list">
+                        <li>Prepare project details</li>
+                        <li>Compare independent provider options</li>
+                        <li>Organize questions before contact</li>
+                        <li>Understand service categories</li>
+                        <li>Review provider fit signals</li>
+                        <li>Keep decision control</li>
+                    </ul>
+                </article>
+                <article class="does-card reveal-up">
+                    <h2>Voltly does not</h2>
+                    <ul class="check-list">
+                        <li>Perform electrical work</li>
+                        <li>Provide direct quotes</li>
+                        <li>Guarantee provider availability</li>
+                        <li>Verify licenses or insurance</li>
+                        <li>Set pricing or timelines</li>
+                        <li>Provide warranties</li>
+                        <li>Replace homeowner due diligence</li>
+                    </ul>
+                </article>
+                <div class="comparison-divider" aria-hidden="true"></div>
+                <p class="comparison-disclaimer reveal-up" data-disclaimer></p>
+            </div>
+        </section>
+
+        <section class="section light-questions editorial-questions">
+            <div class="container">
+                <div class="section-heading reveal-up editorial-heading">
+                    <p class="kicker">Direct provider questions</p>
+                    <h2>Questions before the quote.</h2>
+                </div>
+                <div class="question-grid">
+                    <article class="question-card reveal-up">
+                        <h3>What is included in the quote?</h3>
+                        <p>Clarify scope, assumptions, materials, and exclusions directly.</p>
+                    </article>
+                    <article class="question-card reveal-up">
+                        <h3>Are permits needed?</h3>
+                        <p>Ask how local requirements apply to the project.</p>
+                    </article>
+                    <article class="question-card reveal-up">
+                        <h3>Who handles inspections?</h3>
+                        <p>Confirm inspection steps directly with providers.</p>
+                    </article>
+                    <article class="question-card reveal-up">
+                        <h3>Is panel capacity sufficient?</h3>
+                        <p>Discuss load questions and future electrical needs.</p>
+                    </article>
+                    <article class="question-card reveal-up">
+                        <h3>What warranties are available?</h3>
+                        <p>Review any warranty terms, exclusions, and duration directly.</p>
+                    </article>
+                    <article class="question-card reveal-up">
+                        <h3>What timeline is realistic?</h3>
+                        <p>Confirm availability, scheduling, and project dependencies.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section faq-section premium-faq">
+            <div class="container faq-layout">
+                <div class="section-heading reveal-up faq-intro">
+                    <p class="kicker">FAQ</p>
+                    <h2>Provider matching questions.</h2>
+                    <p>Answers stay focused on request preparation, direct provider verification, and homeowner decision
+                        control.</p>
+                </div>
+                <div class="faq-list" id="home-faq" data-faq-list></div>
+            </div>
+        </section>
+
+        <section class="section final-cta strong-cta">
+            <div class="container cta-panel reveal-up">
+                <div>
+                    <p class="kicker">Start structured</p>
+                    <h2>Start your electrical provider matching request.</h2>
+                    <p>Prepare your project details and compare independent local electrical provider options with more
+                        clarity.</p>
+                </div>
+                <a class="btn btn-primary" href="contact.html">Start electrical request</a>
+                <p class="disclaimer" data-disclaimer></p>
+            </div>
+        </section>
+    </main>
+
+    <div data-site-footer></div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Voltly</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/config.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/contact.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="section-heading reveal-up">
+                    <p class="kicker">Request console</p>
+                    <h1>Prepare your electrical matching request.</h1>
+                    <p>Share your service category, ZIP code, timing, and project notes so your request is easier to compare with independent local electrical provider options.</p>
+                    <p class="note">Voltly is not a contractor and does not perform electrical work directly.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container contact-grid">
+                <div class="request-console reveal-up">
+                    <form class="request-form" data-request-form novalidate>
+                        <div class="form-grid">
+                            <div class="field-group">
+                                <label for="name">Name</label>
+                                <input id="name" name="name" autocomplete="name" required>
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field-group">
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" inputmode="tel" autocomplete="tel">
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field-group">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" autocomplete="email">
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field-group">
+                                <label for="zip">ZIP code</label>
+                                <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" required>
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field-group full">
+                                <label for="service-type">Service type</label>
+                                <select id="service-type" name="service" required>
+                                    <option value="">Select a category</option>
+                                </select>
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field-group full">
+                                <label for="notes">Project notes</label>
+                                <textarea id="notes" name="notes" placeholder="Panel location, wiring concerns, EV charger placement, lighting area, timing, or direct provider questions."></textarea>
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Prepare request</button>
+                        <p class="form-status" data-form-status aria-live="polite"></p>
+                        <p class="disclaimer" data-disclaimer></p>
+                    </form>
+                </div>
+
+                <aside class="contact-side">
+                    <article class="info-card reveal-up">
+                        <p class="kicker">Contact details</p>
+                        <h2>Voltly</h2>
+                        <div class="contact-list">
+                            <span data-company-id></span>
+                            <a data-phone-link href="#"></a>
+                            <a data-email-link href="#"></a>
+                            <span data-address-text></span>
+                            <span data-service-area></span>
+                        </div>
+                    </article>
+                    <div class="map-card reveal-up" aria-label="Voltly provider matching coverage">
+                        <div class="map-pin" aria-hidden="true"></div>
+                        <div class="map-label">
+                            <strong>U.S. provider matching coverage</strong>
+                            <span data-address-text></span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <div data-site-footer></div>
+</body>
+</html>
