@@ -2611,3 +2611,118 @@ main {
 .mobile-menu {
     z-index: 3300;
 }
+
+/* ==========================================================
+   MOBILE FIX — COMPACT EQUAL BUTTONS
+   ========================================================== */
+
+@media (max-width: 768px) {
+    .btn {
+        min-height: 36px;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+        gap: 7px;
+        line-height: 1;
+    }
+
+    .btn svg,
+    .btn i {
+        width: 14px;
+        height: 14px;
+    }
+
+    .hero-actions,
+    .section-actions,
+    .policy-banner-actions {
+        width: auto;
+        display: inline-grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
+        justify-content: center;
+        justify-items: stretch;
+        gap: 8px;
+        margin-inline: auto;
+    }
+
+    .hero-actions .btn,
+    .section-actions .btn,
+    .policy-banner-actions .btn {
+        width: 100%;
+        min-width: 168px;
+        max-width: 210px;
+        flex: 0 0 auto;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .header-phone {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
+
+    .header-phone svg,
+    .header-phone i {
+        width: 17px;
+        height: 17px;
+    }
+
+    .mobile-menu-toggle,
+    .mobile-menu-close {
+        width: 40px;
+        height: 40px;
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .hero-actions,
+    .section-actions {
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .hero-actions .btn,
+    .section-actions .btn {
+        min-width: 0;
+        max-width: none;
+        flex: 0 0 auto;
+        padding-inline: 9px;
+    }
+
+    .hero-actions .btn span,
+    .section-actions .btn span {
+        display: block;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 420px) {
+    .btn {
+        min-height: 34px;
+        padding: 7px 9px;
+        font-size: 0.73rem;
+        gap: 6px;
+    }
+
+    .btn svg,
+    .btn i {
+        width: 13px;
+        height: 13px;
+    }
+
+    .hero-actions,
+    .section-actions {
+        gap: 7px;
+    }
+
+    .hero-actions .btn,
+    .section-actions .btn {
+        min-height: 34px;
+        padding-inline: 7px;
+    }
+}

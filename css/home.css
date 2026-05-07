@@ -1093,8 +1093,7 @@
 }
 
 .highvolt-action span {
-    max-width: 280px;
-    color: var(--color-muted);
+    max-width: 300px;
     font-size: 0.84rem;
     line-height: 1.45;
     text-align: right;
@@ -1277,7 +1276,7 @@
     }
 
     .highvolt-action {
-        justify-items: start;
+        justify-items: center;
     }
 
     .highvolt-action span {
@@ -1469,7 +1468,7 @@
     }
 
     .split-power-label {
-        left: 16px;
+        left: 56px;
         bottom: 16px;
         max-width: calc(100% - 32px);
     }
@@ -1670,3 +1669,4 @@
         padding-bottom: clamp(40px, 5vw, 68px);
     }
 }
+

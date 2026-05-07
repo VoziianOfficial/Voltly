@@ -987,7 +987,7 @@
 
     .about-story-label,
     .about-verify-label {
-        left: 16px;
+        left: 96px;
         bottom: 16px;
         max-width: calc(100% - 32px);
     }
