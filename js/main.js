@@ -993,19 +993,36 @@
         return "This field is required.";
     }
 
-    /* =========================
-       REVEAL ANIMATIONS
-       ========================= */
-
     function initRevealAnimations() {
         const elements = qsa(".reveal-up");
 
         if (!elements.length) return;
 
+        document.body.classList.add("reveal-ready");
+
         if (!("IntersectionObserver" in window)) {
-            elements.forEach((element) => element.classList.add("is-visible"));
+            elements.forEach((element) => {
+                element.classList.add("is-visible");
+                element.style.transitionDelay = "0ms";
+            });
             return;
         }
+
+        let scrollTimer = null;
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                document.body.classList.add("is-fast-scroll");
+
+                window.clearTimeout(scrollTimer);
+
+                scrollTimer = window.setTimeout(() => {
+                    document.body.classList.remove("is-fast-scroll");
+                }, 140);
+            },
+            { passive: true }
+        );
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -1013,17 +1030,26 @@
                     if (!entry.isIntersecting) return;
 
                     entry.target.classList.add("is-visible");
+                    entry.target.style.transitionDelay = "0ms";
                     observer.unobserve(entry.target);
                 });
             },
             {
-                threshold: 0.12,
-                rootMargin: "0px 0px -44px 0px"
+                threshold: 0.01,
+                rootMargin: "180px 0px 180px 0px"
             }
         );
 
-        elements.forEach((element, index) => {
-            element.style.transitionDelay = `${Math.min(index * 38, 220)}ms`;
+        elements.forEach((element) => {
+            element.style.transitionDelay = "0ms";
+
+            const rect = element.getBoundingClientRect();
+
+            if (rect.top < window.innerHeight + 180) {
+                element.classList.add("is-visible");
+                return;
+            }
+
             observer.observe(element);
         });
     }

@@ -666,20 +666,36 @@ body[data-page="service"] {
 }
 
 /* =========================
-   REVEAL
+   REVEAL — SMOOTH, NO BLANK CONTENT
    ========================= */
 
+/* по умолчанию контент видимый, чтобы не было пустоты если JS тормозит */
 .reveal-up {
-    opacity: 0;
-    transform: translateY(18px);
-    transition:
-        opacity 720ms ease,
-        transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    transform: none;
 }
 
-.reveal-up.is-visible {
+/* анимация включается только когда JS готов */
+body.reveal-ready .reveal-up {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 420ms ease,
+        transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0ms !important;
+}
+
+/* появление */
+body.reveal-ready .reveal-up.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* если пользователь быстро скроллит — не держим контент скрытым */
+body.reveal-ready.is-fast-scroll .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 /* =========================
@@ -2726,3 +2742,4 @@ main {
         padding-inline: 7px;
     }
 }
+
